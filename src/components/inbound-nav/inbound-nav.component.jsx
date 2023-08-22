@@ -17,7 +17,7 @@ const InboundNav = ({ tab, handleTabChange }) => {
     <Fragment>
       <InboundTitle>Inbound</InboundTitle>
       <InboundNavContainer>
-        <Button type="button" buttonType={BUTTON_TYPE_CLASSES.base}>
+        <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blue}>
           Create a New Order
           <Ripple />
         </Button>

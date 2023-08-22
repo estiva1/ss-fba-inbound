@@ -51,3 +51,46 @@ export const shipmentTableData = [
     units: 100,
   },
 ];
+
+export const checkInTableData = [
+  {
+    poNumber: "ZL1S6M",
+    userData: { userName: "Steven", company: "Sales Express" },
+    vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
+    quantityData: { other: 20, invoice: 30, working: 2, recieved: 8 },
+    orderId: "MTL234G",
+    invoiceNumber: "N/A",
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    expectedDeliveryDate: "13 Oct 2021",
+  },
+  {
+    poNumber: "ZL1S6M",
+    userData: { userName: "Steven", company: "Sales Express" },
+    vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
+    quantityData: { other: 20, invoice: 30, working: 2, recieved: 8 },
+    orderId: "MTL234G",
+    invoiceNumber: "N/A",
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    expectedDeliveryDate: "13 Oct 2021",
+  },
+  {
+    poNumber: "ZL1S6M",
+    userData: { userName: "Steven", company: "Sales Express" },
+    vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
+    quantityData: { other: 20, invoice: 30, working: 2, recieved: 8 },
+    orderId: "MTL234G",
+    invoiceNumber: "N/A",
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    expectedDeliveryDate: "13 Oct 2021",
+  },
+  {
+    poNumber: "ZL1S6M",
+    userData: { userName: "Steven", company: "Sales Express" },
+    vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
+    quantityData: { other: 20, invoice: 30, working: 2, recieved: 8 },
+    orderId: "MTL234G",
+    invoiceNumber: "N/A",
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    expectedDeliveryDate: "13 Oct 2021",
+  },
+];

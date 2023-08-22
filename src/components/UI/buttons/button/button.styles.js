@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const BaseButton = styled.button`
+export const BlueButton = styled.button`
   position: relative;
   overflow: hidden;
-  min-width: 210px;
-  width: auto;
+  min-width: ${(props) => props.width};
+  width: ${(props) => props.width};
   height: 48px;
   padding: 8px 24px;
   border-radius: 4px;
@@ -31,17 +31,49 @@ export const BaseButton = styled.button`
   }
 `;
 
-export const GoogleSignInButton = styled(BaseButton)`
-  background-color: #4285f4;
-  color: white;
-
-  &:hover {
-    background-color: #357ae8;
-    border: none;
-  }
+export const BlueButtonSmall = styled(BlueButton)`
+  min-width: ${(props) => props.width};
+  width: ${(props) => props.width};
+  height: 40px;
+  padding: 8px 8px;
+  align-items: start;
+  font-size: 0.75rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.00375rem;
 `;
 
-export const InvertedButton = styled(BaseButton)`
+export const WhiteButton = styled(BlueButton)`
+  color: #1565d8;
+  background-color: #fff;
+  border: 1px solid #1565d8;
+`;
+
+export const WhiteButtonSmall = styled(WhiteButton)`
+  min-width: ${(props) => props.width};
+  width: ${(props) => props.width};
+  height: 40px;
+  padding: 6px 8px;
+  align-items: start;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 0.875rem;
+  letter-spacing: 0.00375rem;
+`;
+
+export const WhiteButtonCondenced = styled(WhiteButton)`
+  color: #0057d3;
+  min-width: ${(props) => props.width};
+  width: ${(props) => props.width};
+  padding: 6px 12px;
+  height: auto;
+  border: 1px solid #0057d3;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01625rem;
+`;
+
+export const InvertedButton = styled(BlueButton)`
   background-color: white;
   color: black;
 

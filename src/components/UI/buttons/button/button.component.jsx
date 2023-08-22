@@ -1,5 +1,13 @@
 import { useLayoutEffect, useState } from "react";
-import { BaseButton, GoogleSignInButton, InvertedButton, RippleContainer } from "./button.styles.js";
+import {
+  BlueButton,
+  BlueButtonSmall,
+  InvertedButton,
+  RippleContainer,
+  WhiteButton,
+  WhiteButtonCondenced,
+  WhiteButtonSmall,
+} from "./button.styles.js";
 
 const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
   useLayoutEffect(() => {
@@ -60,20 +68,26 @@ export const Ripple = ({ duration = 850, color = "#fff" }) => {
 };
 
 export const BUTTON_TYPE_CLASSES = {
-  base: "base",
-  google: "google-sign-in",
+  blue: "blue",
+  blueSmall: "blueSmall",
+  white: "white",
+  whiteSmall: "whiteSmall",
+  whiteCondenced: "whiteCondenced",
   inverted: "inverted",
 };
-const getButton = (buttonType = BUTTON_TYPE_CLASSES.base) =>
+const getButton = (buttonType = BUTTON_TYPE_CLASSES.blue) =>
   ({
-    [BUTTON_TYPE_CLASSES.base]: BaseButton,
-    [BUTTON_TYPE_CLASSES.google]: GoogleSignInButton,
+    [BUTTON_TYPE_CLASSES.blue]: BlueButton,
+    [BUTTON_TYPE_CLASSES.blueSmall]: BlueButtonSmall,
+    [BUTTON_TYPE_CLASSES.white]: WhiteButton,
+    [BUTTON_TYPE_CLASSES.whiteSmall]: WhiteButtonSmall,
+    [BUTTON_TYPE_CLASSES.whiteCondenced]: WhiteButtonCondenced,
     [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
   }[buttonType]);
 
-const Button = ({ buttonType, isLoading, ...props }) => {
+const Button = ({ buttonType, width = "210px", ...props }) => {
   const CustomButton = getButton(buttonType);
-  return <CustomButton {...props}></CustomButton>;
+  return <CustomButton width={width} {...props}></CustomButton>;
 };
 
 export default Button;

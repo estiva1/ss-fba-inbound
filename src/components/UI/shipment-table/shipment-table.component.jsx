@@ -25,32 +25,33 @@ const Buttons = () => {
 };
 
 const ShipmentTable = ({ user }) => {
-  const { username, email, companyName, totalPOS, sku, units } = user;
+  const { username, email, companyName, totalPOS, sku, units } = user || {};
 
   return (
     <StyledTableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="shipment table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Username</StyledTableCell>
-            <StyledTableCell align="left">Email</StyledTableCell>
-            <StyledTableCell align="left">Company Name</StyledTableCell>
-            <StyledTableCell align="left">Total PO's</StyledTableCell>
-            <StyledTableCell align="left">SKU</StyledTableCell>
-            <StyledTableCell align="left">Units</StyledTableCell>
+            <StyledTableCell width="20%">Username</StyledTableCell>
+            <StyledTableCell width="20%" align="left">Email</StyledTableCell>
+            <StyledTableCell width="20%" align="left">Company Name</StyledTableCell>
+            <StyledTableCell width="12%" align="left">Total PO's</StyledTableCell>
+            <StyledTableCell width="12%" align="left">SKU</StyledTableCell>
+            <StyledTableCell width="12%" align="left">Units</StyledTableCell>
             <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
+        
         <TableBody>
           <StyledTableRow key={username}>
-            <StyledTableCell component="th" scope="row">
+            <StyledTableCell width="20%" component="th" scope="row">
               {username}
             </StyledTableCell>
-            <StyledTableCell align="left">{email}</StyledTableCell>
-            <StyledTableCell align="left">{companyName}</StyledTableCell>
-            <StyledTableCell align="left">{totalPOS}</StyledTableCell>
-            <StyledTableCell align="left">{sku}</StyledTableCell>
-            <StyledTableCell align="left">{units}</StyledTableCell>
+            <StyledTableCell width="20%" align="left">{email}</StyledTableCell>
+            <StyledTableCell width="20%" align="left">{companyName}</StyledTableCell>
+            <StyledTableCell width="12%" align="left">{totalPOS}</StyledTableCell>
+            <StyledTableCell width="12%" align="left">{sku}</StyledTableCell>
+            <StyledTableCell width="12%" align="left">{units}</StyledTableCell>
             <StyledTableCell align="right">
               <Buttons />
             </StyledTableCell>
