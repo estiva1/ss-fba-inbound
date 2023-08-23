@@ -1,5 +1,30 @@
 import styled from "styled-components";
 
+export const RippleContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  span {
+    transform: scale(0);
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.75;
+    background-color: ${(props) => props.color};
+    animation-name: ripple;
+    animation-duration: ${(props) => props.duration}ms;
+  }
+
+  @keyframes ripple {
+    to {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+`;
+
 export const BlueButton = styled.button`
   position: relative;
   overflow: hidden;
@@ -40,6 +65,12 @@ export const BlueButtonSmall = styled(BlueButton)`
   font-size: 0.75rem;
   line-height: 0.875rem;
   letter-spacing: 0.00375rem;
+  transition: all 0.3s ease;
+
+  &:hover *:not(${RippleContainer}) {
+    left: 60%;
+    transition: left .3s ease;
+  }
 `;
 
 export const WhiteButton = styled(BlueButton)`
@@ -81,30 +112,5 @@ export const InvertedButton = styled(BlueButton)`
     background-color: black;
     color: white;
     border: none;
-  }
-`;
-
-export const RippleContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
-  span {
-    transform: scale(0);
-    border-radius: 100%;
-    position: absolute;
-    opacity: 0.75;
-    background-color: ${(props) => props.color};
-    animation-name: ripple;
-    animation-duration: ${(props) => props.duration}ms;
-  }
-
-  @keyframes ripple {
-    to {
-      opacity: 0;
-      transform: scale(2);
-    }
   }
 `;

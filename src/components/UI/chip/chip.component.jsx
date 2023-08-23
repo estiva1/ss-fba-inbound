@@ -1,27 +1,30 @@
 import React from "react";
-import Chip from "@mui/material/Chip";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import { ChipLabel, ChipValue, StyledChip } from "./chip.styles";
 
-const ChipText = ({ username = "John" }) => {
+const ChipText = ({ value, filterType }) => {
+  const labelText = filterType === "userName" ? "Filtered by user:" : "Filtered by vendor:";
+
   return (
     <ChipLabel>
-      Filtered by user: <ChipValue>{username}</ChipValue>
+      {labelText} <ChipValue>{value}</ChipValue>
     </ChipLabel>
   );
 };
 
-const DeletableChip = () => {
+const DeletableChip = ({ value, filterType, onDelete, clearInput }) => {
   const handleClick = () => {
     console.info("You clicked the Chip");
   };
+
   const handleDelete = () => {
-    console.info("You clicked the delete icon");
+    onDelete(); // Call the provided onDelete function to remove the chip
+    clearInput(); // Call the provided clearInput function to clear the input
   };
 
   return (
     <StyledChip
-      label={<ChipText />}
+      label={<ChipText value={value} filterType={filterType} />}
       variant="outlined"
       onClick={handleClick}
       onDelete={handleDelete}

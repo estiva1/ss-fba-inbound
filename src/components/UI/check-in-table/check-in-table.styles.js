@@ -108,6 +108,7 @@ export const Arrow = styled.span`
   bottom: 8px; /* Adjust this value to align the arrow properly */
   left: 50%; /* Position the arrow horizontally */
   transform: translateX(-50%); /* Center the arrow horizontally */
+  transition: left 0.3s ease;
   background-image: ${() =>
     `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none'%3e%3cpath fill='%23fff' fill-rule='evenodd' d='M0 4c0-.19.063-.371.174-.505a.55.55 0 0 1 .421-.21h26.372l-2.555-1.731a.736.736 0 0 1-.13-.232.842.842 0 0 1 0-.547.736.736 0 0 1 .13-.232.601.601 0 0 1 .193-.155.511.511 0 0 1 .456 0 .602.602 0 0 1 .193.155l3.571 2.951c.056.067.1.145.13.232a.84.84 0 0 1 0 .548.737.737 0 0 1-.13.232l-3.57 2.951a.55.55 0 0 1-.422.21.55.55 0 0 1-.421-.21.793.793 0 0 1-.175-.505c0-.19.063-.372.175-.506l2.555-1.732H.595a.55.55 0 0 1-.42-.21A.792.792 0 0 1 0 4Z' clip-rule='evenodd'/%3e%3c/svg%3e")`};
 `;

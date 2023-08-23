@@ -76,7 +76,7 @@ export const checkInTableData = [
   {
     poNumber: "ZL1S6M",
     userData: { userName: "Steven", company: "Sales Express" },
-    vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
+    vendorData: { vendorName: "Canadian Craft", adress: "22 H, Zadmerg St, LA" },
     quantityData: { other: 20, invoice: 30, working: 2, recieved: 8 },
     orderId: "MTL234G",
     invoiceNumber: "N/A",

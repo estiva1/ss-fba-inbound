@@ -38,7 +38,33 @@ const Buttons = () => {
   );
 };
 
-const CheckInTable = ({ data }) => {
+const generateHighlightedCell = (text, filterValue) => {
+  const lowerText = text.toLowerCase();
+  const lowerFilterValue = filterValue.toLowerCase();
+
+  if (!lowerText.includes(lowerFilterValue)) {
+    return text;
+  }
+
+  const startIndex = lowerText.indexOf(lowerFilterValue);
+  const endIndex = startIndex + lowerFilterValue.length;
+
+  return (
+    <>
+      {text.substring(0, startIndex)}
+      <span style={{ backgroundColor: "#1565D8", color: "#fff" }}>{text.substring(startIndex, endIndex)}</span>
+      {text.substring(endIndex)}
+    </>
+  );
+};
+
+const CheckInTable = ({ data, userNameFilter, vendorFilter }) => {
+  const matchingData = data.filter((user) => {
+    const userNameMatch = user.userData.userName.toLowerCase().includes(userNameFilter);
+    const vendorMatch = user.vendorData.vendorName.toLowerCase().includes(vendorFilter);
+    return userNameMatch && vendorMatch;
+  });
+
   return (
     <StyledTableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="shipment table">
@@ -57,27 +83,32 @@ const CheckInTable = ({ data }) => {
         </TableHead>
 
         <TableBody>
-          {data.map((user) => (
+          {matchingData.map((user) => (
             <StyledTableRow key={user.orderId}>
               <StyledTableCell align="left">
                 <Buttons />
               </StyledTableCell>
               <StyledTableCell>
                 {user.poNumber}
-                <Button style={{ marginTop: "4px" }} type="button" width="78px" buttonType={BUTTON_TYPE_CLASSES.whiteCondenced}>
+                <Button
+                  style={{ marginTop: "4px" }}
+                  type="button"
+                  width="78px"
+                  buttonType={BUTTON_TYPE_CLASSES.whiteCondenced}
+                >
                   View PO
                   <Ripple color="#1565D8" />
                 </Button>
               </StyledTableCell>
               <StyledTableCell align="left">
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <PrimaryText>{user.userData.userName}</PrimaryText>
+                  <PrimaryText>{generateHighlightedCell(user.userData.userName, userNameFilter)}</PrimaryText>
                   <SecondaryText>{user.userData.company}</SecondaryText>
                 </div>
               </StyledTableCell>
               <StyledTableCell align="left">
                 <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-                  <PrimaryText>{user.vendorData.vendorName}</PrimaryText>
+                  <PrimaryText>{generateHighlightedCell(user.vendorData.vendorName, vendorFilter)}</PrimaryText>
                   <SecondaryText>{user.vendorData.adress}</SecondaryText>
                 </div>
               </StyledTableCell>
