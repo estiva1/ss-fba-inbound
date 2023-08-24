@@ -18,14 +18,14 @@ import {
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../buttons/button/button.component";
 import { Stack } from "@mui/material";
 
-const Buttons = ({ onOpenModal }) => {
+const Buttons = ({ onOpenModal, user }) => {
   return (
     <ButtonsContainer>
       <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.whiteSmall}>
         Check In History
         <Ripple color="#1565D8" />
       </Button>
-      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={onOpenModal}>
+      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={() => onOpenModal(user)}>
         <Arrow />
         Check In
         <Ripple />
@@ -82,7 +82,7 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenModal }) => {
           {matchingData.map((user) => (
             <StyledTableRow key={user.orderId}>
               <StyledTableCell align="left">
-                <Buttons onOpenModal={() => onOpenModal(user)} />
+                <Buttons user={user} onOpenModal={onOpenModal} />
               </StyledTableCell>
               <StyledTableCell>
                 {user.poNumber}
@@ -123,7 +123,7 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenModal }) => {
                     <SpanText>Working</SpanText>
                   </Stack>
                   <Stack direction="column" spacing="4px">
-                    <PrimaryText>{user.quantityData.recieved}</PrimaryText>
+                    <PrimaryText>{user.quantityData.received}</PrimaryText>
                     <SpanText>Recieved</SpanText>
                   </Stack>
                 </Stack>

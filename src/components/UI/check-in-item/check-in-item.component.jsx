@@ -10,17 +10,17 @@ import {
 import { Paper, Stack, Table, TableBody, TableHead, TableRow } from "@mui/material";
 
 const CheckInItem = ({ user }) => {
-  const { orderId, poNumber, userData, vendorData, quantityData, lastCheckedInData } = user || {};
+  const { orderId, poNumber, userData, vendorData, quantityData, createdDate } = user || {};
   return (
     <StyledTableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="shipment table">
         <TableHead>
           <TableRow>
             <StyledTableCell>PO #</StyledTableCell>
-            <StyledTableCell align="left">User</StyledTableCell>
+            <StyledTableCell align="left">Username</StyledTableCell>
             <StyledTableCell align="left">Vendor</StyledTableCell>
             <StyledTableCell align="left">Quantity</StyledTableCell>
-            <StyledTableCell align="left">Last Checked In</StyledTableCell>
+            <StyledTableCell align="left">Created Date</StyledTableCell>
           </TableRow>
         </TableHead>
 
@@ -29,40 +29,60 @@ const CheckInItem = ({ user }) => {
             <StyledTableCell>{poNumber}</StyledTableCell>
             <StyledTableCell align="left">
               <Stack direction="column" spacing="6px">
-                <PrimaryText>{userData.userName}</PrimaryText>
-                <SecondaryText>{userData.company}</SecondaryText>
+                {userData && (
+                  <>
+                    <PrimaryText>{userData.userName}</PrimaryText>
+                    <SecondaryText>{userData.company}</SecondaryText>
+                  </>
+                )}
               </Stack>
             </StyledTableCell>
             <StyledTableCell align="left">
               <Stack direction="column" spacing="6px">
-                <PrimaryText>{vendorData.vendorName}</PrimaryText>
-                <SecondaryText>{vendorData.adress}</SecondaryText>
+                {vendorData && (
+                  <>
+                    <PrimaryText>{vendorData.vendorName}</PrimaryText>
+                    <SecondaryText>{vendorData.adress}</SecondaryText>
+                  </>
+                )}
               </Stack>
             </StyledTableCell>
             <StyledTableCell align="left">
               <Stack direction="row" spacing="14px">
-                <Stack direction="column" spacing="4px">
-                  <PrimaryText>{quantityData.order}</PrimaryText>
-                  <SpanText>Order</SpanText>
-                </Stack>
-                <Stack direction="column" spacing="4px">
-                  <PrimaryText>{quantityData.invoice}</PrimaryText>
-                  <SpanText>Invoice</SpanText>
-                </Stack>
-                <Stack direction="column" spacing="4px">
-                  <PrimaryText>{quantityData.working}</PrimaryText>
-                  <SpanText>Working</SpanText>
-                </Stack>
-                <Stack direction="column" spacing="4px">
-                  <PrimaryText>{quantityData.recieved}</PrimaryText>
-                  <SpanText>Recieved</SpanText>
-                </Stack>
+                {quantityData && (
+                  <>
+                    <Stack direction="column" spacing="4px">
+                      <PrimaryText>{quantityData.order}</PrimaryText>
+                      <SpanText>Order</SpanText>
+                    </Stack>
+                    <Stack direction="column" spacing="4px">
+                      <PrimaryText>{quantityData.invoice}</PrimaryText>
+                      <SpanText>Invoice</SpanText>
+                    </Stack>
+                    <Stack direction="column" spacing="4px">
+                      <PrimaryText>{quantityData.received}</PrimaryText>
+                      <SpanText>Received</SpanText>
+                    </Stack>
+                    <Stack direction="column" spacing="4px">
+                      <PrimaryText>{quantityData.remaining}</PrimaryText>
+                      <SpanText>Recieved</SpanText>
+                    </Stack>
+                    <Stack direction="column" spacing="4px">
+                      <PrimaryText>{quantityData.shipped}</PrimaryText>
+                      <SpanText>Shipped</SpanText>
+                    </Stack>
+                  </>
+                )}
               </Stack>
             </StyledTableCell>
             <StyledTableCell align="left">
               <Stack direction="column" spacing="6px">
-                <PrimaryText>{lastCheckedInData.date}</PrimaryText>
-                <SecondaryText>{lastCheckedInData.time}</SecondaryText>
+                {createdDate && (
+                  <>
+                    <PrimaryText>{createdDate.date}</PrimaryText>
+                    <SecondaryText>{createdDate.time}</SecondaryText>
+                  </>
+                )}
               </Stack>
             </StyledTableCell>
           </StyledTableRow>

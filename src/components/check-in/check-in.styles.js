@@ -1,4 +1,18 @@
+import { Box } from "@mui/material";
 import styled from "styled-components";
+
+export const ModalContent = styled(Box)`
+  position: absolute;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  inset: 0;
+  margin: auto;
+  width: max-content;
+  height: max-content;
+  background-color: #fff;
+  padding: 24px;
+`;
 
 export const CheckInContainer = styled.div`
   width: 1060px;

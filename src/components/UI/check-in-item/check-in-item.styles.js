@@ -11,7 +11,7 @@ export const StyledTableContainer = mStyled(TableContainer)(() => ({
 
 export const StyledTableCell = mStyled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#F8FAFB",
+    backgroundColor: "#EEF1F533",
     color: "#78909C",
     fontFamily: "Titillium Web",
     fontSize: "0.75rem",
@@ -21,6 +21,7 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     letterSpacing: "0.03125rem",
     height: "32px",
     padding: "0px 24px",
+    border: 0,
   },
   [`&.${tableCellClasses.body}`]: {
     position: "relative",
@@ -31,29 +32,13 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     fontWeight: 400,
     lineHeight: "1.25rem",
     padding: "0px 24px",
-
-    "&:first-of-type": {
-      "&:before": {
-        content: '""',
-        position: "absolute",
-        right: 0,
-        bottom: "15%", // calc((100%-height)/2)
-        height: "70%",
-        width: "1px",
-        borderRight: "1px solid #CFD8DC",
-      },
-    },
   },
 }));
 
 export const StyledTableRow = mStyled(TableRow)(() => ({
-  backgroundColor: "#FFF",
+  backgroundColor: "#EEF1F533",
   alignItems: "top",
-  height: "84px",
-
-  "&:nth-of-type(even)": {
-    backgroundColor: "#F8FAFB",
-  },
+  height: "46px",
 
   // hide last border
   "&:last-child td, &:last-child th": {

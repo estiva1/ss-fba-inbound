@@ -9,13 +9,14 @@ import Switch from "../UI/switch/switch.component";
 import Stack from "@mui/material/Stack";
 import DeletableChip from "../UI/chip/chip.component";
 import CompletedPOS from "../completed-pos/completed-pos.component";
-import TransitionsModal from "../modal/modal.component";
+import CheckIn from "../check-in/check-in.component";
 
 const InboundContent = ({ content }) => {
   const [userNameFilter, setUserNameFilter] = useState("");
   const [vendorFilter, setVendorFilter] = useState("");
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false); // Manage modal visibility
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
@@ -32,8 +33,10 @@ const InboundContent = ({ content }) => {
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
-  const handleOpenModal = () => {
+  const handleOpenModal = (user) => {
     setIsModalOpen(true); // Open the modal
+    setSelectedUser(user);
+    //console.log(user);
   };
   const handleCloseModal = () => {
     setIsModalOpen(false); // Close the modal
@@ -114,14 +117,16 @@ const InboundContent = ({ content }) => {
           {isSwitchOn ? (
             <CompletedPOS />
           ) : (
-            <CheckInTable
-              data={checkInTableData}
-              userNameFilter={userNameFilter.toLowerCase()}
-              vendorFilter={vendorFilter.toLowerCase()}
-              onOpenModal={handleOpenModal}
-            />
+            <>
+              <CheckInTable
+                data={checkInTableData}
+                userNameFilter={userNameFilter.toLowerCase()}
+                vendorFilter={vendorFilter.toLowerCase()}
+                onOpenModal={handleOpenModal}
+              />
+              <CheckIn open={isModalOpen} onClose={handleCloseModal} user={selectedUser}/>
+            </>
           )}
-          <TransitionsModal open={isModalOpen} onClose={handleCloseModal} />
         </Container>
       );
     case 2:
