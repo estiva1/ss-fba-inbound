@@ -69,7 +69,7 @@ export const BlueButtonSmall = styled(BlueButton)`
 
   &:hover *:not(${RippleContainer}) {
     left: 60%;
-    transition: left .3s ease;
+    transition: left 0.3s ease;
   }
 `;
 
@@ -95,6 +95,7 @@ export const WhiteButtonCondenced = styled(WhiteButton)`
   color: #0057d3;
   min-width: ${(props) => props.width};
   width: ${(props) => props.width};
+  height: auto;
   padding: 6px 12px;
   height: auto;
   border: 1px solid #0057d3;
@@ -104,13 +105,6 @@ export const WhiteButtonCondenced = styled(WhiteButton)`
   letter-spacing: 0.01625rem;
 `;
 
-export const InvertedButton = styled(BlueButton)`
-  background-color: white;
-  color: black;
-
-  &:hover {
-    background-color: black;
-    color: white;
-    border: none;
-  }
+export const WhiteButtonStretched = styled(WhiteButtonCondenced)`
+  padding: 6px 24px;
 `;

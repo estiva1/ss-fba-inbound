@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import TopCardsRow from "../components/top-cards-row/top-cards-row.component";
-import Inbound from "../components/inbound/inbound.component";
+import TopCardsRow from "../../components/top-cards-row/top-cards-row.component";
+import Inbound from "../../components/inbound/inbound.component";
 
 const FBAInbound = () => {
   return (

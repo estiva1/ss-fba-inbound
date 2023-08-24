@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { GlobalStyle } from "./global.styles";
-import FBAInbound from "./pages/fba-inbound.component";
+import FBAInbound from "./pages/fba-nbound/fba-inbound.component";
 
 function App() {
   return (

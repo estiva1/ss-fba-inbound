@@ -1,17 +1,11 @@
 import React from "react";
-import { Container, Exclamation, HorizontalBar, InfoText, SpoilerText, TwoPeoplePicture } from "./completed-pos.styles";
-import Stack from "@mui/material/Stack";
+import { Container, TwoPeoplePicture } from "./completed-pos.styles";
+import InfoBar from "../UI/info-bar/info-bar.component";
 
 const CompletedPOS = () => {
   return (
     <Container>
-      <HorizontalBar>
-        <Stack direction="row" spacing="8px" alignItems="center">
-          <Exclamation />
-          <InfoText>There are X number of PO's in completed PO's.</InfoText>
-        </Stack>
-        <SpoilerText>Click Here to View</SpoilerText>
-      </HorizontalBar>
+      <InfoBar infoText="There are X number of PO's in completed PO's." spoilerText="Click Here to View" />
       <TwoPeoplePicture />
     </Container>
   );

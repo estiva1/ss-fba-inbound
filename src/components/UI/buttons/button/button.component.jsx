@@ -7,6 +7,7 @@ import {
   WhiteButton,
   WhiteButtonCondenced,
   WhiteButtonSmall,
+  WhiteButtonStretched,
 } from "./button.styles.js";
 
 const useDebouncedRippleCleanUp = (rippleCount, duration, cleanUpFunction) => {
@@ -73,7 +74,7 @@ export const BUTTON_TYPE_CLASSES = {
   white: "white",
   whiteSmall: "whiteSmall",
   whiteCondenced: "whiteCondenced",
-  inverted: "inverted",
+  whiteStretched: "whiteStretched",
 };
 const getButton = (buttonType = BUTTON_TYPE_CLASSES.blue) =>
   ({
@@ -82,7 +83,7 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.blue) =>
     [BUTTON_TYPE_CLASSES.white]: WhiteButton,
     [BUTTON_TYPE_CLASSES.whiteSmall]: WhiteButtonSmall,
     [BUTTON_TYPE_CLASSES.whiteCondenced]: WhiteButtonCondenced,
-    [BUTTON_TYPE_CLASSES.inverted]: InvertedButton,
+    [BUTTON_TYPE_CLASSES.whiteStretched]: WhiteButtonStretched,
   }[buttonType]);
 
 const Button = ({ buttonType, width = "210px", ...props }) => {

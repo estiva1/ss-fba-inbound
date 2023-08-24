@@ -9,11 +9,13 @@ import Switch from "../UI/switch/switch.component";
 import Stack from "@mui/material/Stack";
 import DeletableChip from "../UI/chip/chip.component";
 import CompletedPOS from "../completed-pos/completed-pos.component";
+import TransitionsModal from "../modal/modal.component";
 
 const InboundContent = ({ content }) => {
   const [userNameFilter, setUserNameFilter] = useState("");
   const [vendorFilter, setVendorFilter] = useState("");
   const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Manage modal visibility
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
@@ -30,6 +32,12 @@ const InboundContent = ({ content }) => {
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
+  const handleOpenModal = () => {
+    setIsModalOpen(true); // Open the modal
+  };
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Close the modal
+  };
 
   const completedPOS = 30;
 
@@ -37,13 +45,14 @@ const InboundContent = ({ content }) => {
     case 1:
       return (
         <Container>
-          <div style={{ display: "flex", gap: "16px" }}>
+          <Stack direction="row" spacing="16px" alignItems="center">
             <Fragment>
               <Stack direction="row" spacing="10px" alignItems="center">
                 <div style={{ width: "320px" }}>
                   <CustomizedSearchField
                     placeholder="Search by Invoice#, PO#, Order ID, Tracking"
                     ariaLabel="Search by invoice#, PO #, Order ID, Tracking"
+                    disabled={isSwitchOn}
                   />
                 </div>
                 <div style={{ width: "150px" }}>
@@ -52,6 +61,7 @@ const InboundContent = ({ content }) => {
                     ariaLabel="Vendor Adress"
                     value={vendorFilter}
                     onChange={handleVendorFilterChange}
+                    disabled={isSwitchOn}
                   />
                 </div>
                 <div style={{ width: "150px" }}>
@@ -60,6 +70,7 @@ const InboundContent = ({ content }) => {
                     ariaLabel="Filter by user"
                     value={userNameFilter}
                     onChange={handleUserNameFilterChange}
+                    disabled={isSwitchOn}
                   />
                 </div>
               </Stack>
@@ -72,7 +83,7 @@ const InboundContent = ({ content }) => {
                 </SwitchLabel>
               </Stack>
             </Fragment>
-          </div>
+          </Stack>
           <Fragment>
             {(!isUserNameFilterEmpty || !isVendorFilterEmpty) && (
               <Stack
@@ -107,14 +118,16 @@ const InboundContent = ({ content }) => {
               data={checkInTableData}
               userNameFilter={userNameFilter.toLowerCase()}
               vendorFilter={vendorFilter.toLowerCase()}
+              onOpenModal={handleOpenModal}
             />
           )}
+          <TransitionsModal open={isModalOpen} onClose={handleCloseModal} />
         </Container>
       );
     case 2:
       return (
         <Container>
-          <div style={{ display: "flex", gap: "24px" }}>
+          <Stack direction="row" spacing="24px" alignItems="center">
             <div style={{ flex: 2 }}>
               <CustomizedSearchField
                 placeholder="Search by invoice#, PO#, Order ID, Tracking"
@@ -125,7 +138,7 @@ const InboundContent = ({ content }) => {
             <div style={{ flex: 1 }}>
               <Dropdown />
             </div>
-          </div>
+          </Stack>
           <ShipmentTableStack />
         </Container>
       );

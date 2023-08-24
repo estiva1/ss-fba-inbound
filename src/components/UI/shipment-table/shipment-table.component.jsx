@@ -7,7 +7,7 @@ import Paper from "@mui/material/Paper";
 import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 import IconButton from "../buttons/icon-button/icon-button.component";
 
-import arrowLeftShortIcon from "../../../assets/arrow-left-short-icon.png";
+import arrowRightShortIcon from "../../../assets/arrow-right-short-icon.png";
 import pencilSquareIcon from "../../../assets/pencil-square-icon.png";
 
 const Buttons = () => {
@@ -19,7 +19,7 @@ const Buttons = () => {
   return (
     <ButtonsContainer>
       <IconButton src={pencilSquareIcon} alt="Edit" onClick={handleClick} />
-      <IconButton src={arrowLeftShortIcon} alt="Open" onClick={handleClick} />
+      <IconButton src={arrowRightShortIcon} alt="Open" onClick={handleClick} />
     </ButtonsContainer>
   );
 };
@@ -33,25 +33,45 @@ const ShipmentTable = ({ user }) => {
         <TableHead>
           <TableRow>
             <StyledTableCell width="20%">Username</StyledTableCell>
-            <StyledTableCell width="20%" align="left">Email</StyledTableCell>
-            <StyledTableCell width="20%" align="left">Company Name</StyledTableCell>
-            <StyledTableCell width="12%" align="left">Total PO's</StyledTableCell>
-            <StyledTableCell width="12%" align="left">SKU</StyledTableCell>
-            <StyledTableCell width="12%" align="left">Units</StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              Email
+            </StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              Company Name
+            </StyledTableCell>
+            <StyledTableCell width="12%" align="left">
+              Total PO's
+            </StyledTableCell>
+            <StyledTableCell width="12%" align="left">
+              SKU
+            </StyledTableCell>
+            <StyledTableCell width="12%" align="left">
+              Units
+            </StyledTableCell>
             <StyledTableCell align="right"></StyledTableCell>
           </TableRow>
         </TableHead>
-        
+
         <TableBody>
           <StyledTableRow key={username}>
             <StyledTableCell width="20%" component="th" scope="row">
               {username}
             </StyledTableCell>
-            <StyledTableCell width="20%" align="left">{email}</StyledTableCell>
-            <StyledTableCell width="20%" align="left">{companyName}</StyledTableCell>
-            <StyledTableCell width="12%" align="left">{totalPOS}</StyledTableCell>
-            <StyledTableCell width="12%" align="left">{sku}</StyledTableCell>
-            <StyledTableCell width="12%" align="left">{units}</StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              {email}
+            </StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              {companyName}
+            </StyledTableCell>
+            <StyledTableCell width="12%" align="left">
+              {totalPOS}
+            </StyledTableCell>
+            <StyledTableCell width="12%" align="left">
+              {sku}
+            </StyledTableCell>
+            <StyledTableCell width="12%" align="left">
+              {units}
+            </StyledTableCell>
             <StyledTableCell align="right">
               <Buttons />
             </StyledTableCell>

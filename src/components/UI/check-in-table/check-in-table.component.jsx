@@ -16,20 +16,16 @@ import {
 } from "./check-in-table.styles";
 
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../buttons/button/button.component";
+import { Stack } from "@mui/material";
 
-const Buttons = () => {
-  const handleClick = () => {
-    // Click handler logic here
-    console.log("Clicked!");
-  };
-
+const Buttons = ({ onOpenModal }) => {
   return (
     <ButtonsContainer>
-      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.whiteSmall} onClick={handleClick}>
+      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.whiteSmall}>
         Check In History
         <Ripple color="#1565D8" />
       </Button>
-      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={handleClick}>
+      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={onOpenModal}>
         <Arrow />
         Check In
         <Ripple />
@@ -58,7 +54,7 @@ const generateHighlightedCell = (text, filterValue) => {
   );
 };
 
-const CheckInTable = ({ data, userNameFilter, vendorFilter }) => {
+const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenModal }) => {
   const matchingData = data.filter((user) => {
     const userNameMatch = user.userData.userName.toLowerCase().includes(userNameFilter);
     const vendorMatch = user.vendorData.vendorName.toLowerCase().includes(vendorFilter);
@@ -86,7 +82,7 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter }) => {
           {matchingData.map((user) => (
             <StyledTableRow key={user.orderId}>
               <StyledTableCell align="left">
-                <Buttons />
+                <Buttons onOpenModal={() => onOpenModal(user)} />
               </StyledTableCell>
               <StyledTableCell>
                 {user.poNumber}
@@ -101,29 +97,36 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter }) => {
                 </Button>
               </StyledTableCell>
               <StyledTableCell align="left">
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                <Stack direction="column" spacing="6px">
                   <PrimaryText>{generateHighlightedCell(user.userData.userName, userNameFilter)}</PrimaryText>
                   <SecondaryText>{user.userData.company}</SecondaryText>
-                </div>
+                </Stack>
               </StyledTableCell>
               <StyledTableCell align="left">
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                <Stack direction="column" spacing="6px">
                   <PrimaryText>{generateHighlightedCell(user.vendorData.vendorName, vendorFilter)}</PrimaryText>
                   <SecondaryText>{user.vendorData.adress}</SecondaryText>
-                </div>
+                </Stack>
               </StyledTableCell>
               <StyledTableCell align="left">
-                <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
-                  {Object.entries(user.quantityData).map(([key, value]) => {
-                    const capitalizedKey = key.charAt(0).toUpperCase() + key.slice(1);
-                    return (
-                      <div key={key} style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                        <PrimaryText>{value}</PrimaryText>
-                        <SpanText>{capitalizedKey}</SpanText>
-                      </div>
-                    );
-                  })}
-                </div>
+                <Stack direction="row" spacing="14px">
+                  <Stack direction="column" spacing="4px">
+                    <PrimaryText>{user.quantityData.order}</PrimaryText>
+                    <SpanText>Order</SpanText>
+                  </Stack>
+                  <Stack direction="column" spacing="4px">
+                    <PrimaryText>{user.quantityData.invoice}</PrimaryText>
+                    <SpanText>Invoice</SpanText>
+                  </Stack>
+                  <Stack direction="column" spacing="4px">
+                    <PrimaryText>{user.quantityData.working}</PrimaryText>
+                    <SpanText>Working</SpanText>
+                  </Stack>
+                  <Stack direction="column" spacing="4px">
+                    <PrimaryText>{user.quantityData.recieved}</PrimaryText>
+                    <SpanText>Recieved</SpanText>
+                  </Stack>
+                </Stack>
               </StyledTableCell>
               <StyledTableCell align="left">
                 <PrimaryText>{user.orderId}</PrimaryText>
@@ -132,10 +135,10 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter }) => {
                 <PrimaryText>{user.invoiceNumber}</PrimaryText>
               </StyledTableCell>
               <StyledTableCell align="left">
-                <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                <Stack direction="column" spacing="6px">
                   <PrimaryText>{user.lastCheckedInData.date}</PrimaryText>
                   <SecondaryText>{user.lastCheckedInData.time}</SecondaryText>
-                </div>
+                </Stack>
               </StyledTableCell>
               <StyledTableCell align="left">
                 <PrimaryText>{user.expectedDeliveryDate}</PrimaryText>
