@@ -55,6 +55,7 @@ export const shipmentTableData = [
 export const checkInTableData = [
   {
     poNumber: "ZL1S6M",
+    fulfillment: "FBA",
     userData: { userName: "Steven", company: "Sales Express" },
     vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
@@ -66,6 +67,7 @@ export const checkInTableData = [
   },
   {
     poNumber: "ZL5J6M",
+    fulfillment: "FBM",
     userData: { userName: "John", company: "Sales Express" },
     vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
@@ -77,6 +79,7 @@ export const checkInTableData = [
   },
   {
     poNumber: "ZL1S6M",
+    fulfillment: "FBA",
     userData: { userName: "Steven", company: "Sales Express" },
     vendorData: { vendorName: "Canadian Craft", adress: "22 H, Zadmerg St, LA" },
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
@@ -88,6 +91,7 @@ export const checkInTableData = [
   },
   {
     poNumber: "ZL1S6M",
+    fulfillment: "FBA",
     userData: { userName: "Steven", company: "Sales Express" },
     vendorData: { vendorName: "American Craft", adress: "22 H, Zadmerg St, LA" },
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },

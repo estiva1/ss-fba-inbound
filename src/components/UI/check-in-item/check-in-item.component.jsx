@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  HighlightedText,
   PrimaryText,
   SecondaryText,
   SpanText,
@@ -8,9 +9,10 @@ import {
   StyledTableRow,
 } from "./check-in-item.styles";
 import { Paper, Stack, Table, TableBody, TableHead, TableRow } from "@mui/material";
+import Thumbnail from "../thumbnail/thumbnail.component";
 
 const CheckInItem = ({ user }) => {
-  const { orderId, poNumber, userData, vendorData, quantityData, createdDate } = user || {};
+  const { orderId, fulfillment, poNumber, userData, vendorData, quantityData, createdDate } = user || {};
   return (
     <StyledTableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="shipment table">
@@ -26,7 +28,12 @@ const CheckInItem = ({ user }) => {
 
         <TableBody>
           <StyledTableRow key={orderId}>
-            <StyledTableCell>{poNumber}</StyledTableCell>
+            <StyledTableCell>
+              <Stack direction="column" spacing="6px">
+                <HighlightedText>{poNumber}</HighlightedText>
+                <Thumbnail primaryColor="#1565D8" secondaryColor="#009C340D" text={fulfillment} />
+              </Stack>
+            </StyledTableCell>
             <StyledTableCell align="left">
               <Stack direction="column" spacing="6px">
                 {userData && (
@@ -48,7 +55,7 @@ const CheckInItem = ({ user }) => {
               </Stack>
             </StyledTableCell>
             <StyledTableCell align="left">
-              <Stack direction="row" spacing="14px">
+              <Stack direction="row" spacing="16px">
                 {quantityData && (
                   <>
                     <Stack direction="column" spacing="4px">
@@ -80,7 +87,7 @@ const CheckInItem = ({ user }) => {
                 {createdDate && (
                   <>
                     <PrimaryText>{createdDate.date}</PrimaryText>
-                    <SecondaryText>{createdDate.time}</SecondaryText>
+                    <SecondaryText>at {createdDate.time}</SecondaryText>
                   </>
                 )}
               </Stack>

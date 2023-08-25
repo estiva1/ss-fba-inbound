@@ -4,7 +4,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Select } from "@mui/material";
 
 export const StyledSelect = mStyled(Select)(() => ({
-  height: "32px",
+  height: "36px",
   display: "flex",
   alignItems: "center",
   boxShadow: "none",

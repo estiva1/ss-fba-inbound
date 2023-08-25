@@ -8,6 +8,10 @@ import CheckInItem from "../UI/check-in-item/check-in-item.component";
 import Backdrop from "@mui/material/Backdrop";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
+import StyledStepper from "../UI/stepper/stepper.component";
+import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+import Dropdown from "../UI/dropdown/dropdown.component";
+import InfoBar from "../UI/info-bar/info-bar.component";
 
 const CheckIn = ({ open, onClose, user }) => {
   return (
@@ -26,7 +30,7 @@ const CheckIn = ({ open, onClose, user }) => {
       <Fade in={open}>
         <ModalContent>
           <CheckInContainer>
-            <Stack direction="row" alignItems="center" justifyContent="space-between">
+            <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%">
               <Stack direction="row" spacing="12px" alignItems="center">
                 <IconButton src={arrowRightShortIcon} alt="Back" onClick={onClose} rotated enlarged />
                 <Heading>Check In</Heading>
@@ -44,6 +48,21 @@ const CheckIn = ({ open, onClose, user }) => {
             </Stack>
 
             <CheckInItem user={user} />
+            <StyledStepper />
+
+            <Stack direction="row" spacing="24px" alignItems="center" width="100%">
+              <div style={{ flex: 3 }}>
+                <CustomizedSearchField
+                  placeholder="UPC/ASIN/SKU/FNSKU/Vendor UPC"
+                  ariaLabel="UPC/ASIN/SKU/FNSKU/Vendor UPC"
+                />
+              </div>
+              <div style={{ flex: 1 }}>
+                <Dropdown />
+              </div>
+            </Stack>
+
+            <InfoBar infoText="Please make sure to click save icon after entering Check In quantity to get the labels and save permanently" />
           </CheckInContainer>
         </ModalContent>
       </Fade>

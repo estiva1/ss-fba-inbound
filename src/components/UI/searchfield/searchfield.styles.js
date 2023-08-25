@@ -2,7 +2,7 @@ import { InputBase, Paper } from "@mui/material";
 import { styled as mStyled } from "@mui/material/styles";
 
 export const StyledPaper = mStyled(Paper)(() => ({
-  height: "32px",
+  height: "36px",
   paddingLeft: "12px",
   display: "flex",
   alignItems: "center",

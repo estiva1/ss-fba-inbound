@@ -15,7 +15,7 @@ const InboundContent = ({ content }) => {
   const [userNameFilter, setUserNameFilter] = useState("");
   const [vendorFilter, setVendorFilter] = useState("");
   const [isSwitchOn, setIsSwitchOn] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); // Manage modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
@@ -25,21 +25,21 @@ const InboundContent = ({ content }) => {
   const isVendorFilterEmpty = vendorFilter.trim() === "";
 
   const handleUserNameInputClear = () => {
-    setUserNameFilter(""); // Clear the userName input value
+    setUserNameFilter("");
   };
   const handleVendorInputClear = () => {
-    setVendorFilter(""); // Clear the vendor input value
+    setVendorFilter("");
   };
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
   const handleOpenModal = (user) => {
-    setIsModalOpen(true); // Open the modal
+    setIsModalOpen(true);
     setSelectedUser(user);
     //console.log(user);
   };
   const handleCloseModal = () => {
-    setIsModalOpen(false); // Close the modal
+    setIsModalOpen(false);
   };
 
   const completedPOS = 30;
