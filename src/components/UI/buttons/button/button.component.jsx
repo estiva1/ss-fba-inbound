@@ -2,6 +2,7 @@ import { useLayoutEffect, useState } from "react";
 import {
   BlueButton,
   BlueButtonSmall,
+  BlueButtonStretched,
   InvertedButton,
   RippleContainer,
   WhiteButton,
@@ -71,6 +72,7 @@ export const Ripple = ({ duration = 850, color = "#fff" }) => {
 export const BUTTON_TYPE_CLASSES = {
   blue: "blue",
   blueSmall: "blueSmall",
+  blueStretched: "blueStretched",
   white: "white",
   whiteSmall: "whiteSmall",
   whiteCondenced: "whiteCondenced",
@@ -80,6 +82,7 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.blue) =>
   ({
     [BUTTON_TYPE_CLASSES.blue]: BlueButton,
     [BUTTON_TYPE_CLASSES.blueSmall]: BlueButtonSmall,
+    [BUTTON_TYPE_CLASSES.blueStretched]: BlueButtonStretched,
     [BUTTON_TYPE_CLASSES.white]: WhiteButton,
     [BUTTON_TYPE_CLASSES.whiteSmall]: WhiteButtonSmall,
     [BUTTON_TYPE_CLASSES.whiteCondenced]: WhiteButtonCondenced,

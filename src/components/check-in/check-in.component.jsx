@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckInContainer, Heading, ModalContent } from "./check-in.styles";
+import { CheckInContainer, Heading, ModalContent, Total } from "./check-in.styles";
 import { Stack } from "@mui/material";
 import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
 import IconButton from "../UI/buttons/icon-button/icon-button.component";
@@ -12,8 +12,12 @@ import StyledStepper from "../UI/stepper/stepper.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import Dropdown from "../UI/dropdown/dropdown.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
+import CheckInItemListOfGoods from "../UI/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
+import { checkInItemListOfGoods } from "../../constants";
 
 const CheckIn = ({ open, onClose, user }) => {
+  const totalRecords = 230;
+
   return (
     <Modal
       aria-labelledby="check-in-modal"
@@ -26,11 +30,17 @@ const CheckIn = ({ open, onClose, user }) => {
           timeout: 500,
         },
       }}
+      sx={{
+        "& > .MuiBackdrop-root": {
+          backdropFilter: "blur(5px)",
+          backgroundColor: "rgb(8, 40, 85, 0.3)",
+        },
+      }}
     >
       <Fade in={open}>
         <ModalContent>
           <CheckInContainer>
-            <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%">
+            <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" marginBottom="-4px">
               <Stack direction="row" spacing="12px" alignItems="center">
                 <IconButton src={arrowRightShortIcon} alt="Back" onClick={onClose} rotated enlarged />
                 <Heading>Check In</Heading>
@@ -50,7 +60,7 @@ const CheckIn = ({ open, onClose, user }) => {
             <CheckInItem user={user} />
             <StyledStepper />
 
-            <Stack direction="row" spacing="24px" alignItems="center" width="100%">
+            <Stack direction="row" spacing="24px" alignItems="center" width="100%" marginBottom="-4px">
               <div style={{ flex: 3 }}>
                 <CustomizedSearchField
                   placeholder="UPC/ASIN/SKU/FNSKU/Vendor UPC"
@@ -63,6 +73,22 @@ const CheckIn = ({ open, onClose, user }) => {
             </Stack>
 
             <InfoBar infoText="Please make sure to click save icon after entering Check In quantity to get the labels and save permanently" />
+
+            <CheckInItemListOfGoods goodsData={checkInItemListOfGoods} />
+
+            <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" marginBottom="-4px">
+              <Total>Total Records: {totalRecords}</Total>
+              <Stack direction="row" spacing="16px" alignItems="center">
+                <Button type="button" buttonType={BUTTON_TYPE_CLASSES.whiteStretched} width="max-content">
+                  Complete Check-In
+                  <Ripple color="#1565D8" />
+                </Button>
+                <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blueStretched} width="max-content">
+                  Check-In and Create Shipment
+                  <Ripple />
+                </Button>
+              </Stack>
+            </Stack>
           </CheckInContainer>
         </ModalContent>
       </Fade>

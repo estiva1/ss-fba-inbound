@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
 import styled from "styled-components";
+import { Box } from "@mui/material";
 
 export const ModalContent = styled(Box)`
   position: absolute;
@@ -31,4 +31,12 @@ export const Heading = styled.h2`
   font-weight: 700;
   line-height: 1.5rem;
   margin: 0;
+`;
+
+export const Total = styled.h4`
+  color: #4e5969;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.125rem;
 `;

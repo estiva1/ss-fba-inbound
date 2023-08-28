@@ -73,6 +73,19 @@ export const BlueButtonSmall = styled(BlueButton)`
   }
 `;
 
+export const BlueButtonStretched = styled(BlueButton)`
+  min-width: ${(props) => props.width};
+  width: ${(props) => props.width};
+  height: auto;
+  padding: 6px 24px;
+  height: auto;
+  border: 1px solid #0057d3;
+  font-size: 0.8125rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.01625rem;
+`;
+
 export const WhiteButton = styled(BlueButton)`
   color: #1565d8;
   background-color: #fff;
