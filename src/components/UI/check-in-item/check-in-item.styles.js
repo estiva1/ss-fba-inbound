@@ -19,13 +19,13 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     lineHeight: "1rem",
     letterSpacing: "0.03125rem",
     //height: "16px",
-    padding: "16px 24px 6px 24px",
+    padding: "10px 24px 6px 24px",
     border: 0,
   },
   [`&.${tableCellClasses.body}`]: {
     position: "relative",
     fontFamily: "Titillium Web",
-    padding: "0px 24px 16px 24px",
+    padding: "0px 24px 10px 24px",
   },
 }));
 

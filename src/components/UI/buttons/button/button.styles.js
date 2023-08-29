@@ -28,16 +28,16 @@ export const RippleContainer = styled.div`
 export const BlueButton = styled.button`
   position: relative;
   overflow: hidden;
-  min-width: ${(props) => props.width};
   width: ${(props) => props.width};
+  min-width: ${(props) => props.width};
   height: 48px;
   padding: 8px 24px;
+  border: 1px solid #0057d3;
   border-radius: 4px;
   background-color: #1565d8;
-  border: none;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   color: #fff;
   text-align: center;
   font-family: Titillium Web;
@@ -46,7 +46,7 @@ export const BlueButton = styled.button`
   font-weight: 700;
   line-height: 1rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease 0s;
+  transition: all 0.3s ease;
   cursor: pointer;
   outline: none;
 
@@ -57,15 +57,12 @@ export const BlueButton = styled.button`
 `;
 
 export const BlueButtonSmall = styled(BlueButton)`
-  min-width: ${(props) => props.width};
-  width: ${(props) => props.width};
   height: 40px;
   padding: 8px 8px;
   align-items: start;
   font-size: 0.75rem;
   line-height: 0.875rem;
   letter-spacing: 0.00375rem;
-  transition: all 0.3s ease;
 
   &:hover *:not(${RippleContainer}) {
     left: 60%;
@@ -74,15 +71,9 @@ export const BlueButtonSmall = styled(BlueButton)`
 `;
 
 export const BlueButtonStretched = styled(BlueButton)`
-  min-width: ${(props) => props.width};
-  width: ${(props) => props.width};
   height: auto;
   padding: 6px 24px;
-  height: auto;
-  border: 1px solid #0057d3;
   font-size: 0.8125rem;
-  font-style: normal;
-  font-weight: 700;
   letter-spacing: 0.01625rem;
 `;
 
@@ -93,8 +84,6 @@ export const WhiteButton = styled(BlueButton)`
 `;
 
 export const WhiteButtonSmall = styled(WhiteButton)`
-  min-width: ${(props) => props.width};
-  width: ${(props) => props.width};
   height: 40px;
   padding: 6px 8px;
   align-items: start;
@@ -106,15 +95,10 @@ export const WhiteButtonSmall = styled(WhiteButton)`
 
 export const WhiteButtonCondenced = styled(WhiteButton)`
   color: #0057d3;
-  min-width: ${(props) => props.width};
-  width: ${(props) => props.width};
   height: auto;
   padding: 6px 12px;
-  height: auto;
   border: 1px solid #0057d3;
   font-size: 0.8125rem;
-  font-style: normal;
-  font-weight: 700;
   letter-spacing: 0.01625rem;
 `;
 

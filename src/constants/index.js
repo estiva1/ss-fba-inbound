@@ -61,9 +61,10 @@ export const checkInTableData = [
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
     orderId: "MTL234G8",
     invoiceNumber: "N/A",
-    createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
-    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    createdDate: { date: "23 Dec, 2022", time: "04:33:41" },
+    lastCheckedInData: { date: "24 Dec, 2022", time: "05:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     poNumber: "ZL5J6M",
@@ -76,6 +77,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     poNumber: "ZL1S6M",
@@ -88,6 +90,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     poNumber: "ZL1S6M",
@@ -100,6 +103,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
 ];
 
@@ -121,5 +125,50 @@ export const checkInItemListOfGoods = [
     skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
+  },
+  {
+    title: "Nestle Raisinets Milk Chocolate",
+    skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
+    itemStatus: "Non Gated",
+    quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
+  },
+  {
+    title: "Nestle Raisinets Milk Chocolate",
+    skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
+    itemStatus: "Non Gated",
+    quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
+  },
+  {
+    title: "Nestle Raisinets Milk Chocolate",
+    skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
+    itemStatus: "Non Gated",
+    quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
+  },
+];
+
+export const trackingInfoData = [
+  {
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+  },
+  {
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+  },
+  {
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+  },
+  {
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+  },
+  {
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+  },
+  {
+    lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
+    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
 ];

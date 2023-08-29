@@ -9,7 +9,6 @@ import {
   ItemImage,
   PrimaryText,
   PrimaryTextHighlighted,
-  SecondaryText,
   SpanText,
   StyledTableCell,
   StyledTableContainer,
@@ -61,7 +60,7 @@ const CheckInItemListOfGoods = ({ goodsData }) => {
 
   return (
     <StyledTableContainer component={Paper}>
-      <Table aria-label="list of goods table">
+      <Table stickyHeader aria-label="list of goods table">
         <TableHead>
           <TableRow>
             <StyledTableCell align="left">Title</StyledTableCell>

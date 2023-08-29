@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledThumbnail = styled.div`
   display: flex;
-  padding: 2px 8px;
+  padding: ${(props) => (props.enlarged ? "3px 8px" : "2px 8px")};
   justify-content: center;
   align-items: center;
   border-radius: 16px;
@@ -15,9 +15,9 @@ export const StyledThumbnail = styled.div`
 export const ThumbnailText = styled.h4`
   color: ${(props) => props.color};
   text-align: center;
-  font-size: 0.625rem;
+  font-size: ${(props) => (props.enlarged ? "0.75rem" : "0.625rem")};
   font-style: normal;
   font-weight: 600;
-  line-height: 0.625rem;
+  line-height: ${(props) => (props.enlarged ? "0.875rem" : "0.625rem")};
   margin: 0;
 `;

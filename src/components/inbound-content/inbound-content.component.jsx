@@ -10,12 +10,14 @@ import Stack from "@mui/material/Stack";
 import DeletableChip from "../UI/chip/chip.component";
 import CompletedPOS from "../completed-pos/completed-pos.component";
 import CheckIn from "../check-in/check-in.component";
+import CheckInHistory from "../check-in-history/check-in-history.component";
 
 const InboundContent = ({ content }) => {
   const [userNameFilter, setUserNameFilter] = useState("");
   const [vendorFilter, setVendorFilter] = useState("");
   const [isSwitchOn, setIsSwitchOn] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCheckInOpen, setIsCheckInOpen] = useState(false);
+  const [isCheckInHistoryOpen, setIsCheckInHistoryOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
@@ -33,13 +35,21 @@ const InboundContent = ({ content }) => {
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
-  const handleOpenModal = (user) => {
-    setIsModalOpen(true);
+  const handleOpenCheckIn = (user) => {
+    setIsCheckInOpen(true);
     setSelectedUser(user);
     //console.log(user);
   };
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleCloseCheckIn = () => {
+    setIsCheckInOpen(false);
+  };
+  const handleOpenCheckInHistory = (user) => {
+    setIsCheckInHistoryOpen(true);
+    setSelectedUser(user);
+    //console.log(user);
+  };
+  const handleCloseCheckInHistory = () => {
+    setIsCheckInHistoryOpen(false);
   };
 
   const completedPOS = 30;
@@ -122,9 +132,11 @@ const InboundContent = ({ content }) => {
                 data={checkInTableData}
                 userNameFilter={userNameFilter.toLowerCase()}
                 vendorFilter={vendorFilter.toLowerCase()}
-                onOpenModal={handleOpenModal}
+                onOpenCheckIn={handleOpenCheckIn}
+                onOpenCheckInHistory={handleOpenCheckInHistory}
               />
-              <CheckIn open={isModalOpen} onClose={handleCloseModal} user={selectedUser}/>
+              <CheckIn open={isCheckInOpen} onClose={handleCloseCheckIn} user={selectedUser}/>
+              <CheckInHistory open={isCheckInHistoryOpen} onClose={handleCloseCheckInHistory} user={selectedUser}/>
             </>
           )}
         </Container>

@@ -1,10 +1,10 @@
 import React from "react";
 import { StyledThumbnail, ThumbnailText } from "./thumbnail.styles";
 
-const Thumbnail = ({ primaryColor, secondaryColor, text }) => {
+const Thumbnail = ({ primaryColor, secondaryColor, text, enlarged }) => {
   return (
-    <StyledThumbnail borderColor={primaryColor} backgroundColor={secondaryColor}>
-      <ThumbnailText color={primaryColor}>{text}</ThumbnailText>
+    <StyledThumbnail enlarged={enlarged} borderColor={primaryColor} backgroundColor={secondaryColor}>
+      <ThumbnailText enlarged={enlarged} color={primaryColor}>{text}</ThumbnailText>
     </StyledThumbnail>
   );
 };

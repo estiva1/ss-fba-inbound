@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CheckInContainer, Heading, ModalContent, Total } from "./check-in.styles";
 import { Stack } from "@mui/material";
 import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
@@ -14,9 +14,20 @@ import Dropdown from "../UI/dropdown/dropdown.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
 import CheckInItemListOfGoods from "../UI/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
 import { checkInItemListOfGoods } from "../../constants";
+import CheckInPopup from "../UI/popup/popup.component";
 
 const CheckIn = ({ open, onClose, user }) => {
   const totalRecords = 230;
+
+  const [openPopup, setOpenPopup] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenPopup(true);
+  };
+
+  const handleClose = () => {
+    setOpenPopup(false);
+  };
 
   return (
     <Modal
@@ -24,6 +35,7 @@ const CheckIn = ({ open, onClose, user }) => {
       open={open}
       onClose={onClose}
       closeAfterTransition
+      disableScrollLock
       slots={{ backdrop: Backdrop }}
       slotProps={{
         backdrop: {
@@ -46,7 +58,12 @@ const CheckIn = ({ open, onClose, user }) => {
                 <Heading>Check In</Heading>
               </Stack>
               <Stack direction="row" spacing="20px" alignItems="center">
-                <Button type="button" buttonType={BUTTON_TYPE_CLASSES.whiteStretched} width="max-content">
+                <Button
+                  type="button"
+                  buttonType={BUTTON_TYPE_CLASSES.whiteStretched}
+                  width="max-content"
+                  onClick={handleClickOpen}
+                >
                   Check-in with Order Quantity
                   <Ripple color="#1565D8" />
                 </Button>
@@ -89,6 +106,8 @@ const CheckIn = ({ open, onClose, user }) => {
                 </Button>
               </Stack>
             </Stack>
+
+            <CheckInPopup open={openPopup} handleClose={handleClose} />
           </CheckInContainer>
         </ModalContent>
       </Fade>

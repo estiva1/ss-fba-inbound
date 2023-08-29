@@ -18,16 +18,16 @@ import {
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../buttons/button/button.component";
 import { Stack } from "@mui/material";
 
-const Buttons = ({ onOpenModal, user }) => {
+const Buttons = ({ onOpenCheckIn, onOpenCheckInHistory, user }) => {
   return (
     <ButtonsContainer>
-      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.whiteSmall}>
+      <Button type="button" width="65px" buttonType={BUTTON_TYPE_CLASSES.whiteSmall} onClick={() => onOpenCheckInHistory(user)}>
         Check In History
         <Ripple color="#1565D8" />
       </Button>
-      <Button type="button" width="61px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={() => onOpenModal(user)}>
-        <Arrow />
+      <Button type="button" width="65px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={() => onOpenCheckIn(user)}>
         Check In
+        <Arrow />
         <Ripple />
       </Button>
     </ButtonsContainer>
@@ -54,7 +54,7 @@ const generateHighlightedCell = (text, filterValue) => {
   );
 };
 
-const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenModal }) => {
+const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenCheckIn, onOpenCheckInHistory }) => {
   const matchingData = data.filter((user) => {
     const userNameMatch = user.userData.userName.toLowerCase().includes(userNameFilter);
     const vendorMatch = user.vendorData.vendorName.toLowerCase().includes(vendorFilter);
@@ -82,7 +82,7 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenModal }) => {
           {matchingData.map((user) => (
             <StyledTableRow key={user.orderId}>
               <StyledTableCell align="left">
-                <Buttons user={user} onOpenModal={onOpenModal} />
+                <Buttons user={user} onOpenCheckIn={onOpenCheckIn} onOpenCheckInHistory={onOpenCheckInHistory} />
               </StyledTableCell>
               <StyledTableCell>
                 {user.poNumber}

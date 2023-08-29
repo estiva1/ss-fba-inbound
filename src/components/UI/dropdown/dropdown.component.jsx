@@ -13,7 +13,6 @@ const Dropdown = () => {
     <div>
       <FormControl fullWidth >
         <StyledSelect value={user} onChange={handleChange} displayEmpty inputProps={{ "aria-label": "Without label" }}>
-          <StyledMenuItem value="">User</StyledMenuItem>
           <StyledMenuItem value="User 1">User 1</StyledMenuItem>
           <StyledMenuItem value="User 2">User 2</StyledMenuItem>
         </StyledSelect>
