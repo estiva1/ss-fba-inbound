@@ -1,16 +1,20 @@
 import React, { Fragment, useState } from "react";
-import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
-import CustomizedSearchField from "../UI/searchfield/searchfield.component";
-import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
+
+import Stack from "@mui/material/Stack";
+
+import Switch from "../UI/switch/switch.component";
+import DeletableChip from "../UI/chip/chip.component";
 import Dropdown from "../UI/dropdown/dropdown.component";
 import CheckInTable from "../UI/check-in-table/check-in-table.component";
-import { checkInTableData } from "../../constants";
-import Switch from "../UI/switch/switch.component";
-import Stack from "@mui/material/Stack";
-import DeletableChip from "../UI/chip/chip.component";
-import CompletedPOS from "../completed-pos/completed-pos.component";
+import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+
 import CheckIn from "../check-in/check-in.component";
+import CompletedPOS from "../completed-pos/completed-pos.component";
+import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
 import CheckInHistory from "../check-in-history/check-in-history.component";
+
+import { checkInTableData, shipmentTableData } from "../../constants";
+import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
 
 const InboundContent = ({ content }) => {
   const [userNameFilter, setUserNameFilter] = useState("");
@@ -19,6 +23,8 @@ const InboundContent = ({ content }) => {
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckInHistoryOpen, setIsCheckInHistoryOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+//-----------------
+  const [selectedUsername, setSelectedUsername] = useState(null);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
@@ -38,7 +44,6 @@ const InboundContent = ({ content }) => {
   const handleOpenCheckIn = (user) => {
     setIsCheckInOpen(true);
     setSelectedUser(user);
-    //console.log(user);
   };
   const handleCloseCheckIn = () => {
     setIsCheckInOpen(false);
@@ -46,7 +51,6 @@ const InboundContent = ({ content }) => {
   const handleOpenCheckInHistory = (user) => {
     setIsCheckInHistoryOpen(true);
     setSelectedUser(user);
-    //console.log(user);
   };
   const handleCloseCheckInHistory = () => {
     setIsCheckInHistoryOpen(false);
@@ -135,8 +139,8 @@ const InboundContent = ({ content }) => {
                 onOpenCheckIn={handleOpenCheckIn}
                 onOpenCheckInHistory={handleOpenCheckInHistory}
               />
-              <CheckIn open={isCheckInOpen} onClose={handleCloseCheckIn} user={selectedUser}/>
-              <CheckInHistory open={isCheckInHistoryOpen} onClose={handleCloseCheckInHistory} user={selectedUser}/>
+              <CheckIn open={isCheckInOpen} onClose={handleCloseCheckIn} user={selectedUser} />
+              <CheckInHistory open={isCheckInHistoryOpen} onClose={handleCloseCheckInHistory} user={selectedUser} />
             </>
           )}
         </Container>
@@ -153,10 +157,10 @@ const InboundContent = ({ content }) => {
             </div>
 
             <div style={{ flex: 1 }}>
-              <Dropdown />
+              <Dropdown data={shipmentTableData} placeholder="User" setSelectedUsername={setSelectedUsername} />
             </div>
           </Stack>
-          <ShipmentTableStack />
+          <ShipmentTableStack selectedUsername={selectedUsername} />
         </Container>
       );
     case 3:

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import { Stack } from "@mui/material";
+
 import InboundNav from "../inbound-nav/inbound-nav.component";
 import InboundContent from "../inbound-content/inbound-content.component";
-import { InboundContainer } from "./inbound.styles";
-import { AnimatePresence, motion } from "framer-motion";
 
 const Inbound = () => {
   const [tab, setTab] = useState(1);
@@ -14,7 +16,7 @@ const Inbound = () => {
   };
 
   return (
-    <InboundContainer>
+    <Stack direction="column" spacing="20px">
       <InboundNav tab={tab} handleTabChange={handleTabChange} />
       <AnimatePresence mode="wait">
         <motion.div
@@ -27,7 +29,7 @@ const Inbound = () => {
           <InboundContent content={content} />
         </motion.div>
       </AnimatePresence>
-    </InboundContainer>
+    </Stack>
   );
 };
 

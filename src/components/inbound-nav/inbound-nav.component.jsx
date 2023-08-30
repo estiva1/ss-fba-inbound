@@ -1,4 +1,7 @@
 import React, { Fragment } from "react";
+import TabContent from "../inbound-content/inbound-content.component";
+import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
+
 import {
   InboundNavContainer,
   InboundTitle,
@@ -9,8 +12,6 @@ import {
   TabTextContainer,
   TabsContainer,
 } from "./inbound-nav.styles";
-import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
-import TabContent from "../inbound-content/inbound-content.component";
 
 const InboundNav = ({ tab, handleTabChange }) => {
   return (

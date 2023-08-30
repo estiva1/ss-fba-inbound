@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, TwoPeoplePicture } from "./completed-pos.styles";
 import InfoBar from "../UI/info-bar/info-bar.component";
+import { Container, TwoPeoplePicture } from "./completed-pos.styles";
 
 const CompletedPOS = () => {
   return (

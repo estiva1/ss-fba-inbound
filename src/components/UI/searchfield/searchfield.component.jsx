@@ -7,7 +7,6 @@ const CustomizedSearchField = ({ placeholder, ariaLabel, value, onChange, disabl
   return (
     <StyledPaper component="form">
       <StyledInput
-        sx={{ flex: 1 }}
         placeholder={placeholder}
         inputProps={{ "aria-label": ariaLabel }}
         value={value}

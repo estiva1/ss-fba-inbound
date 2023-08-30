@@ -1,7 +1,7 @@
 import React from "react";
-import BigCard from "../UI/big-card/big-card.component";
-import { Container } from "./top-cards-row.styles";
 import { topCardsContent } from "../../constants";
+import { Container } from "./top-cards-row.styles";
+import BigCard from "../UI/big-card/big-card.component";
 
 const TopCardsRow = () => {
   return (

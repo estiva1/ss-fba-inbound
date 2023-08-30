@@ -1,20 +1,23 @@
 import React, { useState } from "react";
-import { CheckInContainer, Heading, ModalContent, Total } from "./check-in.styles";
+
 import { Stack } from "@mui/material";
-import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
-import IconButton from "../UI/buttons/icon-button/icon-button.component";
-import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
-import CheckInItem from "../UI/check-in-item/check-in-item.component";
-import Backdrop from "@mui/material/Backdrop";
-import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import StyledStepper from "../UI/stepper/stepper.component";
-import CustomizedSearchField from "../UI/searchfield/searchfield.component";
-import Dropdown from "../UI/dropdown/dropdown.component";
-import InfoBar from "../UI/info-bar/info-bar.component";
-import CheckInItemListOfGoods from "../UI/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
-import { checkInItemListOfGoods } from "../../constants";
+import Modal from "@mui/material/Modal";
+import Backdrop from "@mui/material/Backdrop";
+
 import CheckInPopup from "../UI/popup/popup.component";
+import InfoBar from "../UI/info-bar/info-bar.component";
+import Dropdown from "../UI/dropdown/dropdown.component";
+import StyledStepper from "../UI/stepper/stepper.component";
+import CheckInItem from "../UI/check-in-item/check-in-item.component";
+import IconButton from "../UI/buttons/icon-button/icon-button.component";
+import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
+import CheckInItemListOfGoods from "../UI/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
+
+import { checkInItemListOfGoods } from "../../constants";
+import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
+import { CheckInContainer, Heading, ModalContent, Total } from "./check-in.styles";
 
 const CheckIn = ({ open, onClose, user }) => {
   const totalRecords = 230;
@@ -24,7 +27,6 @@ const CheckIn = ({ open, onClose, user }) => {
   const handleClickOpen = () => {
     setOpenPopup(true);
   };
-
   const handleClose = () => {
     setOpenPopup(false);
   };
@@ -90,7 +92,6 @@ const CheckIn = ({ open, onClose, user }) => {
             </Stack>
 
             <InfoBar infoText="Please make sure to click save icon after entering Check In quantity to get the labels and save permanently" />
-
             <CheckInItemListOfGoods goodsData={checkInItemListOfGoods} />
 
             <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" marginBottom="-4px">
