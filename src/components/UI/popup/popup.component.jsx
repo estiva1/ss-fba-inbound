@@ -13,7 +13,7 @@ const CheckInPopup = ({ open, handleClose }) => {
     >
       <AlertSign />
       <StyledDialogTitle id="alert-dialog-title">
-        {"Are you sure you want to like Sync Checkin with Ordered Qty?"}
+        Are you sure you want to like Sync Checkin with Ordered Qty?
       </StyledDialogTitle>
       <DialogActions sx={{ gap: "24px" }}>
         <Button

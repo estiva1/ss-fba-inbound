@@ -1,4 +1,12 @@
 import React from "react";
+
+import Table from "@mui/material/Table";
+import TableRow from "@mui/material/TableRow";
+import TableBody from "@mui/material/TableBody";
+import TableHead from "@mui/material/TableHead";
+
+import Thumbnail from "../../thumbnail/thumbnail.component";
+
 import {
   PrimaryText,
   PrimaryTextHighlighted,
@@ -6,11 +14,6 @@ import {
   StyledTableContainer,
   StyledTableRow,
 } from "./check-in-history-po-info-table.styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Thumbnail from "../../thumbnail/thumbnail.component";
 
 const POInfoTable = ({ poData }) => {
   const { poNumber, fulfillment, userData, vendorData, createdDate, quantityData } = poData || {};
@@ -21,10 +24,18 @@ const POInfoTable = ({ poData }) => {
       <Table aria-label="check in history po info table 1">
         <TableHead>
           <TableRow>
-            <StyledTableCell width="20%" align="left">PO Type</StyledTableCell>
-            <StyledTableCell width="20%" align="left">Username</StyledTableCell>
-            <StyledTableCell width="30%" align="left">Company Name</StyledTableCell>
-            <StyledTableCell width="30%" align="left">Vendor Name</StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              PO Type
+            </StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              Username
+            </StyledTableCell>
+            <StyledTableCell width="30%" align="left">
+              Company Name
+            </StyledTableCell>
+            <StyledTableCell width="30%" align="left">
+              Vendor Name
+            </StyledTableCell>
           </TableRow>
         </TableHead>
 
@@ -33,8 +44,12 @@ const POInfoTable = ({ poData }) => {
             <StyledTableCell width="20%" align="left">
               <Thumbnail enlarged primaryColor="#1565D8" secondaryColor="#009C340D" text={fulfillment} />
             </StyledTableCell>
-            <StyledTableCell width="20%" align="left">{userData && <PrimaryText>{userData.userName}</PrimaryText>}</StyledTableCell>
-            <StyledTableCell width="30%" align="left">{userData && <PrimaryText>{userData.company}</PrimaryText>}</StyledTableCell>
+            <StyledTableCell width="20%" align="left">
+              {userData && <PrimaryText>{userData.userName}</PrimaryText>}
+            </StyledTableCell>
+            <StyledTableCell width="30%" align="left">
+              {userData && <PrimaryText>{userData.company}</PrimaryText>}
+            </StyledTableCell>
             <StyledTableCell width="30%" align="left">
               {vendorData && <PrimaryText>{vendorData.vendorName}</PrimaryText>}
             </StyledTableCell>
@@ -45,9 +60,15 @@ const POInfoTable = ({ poData }) => {
       <Table aria-label="check in history po info table 2">
         <TableHead>
           <TableRow>
-            <StyledTableCell width="40%" align="left">Created Date</StyledTableCell>
-            <StyledTableCell width="30%" align="left">Received Units</StyledTableCell>
-            <StyledTableCell width="30%" align="left">Remaining Units</StyledTableCell>
+            <StyledTableCell width="40%" align="left">
+              Created Date
+            </StyledTableCell>
+            <StyledTableCell width="30%" align="left">
+              Received Units
+            </StyledTableCell>
+            <StyledTableCell width="30%" align="left">
+              Remaining Units
+            </StyledTableCell>
           </TableRow>
         </TableHead>
 

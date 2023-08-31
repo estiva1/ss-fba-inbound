@@ -23,7 +23,7 @@ const InboundContent = ({ content }) => {
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckInHistoryOpen, setIsCheckInHistoryOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
-//-----------------
+  //-----------------
   const [selectedUsername, setSelectedUsername] = useState(null);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);

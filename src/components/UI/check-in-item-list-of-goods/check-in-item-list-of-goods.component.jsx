@@ -1,9 +1,21 @@
 import React, { useState } from "react";
+
 import Table from "@mui/material/Table";
+import Paper from "@mui/material/Paper";
+import TableRow from "@mui/material/TableRow";
+import { Stack, Tooltip } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+
+import Thumbnail from "../thumbnail/thumbnail.component";
+import CustomTextField from "../text-field/text-field.component";
+import CustomDatePicker from "../datePicker/date-picker.component";
+import IconButton from "../buttons/icon-button/icon-button.component";
+
+import saveOutlinedIcon from "../../../assets/save-outlined-icon.svg";
+import printOutlinedIcon from "../../../assets/print-outlined-icon.svg";
+import testImage from "../../../assets/check-in-item-list-of-goods-image.png";
+
 import {
   ButtonsContainer,
   ItemImage,
@@ -14,16 +26,6 @@ import {
   StyledTableContainer,
   StyledTableRow,
 } from "./check-in-item-list-of-goods.styles";
-import IconButton from "../buttons/icon-button/icon-button.component";
-
-import testImage from "../../../assets/check-in-item-list-of-goods-image.png";
-import printOutlinedIcon from "../../../assets/print-outlined-icon.svg";
-import saveOutlinedIcon from "../../../assets/save-outlined-icon.svg";
-
-import { Stack, Tooltip } from "@mui/material";
-import Thumbnail from "../thumbnail/thumbnail.component";
-import CustomDatePicker from "../datePicker/date-picker.component";
-import CustomTextField from "../text-field/text-field.component";
 
 const Buttons = () => {
   const handleClick = () => {

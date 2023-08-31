@@ -1,4 +1,8 @@
 import React from "react";
+import { Paper, Stack, Table, TableBody, TableHead, TableRow } from "@mui/material";
+
+import Thumbnail from "../thumbnail/thumbnail.component";
+
 import {
   HighlightedText,
   PrimaryText,
@@ -8,8 +12,6 @@ import {
   StyledTableContainer,
   StyledTableRow,
 } from "./check-in-item.styles";
-import { Paper, Stack, Table, TableBody, TableHead, TableRow } from "@mui/material";
-import Thumbnail from "../thumbnail/thumbnail.component";
 
 const CheckInItem = ({ user }) => {
   const { orderId, fulfillment, poNumber, userData, vendorData, quantityData, createdDate } = user || {};

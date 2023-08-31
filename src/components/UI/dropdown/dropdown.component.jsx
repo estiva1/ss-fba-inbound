@@ -12,26 +12,27 @@ const ListBox = ({ username, companyName = "", email = "" }) => {
   );
 };
 
-const Dropdown = ({ data, placeholder = "Select", setSelectedUsername }) => {
+const Dropdown = ({ data, placeholder = "Select", setSelectedUsername, disabled }) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
   const handleValueChange = (event, newValue) => {
     setValue(newValue);
-    setSelectedUsername(newValue?.username || null); // Update the selectedUsername state
+    setSelectedUsername(newValue?.username || null);
   };
 
   return (
     <StyledAutocomplete
+      id="controllable-states-demo"
       size="small"
+      disabled={disabled}
       value={value}
-      onChange={handleValueChange}
+      options={data}
       inputValue={inputValue}
+      onChange={handleValueChange}
       onInputChange={(event, newInputValue) => {
         setInputValue(newInputValue);
       }}
-      id="controllable-states-demo"
-      options={data}
       getOptionLabel={(option) => `${option.username}`}
       renderInput={(params) => <TextField label={placeholder} {...params} />}
       renderOption={(props, option, state) => {

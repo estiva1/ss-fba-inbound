@@ -1,9 +1,14 @@
 import React from "react";
+
+import { Stack } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
+import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+
+import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../buttons/button/button.component";
+
 import {
   Arrow,
   ButtonsContainer,
@@ -15,13 +20,15 @@ import {
   StyledTableRow,
 } from "./check-in-table.styles";
 
-import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../buttons/button/button.component";
-import { Stack } from "@mui/material";
-
 const Buttons = ({ onOpenCheckIn, onOpenCheckInHistory, user }) => {
   return (
     <ButtonsContainer>
-      <Button type="button" width="65px" buttonType={BUTTON_TYPE_CLASSES.whiteSmall} onClick={() => onOpenCheckInHistory(user)}>
+      <Button
+        type="button"
+        width="65px"
+        buttonType={BUTTON_TYPE_CLASSES.whiteSmall}
+        onClick={() => onOpenCheckInHistory(user)}
+      >
         Check In History
         <Ripple color="#1565D8" />
       </Button>

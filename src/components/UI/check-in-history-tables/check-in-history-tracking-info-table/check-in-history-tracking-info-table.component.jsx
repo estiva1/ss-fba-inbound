@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Paper, Table, TableBody, TableHead, TableRow } from "@mui/material";
+
 import {
   PrimaryText,
   StyledTableCell,
@@ -11,7 +12,7 @@ import {
 const TrackingInfoTable = ({ trackingData }) => {
   const trackingItems = trackingData.map(({ lastCheckedInData, trackingProNumber }) => {
     const { date, time } = lastCheckedInData;
-
+    
     return {
       date,
       time,
