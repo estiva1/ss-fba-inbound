@@ -1,8 +1,9 @@
-import Box from "@mui/material/Box";
 import React, { useState } from "react";
+import Box from "@mui/material/Box";
 import { SliderValueContainer, StyledSlider, Value } from "./slider.styles";
 
 const sliderWidth = 300;
+
 const valueLabelFormat = (value) => {
   const unit = "%";
   let scaledValue = value;
@@ -13,7 +14,6 @@ const valueLabelFormat = (value) => {
 const calculateValue = (value) => {
   return value;
 };
-
 const calculateBottomValue = (bottomValue) => {
   return bottomValue ** 2;
 };

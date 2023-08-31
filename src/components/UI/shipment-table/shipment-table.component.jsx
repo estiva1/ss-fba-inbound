@@ -1,14 +1,17 @@
 import React from "react";
+
+import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
+import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
+
 import IconButton from "../buttons/icon-button/icon-button.component";
 
 import arrowRightShortIcon from "../../../assets/arrow-right-short-icon.png";
 import pencilSquareIcon from "../../../assets/pencil-square-icon.png";
+
+import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 
 const Buttons = () => {
   const handleClick = () => {

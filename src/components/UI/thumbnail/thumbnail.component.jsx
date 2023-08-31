@@ -4,7 +4,9 @@ import { StyledThumbnail, ThumbnailText } from "./thumbnail.styles";
 const Thumbnail = ({ primaryColor, secondaryColor, text, enlarged }) => {
   return (
     <StyledThumbnail enlarged={enlarged} borderColor={primaryColor} backgroundColor={secondaryColor}>
-      <ThumbnailText enlarged={enlarged} color={primaryColor}>{text}</ThumbnailText>
+      <ThumbnailText enlarged={enlarged} color={primaryColor}>
+        {text}
+      </ThumbnailText>
     </StyledThumbnail>
   );
 };

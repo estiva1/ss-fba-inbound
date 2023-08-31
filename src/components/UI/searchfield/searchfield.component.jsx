@@ -1,6 +1,8 @@
 import React from "react";
+
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+
 import { StyledInput, StyledPaper } from "./searchfield.styles";
 
 const CustomizedSearchField = ({ placeholder, ariaLabel, value, onChange, disabled }) => {
