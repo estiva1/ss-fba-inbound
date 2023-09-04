@@ -4,7 +4,7 @@ import ShipmentTable from "../UI/shipment-table/shipment-table.component";
 
 import { shipmentTableData } from "../../constants";
 
-const ShipmentTableStack = ({ selectedUsername }) => {
+const ShipmentTableStack = ({ selectedUsername, handleReviewShipmentPlanOpen }) => {
   const filteredData = selectedUsername
     ? shipmentTableData.filter((user) => user.username === selectedUsername)
     : shipmentTableData;
@@ -12,7 +12,7 @@ const ShipmentTableStack = ({ selectedUsername }) => {
   return (
     <Stack direction="column" spacing="10px">
       {filteredData.map((user, index) => (
-        <ShipmentTable key={`table-${index}`} user={user} />
+        <ShipmentTable key={`table-${index}`} user={user} handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen} />
       ))}
     </Stack>
   );

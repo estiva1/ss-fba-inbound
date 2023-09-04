@@ -13,21 +13,16 @@ import pencilSquareIcon from "../../../assets/pencil-square-icon.png";
 
 import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 
-const Buttons = () => {
-  const handleClick = () => {
-    // Click handler logic here
-    console.log("Clicked!");
-  };
-
+const Buttons = ({ handleReviewShipmentPlanOpen }) => {
   return (
     <ButtonsContainer>
-      <IconButton src={pencilSquareIcon} alt="Edit" onClick={handleClick} />
-      <IconButton src={arrowRightShortIcon} alt="Open" onClick={handleClick} />
+      <IconButton src={pencilSquareIcon} alt="Edit" />
+      <IconButton src={arrowRightShortIcon} alt="Open" onClick={() => handleReviewShipmentPlanOpen()} />
     </ButtonsContainer>
   );
 };
 
-const ShipmentTable = ({ user }) => {
+const ShipmentTable = ({ user, handleReviewShipmentPlanOpen }) => {
   const { username, email, companyName, totalPOS, sku, units } = user || {};
 
   return (
@@ -76,7 +71,7 @@ const ShipmentTable = ({ user }) => {
               {units}
             </StyledTableCell>
             <StyledTableCell align="right">
-              <Buttons />
+              <Buttons handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen} />
             </StyledTableCell>
           </StyledTableRow>
         </TableBody>

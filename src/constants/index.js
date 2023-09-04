@@ -172,3 +172,5 @@ export const trackingInfoData = [
     trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
 ];
+
+export const dropdownTestOptions = ["Option 1", "Option 2", "Option 3"];

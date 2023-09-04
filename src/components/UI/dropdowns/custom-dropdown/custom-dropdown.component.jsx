@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { ListBoxContainer, ListItem, PrimaryText, SecondaryText, StyledAutocomplete } from "./dropdown.styles";
+import { ListBoxContainer, ListItem, PrimaryText, SecondaryText, StyledAutocomplete } from "./custom-dropdown.styles";
 
 const ListBox = ({ username, companyName = "", email = "" }) => {
   return (
@@ -12,7 +12,7 @@ const ListBox = ({ username, companyName = "", email = "" }) => {
   );
 };
 
-const Dropdown = ({ data, placeholder = "Select", setSelectedUsername, disabled }) => {
+const CustomDropdown = ({ data, placeholder = "Select", setSelectedUsername, disabled }) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
@@ -46,4 +46,4 @@ const Dropdown = ({ data, placeholder = "Select", setSelectedUsername, disabled 
   );
 };
 
-export default Dropdown;
+export default CustomDropdown;

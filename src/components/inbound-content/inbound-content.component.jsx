@@ -4,9 +4,9 @@ import Stack from "@mui/material/Stack";
 
 import Switch from "../UI/switch/switch.component";
 import DeletableChip from "../UI/chip/chip.component";
-import Dropdown from "../UI/dropdown/dropdown.component";
 import CheckInTable from "../UI/check-in-table/check-in-table.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+import CustomDropdown from "../UI/dropdowns/custom-dropdown/custom-dropdown.component";
 
 import CheckIn from "../check-in/check-in.component";
 import CompletedPOS from "../completed-pos/completed-pos.component";
@@ -15,6 +15,8 @@ import CheckInHistory from "../check-in-history/check-in-history.component";
 
 import { checkInTableData, shipmentTableData } from "../../constants";
 import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
+import FullScreenDialog from "../UI/dialog/dialog.component";
+import ReviewShipmentPlan from "../review-shipment-plan/review-shipment-plan.component";
 
 const InboundContent = ({ content }) => {
   const [userNameFilter, setUserNameFilter] = useState("");
@@ -25,6 +27,7 @@ const InboundContent = ({ content }) => {
   const [selectedUser, setSelectedUser] = useState(null);
   //-----------------
   const [selectedUsername, setSelectedUsername] = useState(null);
+  const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
@@ -54,6 +57,21 @@ const InboundContent = ({ content }) => {
   };
   const handleCloseCheckInHistory = () => {
     setIsCheckInHistoryOpen(false);
+  };
+  //-----------------
+  // const handleReviewShipmentPlanOpen = () => {
+  //   setIsReviewShipmentPlanOpen(true);
+  // };
+  // const handleReviewShipmentPlanClose = () => {
+  //   setIsReviewShipmentPlanOpen(false);
+  // };
+
+  const handleReviewShipmentPlanOpen = () => {
+    setIsReviewShipmentPlanOpen(true);
+  };
+
+  const handleReviewShipmentPlanClose = () => {
+    setIsReviewShipmentPlanOpen(false);
   };
 
   const completedPOS = 30;
@@ -157,10 +175,17 @@ const InboundContent = ({ content }) => {
             </div>
 
             <div style={{ flex: 1 }}>
-              <Dropdown data={shipmentTableData} placeholder="User" setSelectedUsername={setSelectedUsername} />
+              <CustomDropdown data={shipmentTableData} placeholder="User" setSelectedUsername={setSelectedUsername} />
             </div>
           </Stack>
-          <ShipmentTableStack selectedUsername={selectedUsername} />
+          <ShipmentTableStack
+            selectedUsername={selectedUsername}
+            handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
+          />
+
+          <FullScreenDialog open={isReviewShipmentPlanOpen} onClose={handleReviewShipmentPlanClose}>
+            <ReviewShipmentPlan onClose={handleReviewShipmentPlanClose}/>
+          </FullScreenDialog>
         </Container>
       );
     case 3:

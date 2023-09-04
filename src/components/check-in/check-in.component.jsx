@@ -7,15 +7,15 @@ import Backdrop from "@mui/material/Backdrop";
 
 import CheckInPopup from "../UI/popup/popup.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
-import Dropdown from "../UI/dropdown/dropdown.component";
 import StyledStepper from "../UI/stepper/stepper.component";
 import CheckInItem from "../UI/check-in-item/check-in-item.component";
 import IconButton from "../UI/buttons/icon-button/icon-button.component";
+import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
 import CheckInItemListOfGoods from "../UI/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
 
-import { checkInItemListOfGoods } from "../../constants";
+import { checkInItemListOfGoods, dropdownTestOptions } from "../../constants";
 import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
 import { CheckInContainer, Heading, ModalContent, Total } from "./check-in.styles";
 
@@ -87,7 +87,7 @@ const CheckIn = ({ open, onClose, user }) => {
                 />
               </div>
               <div style={{ flex: 1 }}>
-                <Dropdown />
+                <Dropdown data={dropdownTestOptions} placeholder="Zebra Labels" />
               </div>
             </Stack>
 

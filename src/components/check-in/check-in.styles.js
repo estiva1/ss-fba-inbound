@@ -24,7 +24,7 @@ export const CheckInContainer = styled.div`
 `;
 
 export const Heading = styled.h2`
-  color: #000;
+  color: #4e5969;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 1.5rem;
   font-style: normal;
