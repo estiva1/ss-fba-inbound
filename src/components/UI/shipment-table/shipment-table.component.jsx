@@ -13,11 +13,11 @@ import pencilSquareIcon from "../../../assets/pencil-square-icon.png";
 
 import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 
-const Buttons = ({ handleReviewShipmentPlanOpen }) => {
+const Buttons = ({ handleReviewShipmentPlanOpen, user }) => {
   return (
     <ButtonsContainer>
       <IconButton src={pencilSquareIcon} alt="Edit" />
-      <IconButton src={arrowRightShortIcon} alt="Open" onClick={() => handleReviewShipmentPlanOpen()} />
+      <IconButton src={arrowRightShortIcon} alt="Open" onClick={() => handleReviewShipmentPlanOpen(user)} />
     </ButtonsContainer>
   );
 };
@@ -71,7 +71,7 @@ const ShipmentTable = ({ user, handleReviewShipmentPlanOpen }) => {
               {units}
             </StyledTableCell>
             <StyledTableCell align="right">
-              <Buttons handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen} />
+              <Buttons handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen} user={user} />
             </StyledTableCell>
           </StyledTableRow>
         </TableBody>

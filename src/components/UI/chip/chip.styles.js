@@ -17,7 +17,6 @@ export const StyledChip = styled(Chip)(() => ({
 export const ChipLabel = styled.h4`
   display: inline;
   color: #4e5969;
-  font-family: Titillium Web;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;

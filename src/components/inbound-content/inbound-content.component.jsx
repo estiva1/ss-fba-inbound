@@ -28,6 +28,7 @@ const InboundContent = ({ content }) => {
   //-----------------
   const [selectedUsername, setSelectedUsername] = useState(null);
   const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
+  //const [selectedUser, setSelectedUser] = useState(null); // Initialize with null or default value
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
@@ -59,14 +60,8 @@ const InboundContent = ({ content }) => {
     setIsCheckInHistoryOpen(false);
   };
   //-----------------
-  // const handleReviewShipmentPlanOpen = () => {
-  //   setIsReviewShipmentPlanOpen(true);
-  // };
-  // const handleReviewShipmentPlanClose = () => {
-  //   setIsReviewShipmentPlanOpen(false);
-  // };
-
-  const handleReviewShipmentPlanOpen = () => {
+  const handleReviewShipmentPlanOpen = (user) => {
+    setSelectedUser(user);
     setIsReviewShipmentPlanOpen(true);
   };
 
@@ -149,7 +144,7 @@ const InboundContent = ({ content }) => {
           {isSwitchOn ? (
             <CompletedPOS />
           ) : (
-            <>
+            <Fragment>
               <CheckInTable
                 data={checkInTableData}
                 userNameFilter={userNameFilter.toLowerCase()}
@@ -159,10 +154,11 @@ const InboundContent = ({ content }) => {
               />
               <CheckIn open={isCheckInOpen} onClose={handleCloseCheckIn} user={selectedUser} />
               <CheckInHistory open={isCheckInHistoryOpen} onClose={handleCloseCheckInHistory} user={selectedUser} />
-            </>
+            </Fragment>
           )}
         </Container>
       );
+
     case 2:
       return (
         <Container>
@@ -184,7 +180,7 @@ const InboundContent = ({ content }) => {
           />
 
           <FullScreenDialog open={isReviewShipmentPlanOpen} onClose={handleReviewShipmentPlanClose}>
-            <ReviewShipmentPlan onClose={handleReviewShipmentPlanClose}/>
+            <ReviewShipmentPlan user={selectedUser} onClose={handleReviewShipmentPlanClose} />
           </FullScreenDialog>
         </Container>
       );

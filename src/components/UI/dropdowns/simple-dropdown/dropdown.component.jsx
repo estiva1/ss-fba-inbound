@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { ListItem, PrimaryText, StyledAutocomplete } from "./dropdown.styles";
 
-const Dropdown = ({ data, placeholder = "Select", setSelectedValue, disabled }) => {
+const Dropdown = ({ data = {}, placeholder = "Select", setSelectedValue, disabled }) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
   const handleValueChange = (event, newValue) => {
     setValue(newValue);
-    //setSelectedValue(newValue);
+    setSelectedValue(newValue);
   };
 
   return (

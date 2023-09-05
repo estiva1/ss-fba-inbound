@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { SliderValueContainer, StyledSlider, Value } from "./slider.styles";
 
-const sliderWidth = 300;
-
 const valueLabelFormat = (value) => {
   const unit = "%";
   let scaledValue = value;
@@ -18,7 +16,7 @@ const calculateBottomValue = (bottomValue) => {
   return bottomValue ** 2;
 };
 
-export const CustomizedSlider = () => {
+export const CustomizedSlider = ({ sliderWidth = 300, sendBottomValue }) => {
   const [value, setValue] = useState(30);
   const [bottomValue, setBottomValue] = useState(calculateBottomValue(value)); // just for example
 
@@ -26,6 +24,7 @@ export const CustomizedSlider = () => {
     if (typeof newValue === "number") {
       setValue(newValue);
       setBottomValue(newValue ** 2); // just for example too
+      sendBottomValue(newValue ** 2);
     }
   };
   return (

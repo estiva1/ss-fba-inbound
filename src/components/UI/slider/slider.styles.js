@@ -23,8 +23,6 @@ export const StyledSlider = mStyled(Slider)({
     },
   },
   "& .MuiSlider-valueLabel": {
-    lineHeight: 1.2,
-    fontSize: 12,
     background: "unset",
     padding: 0,
     width: 34,
@@ -58,7 +56,6 @@ export const SliderValueContainer = styled.div`
 export const Value = styled.h4`
   color: #4e5969;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Titillium Web;
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;

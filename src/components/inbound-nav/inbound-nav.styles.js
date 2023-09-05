@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const InboundTitle = styled.h2`
   color: #4e5969;
-  font-family: Titillium Web;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 1.5rem;
   font-style: normal;
