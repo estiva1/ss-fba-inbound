@@ -89,9 +89,9 @@ const getButton = (buttonType = BUTTON_TYPE_CLASSES.blue) =>
     [BUTTON_TYPE_CLASSES.whiteStretched]: WhiteButtonStretched,
   }[buttonType]);
 
-const Button = ({ buttonType, width = "210px", ...props }) => {
+const Button = ({ buttonType, width = "210px", height = "48px", ...props }) => {
   const CustomButton = getButton(buttonType);
-  return <CustomButton width={width} {...props}></CustomButton>;
+  return <CustomButton width={width} height={height} {...props}></CustomButton>;
 };
 
 export default Button;

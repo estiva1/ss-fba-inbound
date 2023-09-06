@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack } from "@mui/material";
-import ShipmentTable from "../UI/shipment-table/shipment-table.component";
+import ShipmentTable from "../UI/create-shipments-table/shipment-table.component";
 
 import { shipmentTableData } from "../../constants";
 

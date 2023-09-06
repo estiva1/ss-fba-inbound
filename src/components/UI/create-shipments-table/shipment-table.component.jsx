@@ -8,8 +8,8 @@ import TableHead from "@mui/material/TableHead";
 
 import IconButton from "../buttons/icon-button/icon-button.component";
 
-import arrowRightShortIcon from "../../../assets/arrow-right-short-icon.png";
 import pencilSquareIcon from "../../../assets/pencil-square-icon.png";
+import arrowRightShortIcon from "../../../assets/arrow-right-short-icon.png";
 
 import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 
@@ -27,7 +27,7 @@ const ShipmentTable = ({ user, handleReviewShipmentPlanOpen }) => {
 
   return (
     <StyledTableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="shipment table">
+      <Table aria-label="shipment table">
         <TableHead>
           <TableRow>
             <StyledTableCell width="20%">Username</StyledTableCell>
@@ -52,7 +52,7 @@ const ShipmentTable = ({ user, handleReviewShipmentPlanOpen }) => {
 
         <TableBody>
           <StyledTableRow key={username}>
-            <StyledTableCell width="20%" component="th" scope="row">
+            <StyledTableCell width="20%">
               {username}
             </StyledTableCell>
             <StyledTableCell width="20%" align="left">

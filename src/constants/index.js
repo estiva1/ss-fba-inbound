@@ -109,38 +109,56 @@ export const checkInTableData = [
 
 export const checkInItemListOfGoods = [
   {
+    id: "11B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    totalSkus: 10,
     title: "Nestle Raisinets Milk Chocolate",
-    skuData: { sku: "SKU-WM-245668", asin: "SKU-WM-245668" },
+    skuData: { sku: "SKU-WM-243568", asin: "SKU-WM-245668" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
   },
   {
+    id: "21B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    totalSkus: 10,
     title: "Nestle Raisinets Milk Chocolate Powder",
-    skuData: { sku: "SKU-WM-245667", asin: "SKU-WM-245667" },
+    skuData: { sku: "SKU-WM-247357", asin: "SKU-WM-245667" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
   },
   {
+    id: "31B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    totalSkus: 10,
     title: "Nestle Raisinets Milk Chocolate",
     skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
   },
   {
+    id: "41B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    totalSkus: 10,
     title: "Nestle Raisinets Milk Chocolate",
-    skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
+    skuData: { sku: "SKU-WM-243665", asin: "SKU-WM-245665" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
   },
   {
+    id: "51B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    totalSkus: 10,
     title: "Nestle Raisinets Milk Chocolate",
-    skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
+    skuData: { sku: "SKU-WM-245865", asin: "SKU-WM-245665" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
   },
   {
+    id: "61B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    totalSkus: 10,
     title: "Nestle Raisinets Milk Chocolate",
-    skuData: { sku: "SKU-WM-245665", asin: "SKU-WM-245665" },
+    skuData: { sku: "SKU-WM-245415", asin: "SKU-WM-245665" },
     itemStatus: "Non Gated",
     quantityData: { order: 20, invoice: 30, working: 2, received: 8, remaining: 8, shipped: 5 },
   },
@@ -173,4 +191,4 @@ export const trackingInfoData = [
   },
 ];
 
-export const dropdownTestOptions = ["Option 1", "Option 2", "Option 3"];
+export const dropdownTestOptions = ["Option 1", "Option 2", "Option 3", "Option 4"];

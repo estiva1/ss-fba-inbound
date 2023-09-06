@@ -1,3 +1,4 @@
+import { FormGroup } from "@mui/material";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -74,4 +75,33 @@ export const ShipmentPlanError = styled.span`
   height: 176px;
   background-image: ${() =>
     `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='176' height='176' fill='none'%3e%3cg fill='%23CF0909' clip-path='url(%23a)'%3e%3cpath fill-opacity='.05' stroke='%23CF0909' stroke-width='3' d='M174.5 53.68v68.64c0 .96-.39 1.9-1.07 2.58l-48.53 48.53a3.66 3.66 0 0 1-2.59 1.07H53.69c-.96 0-1.9-.39-2.58-1.07L2.57 124.9a3.66 3.66 0 0 1-1.07-2.59V53.69c0-.96.39-1.9 1.07-2.58L51.1 2.57a3.66 3.66 0 0 1 2.58-1.07h68.64c.97 0 1.9.39 2.58 1.07l48.53 48.53a3.65 3.65 0 0 1 1.07 2.58Z'/%3e%3cpath d='M81.53 36.44h11.94c3 0 5.37 2.55 5.14 5.54l-3.4 58.44a5.16 5.16 0 0 1-5.13 4.77h-4.16a5.16 5.16 0 0 1-5.14-4.77l-4.4-58.44a5.16 5.16 0 0 1 5.15-5.54Zm-3.83 92.79v.04a10.3 10.3 0 1 0 20.6 0v-.04a10.3 10.3 0 1 0-20.6 0Z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='%23fff' d='M0 0h176v176H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`};
+`;
+
+export const StyledFormGroup = styled(FormGroup)`
+  border: 1px solid #0057d3 !important;
+  border-radius: 4px;
+  width: max-content;
+  padding: 0px 16px 0px 7px; // 7px - 16px minus padding of checkbox (9px)
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .MuiTypography-root {
+    color: #0057d3;
+    font-family: Titillium Web;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0.01625rem;
+    margin: 0;
+  }
+
+  .MuiFormControlLabel-root {
+    margin: 0;
+  }
 `;
