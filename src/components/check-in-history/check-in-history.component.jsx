@@ -38,7 +38,7 @@ const CheckInHistory = ({ open, onClose, user }) => {
           <CheckInContainer>
             <Stack direction="row" spacing="12px">
               <IconButton src={arrowRightShortIcon} alt="Back" onClick={onClose} rotated enlarged />
-              <Heading>Check In</Heading>
+              <Heading>Check In History</Heading>
             </Stack>
             <POInfoTable poData={user} />
             <TrackingInfoTable trackingData={trackingInfoData} />

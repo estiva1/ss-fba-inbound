@@ -28,7 +28,7 @@ const InboundContent = ({ content }) => {
   //-----------------
   const [selectedUsername, setSelectedUsername] = useState(null);
   const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
-  //const [selectedUser, setSelectedUser] = useState(null); // Initialize with null or default value
+  //const [selectedUser, setSelectedUser] = useState(null);
 
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);

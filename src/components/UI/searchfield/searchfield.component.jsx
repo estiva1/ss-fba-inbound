@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { StyledInput, StyledPaper } from "./searchfield.styles";
 
-const CustomizedSearchField = ({ placeholder, ariaLabel, value, onChange, disabled }) => {
+const CustomizedSearchField = ({ placeholder = "Search...", ariaLabel, value, onChange, disabled }) => {
   return (
     <StyledPaper component="form">
       <StyledInput

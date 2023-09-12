@@ -191,4 +191,117 @@ export const trackingInfoData = [
   },
 ];
 
+export const selectPosData = [
+  {
+    id: 1,
+    poNumber: "PO1234",
+    vendor: "American Craft: 22 H, Zadmerg St, LA ",
+    orderId: "FC16B9S1KSY",
+    poData: [
+      {
+        id: 1,
+        item: "Bubba 24 OZ Envyyyyyyyyyyyyyyyyyyyyyyyyy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY-j77",
+        quantity: "12",
+      },
+      {
+        id: 2,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S",
+        quantity: "12",
+      },
+    ],
+  },
+  {
+    id: 2,
+    poNumber: "PO1234",
+    vendor: "American Craft: 22 H, Zadmerg St, LA ",
+    orderId: "FC16B9S1KSY",
+    poData: [
+      {
+        id: 1,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+      {
+        id: 2,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+    ],
+  },
+  {
+    id: 3,
+    poNumber: "PO1234",
+    vendor: "American Craft: 22 H, Zadmerg St, LA ",
+    orderId: "FC16B9S1KSY",
+    poData: [
+      {
+        id: 1,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+      {
+        id: 2,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+    ],
+  },
+  {
+    id: 4,
+    poNumber: "PO1234",
+    vendor: "American Craft: 22 H, Zadmerg St, LA ",
+    orderId: "FC16B9S1KSY",
+    poData: [
+      {
+        id: 1,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+      {
+        id: 2,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+    ],
+  },
+  {
+    id: 5,
+    poNumber: "PO1234",
+    vendor: "American Craft: 22 H, Zadmerg St, LA ",
+    orderId: "FC16B9S1KSY",
+    poData: [
+      {
+        id: 1,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+      {
+        id: 2,
+        item: "Bubba 24 OZ Envy",
+        asin: "1B07NNTER970",
+        sku: "FC16B9S1KSY",
+        quantity: "12",
+      },
+    ],
+  },
+];
+
 export const dropdownTestOptions = ["Option 1", "Option 2", "Option 3", "Option 4"];

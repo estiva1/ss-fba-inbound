@@ -87,7 +87,7 @@ const CheckIn = ({ open, onClose, user }) => {
                 />
               </div>
               <div style={{ flex: 1 }}>
-                <Dropdown data={dropdownTestOptions} placeholder="Zebra Labels" />
+                <Dropdown data={dropdownTestOptions} placeholder="Zebra Labels" disabled/>
               </div>
             </Stack>
 

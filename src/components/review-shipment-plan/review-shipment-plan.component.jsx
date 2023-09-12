@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Box, Checkbox, FormControlLabel, FormGroup, Grid, Stack } from "@mui/material";
+import { Box, Checkbox, FormControlLabel, Grid, Stack } from "@mui/material";
 import IconButton from "../UI/buttons/icon-button/icon-button.component";
 import {
   Container,
@@ -22,11 +22,12 @@ import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button
 import toDoList from "../../assets/to-do-list.svg";
 import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
 import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
-import { checkInItemListOfGoods, dropdownTestOptions } from "../../constants";
+import { checkInItemListOfGoods, dropdownTestOptions, selectPosData } from "../../constants";
 import ReviewShippingPlansTable from "../UI/review-shipping-plans-table/review-shipping-plans-table.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
 import ReviewAmazonShipmentsItem from "../UI/review-amazon-shipments-item/review-amazon-shipments-item.component";
 import { AnimatePresence, motion } from "framer-motion";
+import SelectPosToCreatePlan from "../select-pos-to-create-plan/select-pos-to-create-plan.component";
 
 const ReviewShipmentPlan = ({ user, onClose }) => {
   const { username, companyName, email } = user || {};
@@ -35,6 +36,8 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
   const [reviewShipmentPlanState, setReviewShipmentPlanState] = useState("Option 1");
   const [isCheckedAll, setIsCheckedAll] = useState(false);
   const [isCheckedList, setIsCheckedList] = useState(checkInItemListOfGoods.map(() => false));
+  const [isSelectPosToCreatePlanOpen, setIsSelectPosToCreatePlanOpen] = useState(false);
+
   const isIndeterminate = isCheckedList.some((isChecked) => isChecked) && !isCheckedAll;
 
   const handleCalculatedValue = (value) => {
@@ -43,6 +46,12 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
 
   const handleClick = () => {
     alert("Clicked");
+  };
+  const handleSelectPosToCreatePlanClose = () => {
+    setIsSelectPosToCreatePlanOpen(false);
+  };
+  const handleSelectPosToCreatePlanOpen = () => {
+    setIsSelectPosToCreatePlanOpen(true);
   };
   const handleCheckAll = () => {
     const updatedIsCheckedAll = !isCheckedAll;
@@ -111,8 +120,8 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
                 </Stack>
 
                 <Stack direction="row" spacing="12px">
-                  <PrimaryText style={{ display: "inline-flex", whiteSpace: "pre-wrap" }}>
-                    Selected POs: <PrimaryTextHighlighted>4 </PrimaryTextHighlighted>
+                  <PrimaryText style={{ display: "inline-flex" }}>
+                    Selected POs:&nbsp;<PrimaryTextHighlighted>4&nbsp;</PrimaryTextHighlighted>
                     <IconButton src={toDoList} alt="List" onClick={handleClick} />
                   </PrimaryText>
 
@@ -171,11 +180,22 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
               <CustomizedSlider sliderWidth={450} sendBottomValue={handleCalculatedValue} />
 
               <div style={{ alignSelf: "self-end" }}>
-                <Button type="button" buttonType={BUTTON_TYPE_CLASSES.whiteStretched} width="max-content">
+                <Button
+                  type="button"
+                  buttonType={BUTTON_TYPE_CLASSES.whiteStretched}
+                  width="max-content"
+                  onClick={handleSelectPosToCreatePlanOpen}
+                >
                   Create Shipment Plan
                   <Ripple color="#1565D8" />
                 </Button>
               </div>
+
+              <SelectPosToCreatePlan
+                open={isSelectPosToCreatePlanOpen}
+                onClose={handleSelectPosToCreatePlanClose}
+                data={selectPosData}
+              />
             </Item>
           </Grid>
 

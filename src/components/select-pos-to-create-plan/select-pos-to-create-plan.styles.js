@@ -8,14 +8,15 @@ export const ModalContent = styled(Box)`
   transform: translate(-50%, -50%); */
   inset: 0;
   margin: auto;
-  background-color: #fff;
   min-width: 300px;
   min-height: 300px;
   width: max-content;
   height: max-content;
-  max-height: 96vh;
-  padding: 24px;
   overflow-y: scroll;
+  max-height: 96vh;
+  background-color: #fff;
+  padding: 24px;
+
 
   &::-webkit-scrollbar {
     width: 0.4em;
@@ -35,7 +36,7 @@ export const ModalContent = styled(Box)`
 `;
 
 export const CheckInContainer = styled.div`
-  width: 1060px;
+  width: 850px;
   display: flex;
   flex-direction: column;
   align-items: center;

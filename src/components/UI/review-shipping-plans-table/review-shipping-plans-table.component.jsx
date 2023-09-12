@@ -48,7 +48,7 @@ const ReviewShippingPlansTable = ({ data }) => {
               <StyledTableCell width={100} align="left">
                 <Stack direction="row" spacing="10px">
                   <ItemImage src={testImage} style={{ width: "36px", height: "36px" }} loading="lazy" />
-                  <Stack direction="column" spacing="7px" sx={{ width: "22vh" }}>
+                  <Stack direction="column" spacing="7px" width="140px">
                     <Tooltip title={item.title} placement="top">
                       <PrimaryTextHighlighted noWrap>{item.title}</PrimaryTextHighlighted>
                     </Tooltip>

@@ -3,7 +3,6 @@ import {
   BlueButton,
   BlueButtonSmall,
   BlueButtonStretched,
-  InvertedButton,
   RippleContainer,
   WhiteButton,
   WhiteButtonCondenced,

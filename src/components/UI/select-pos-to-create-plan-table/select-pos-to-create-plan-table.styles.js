@@ -2,10 +2,27 @@ import styled from "styled-components";
 import { styled as mStyled } from "@mui/material/styles";
 import { TableCell, TableContainer, TableRow, Typography, tableCellClasses } from "@mui/material";
 
-export const StyledTableContainer = mStyled(TableContainer)(() => ({
-  borderRadius: "4px",
-  boxShadow: "none",
-}));
+  export const StyledTableContainer = mStyled(TableContainer)(() => ({
+    borderRadius: "4px",
+    boxShadow: "none",
+    maxHeight: "500px",
+
+    "&::-webkit-scrollbar": {
+      width:" 0.4em",
+    },
+    "&::-webkit-scrollbar-track": {
+      backgroundColor: "transparent",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundCcolor: "transparent",
+     " &:hover": {
+        backgroundColor: "hsl(0, 0%, 81.2%)",
+      }
+    },
+    "&:hover::-webkit-scrollbar-thumb": {
+      backgroundColor: "hsl(0, 0%, 81.2%)",
+    }
+  }));
 
 export const StyledTableCell = mStyled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -25,7 +42,7 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     position: "relative",
     borderColor: "#EEF1F5",
     fontFamily: "Titillium Web",
-    padding: "14px 16px",
+    padding: "12px 16px",
   },
 }));
 

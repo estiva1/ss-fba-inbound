@@ -8,9 +8,12 @@ export const ModalContent = styled(Box)`
   transform: translate(-50%, -50%); */
   inset: 0;
   margin: auto;
+  background-color: #fff;
+  min-width: 300px;
+  min-height: 300px;
   width: max-content;
   height: max-content;
-  background-color: #fff;
+  max-height: 96vh;
   padding: 24px;
 `;
 
