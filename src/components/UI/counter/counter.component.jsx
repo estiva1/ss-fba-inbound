@@ -8,9 +8,11 @@ import { StyledButton, StyledInput } from "./counter.styles";
 
 const Counter = ({ counterValue = 0 }) => {
   const [count, setCount] = useState(counterValue);
+  
   const handleChange = (event) => {
     setCount(Math.max(Number(event.target.value), 0));
   };
+
   return (
     <Stack direction="row" spacing="8px" alignItems="center">
       <StyledButton onClick={() => setCount((prev) => prev - 1)} disabled={count === 0}>

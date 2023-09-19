@@ -31,7 +31,7 @@ export const CustomizedSlider = ({ sliderWidth = 300, sendBottomValue }) => {
     <Box sx={{ position: "relative", width: sliderWidth }}>
       <StyledSlider
         value={value}
-        // defaultValue={value}
+        //defaultValue={value}
         min={0}
         max={100}
         step={1}

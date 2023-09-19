@@ -29,7 +29,7 @@ export const BlueButton = styled.button`
   position: relative;
   overflow: hidden;
   width: ${(props) => props.width};
-  min-width: ${(props) => props.width};
+  //min-width: ${(props) => props.width};
   height: ${(props) => props.height};
   padding: 8px 24px;
   border: 1px solid #0057d3;
@@ -73,7 +73,6 @@ export const BlueButtonSmall = styled(BlueButton)`
 `;
 
 export const BlueButtonStretched = styled(BlueButton)`
-  //height: auto;
   padding: 6px 24px;
   font-size: 0.8125rem;
   letter-spacing: 0.01625rem;

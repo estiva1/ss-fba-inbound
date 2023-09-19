@@ -18,7 +18,6 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     fontWeight: 600,
     lineHeight: "1rem",
     letterSpacing: "0.03125rem",
-    //height: "32px",
     padding: "16px 16px 0px 16px",
   },
   [`&.${tableCellClasses.body}`]: {
@@ -35,7 +34,6 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
 export const StyledTableRow = mStyled(TableRow)(() => ({
   backgroundColor: "#fff",
 
-  // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
   },

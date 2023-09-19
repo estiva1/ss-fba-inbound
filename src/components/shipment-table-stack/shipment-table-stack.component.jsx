@@ -4,7 +4,7 @@ import ShipmentTable from "../UI/create-shipments-table/shipment-table.component
 
 import { shipmentTableData } from "../../constants";
 
-const ShipmentTableStack = ({ selectedUsername, handleReviewShipmentPlanEdit, handleReviewShipmentPlanOpen }) => {
+const ShipmentTableStack = ({ selectedUsername, handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen }) => {
   const filteredData = selectedUsername
     ? shipmentTableData.filter((user) => user.username === selectedUsername)
     : shipmentTableData;
@@ -15,7 +15,7 @@ const ShipmentTableStack = ({ selectedUsername, handleReviewShipmentPlanEdit, ha
         <ShipmentTable
           key={`table-${index}`}
           user={user}
-          handleReviewShipmentPlanEdit={handleReviewShipmentPlanEdit}
+          handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
           handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
         />
       ))}

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
+import { Checkbox } from "@mui/material";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 
 import { StyledTableCell, StyledTableContainer, StyledTableRow } from "./review-amazon-shipments-item.styles";
-import { Checkbox } from "@mui/material";
 
 const ReviewAmazonShipmentsItem = ({ item, isChecked, onCheckboxChange }) => {
   const { id, fcId, totalSkus, quantityData } = item || {};
@@ -17,8 +16,8 @@ const ReviewAmazonShipmentsItem = ({ item, isChecked, onCheckboxChange }) => {
   };
 
   return (
-    <StyledTableContainer component={Paper}>
-      <Table aria-label="review amazon shipments item table">
+    <StyledTableContainer>
+      <Table aria-label="review amazon shipments item">
         <TableHead>
           <TableRow>
             <StyledTableCell sx={{ maxWidth: "20px" }} width="4%" align="left">

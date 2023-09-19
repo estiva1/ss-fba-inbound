@@ -27,25 +27,34 @@ export const topCardsContent = [
 
 export const shipmentTableData = [
   {
+    id: 1,
     username: "John Doe",
     email: "johndoe@gmail.com",
     companyName: "Sales",
+    poNumber: "X2V7N4A6R8B5G1",
+    trackingPoNumbers: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
     totalPOS: 15,
     sku: 15,
     units: 150,
   },
   {
+    id: 2,
     username: "Sarah Connor",
     email: "sarahconnor@gmail.com",
-    companyName: "Sales",
+    companyName: "Buys",
+    poNumber: "JG9H6T5K3PQD1Z8",
+    trackingPoNumbers: "K9Y6X8Z3T4W7B5, P2G7A4Q6D8H5N1, L3F4J6S2V9M0",
     totalPOS: 20,
     sku: 20,
     units: 200,
   },
   {
+    id: 3,
     username: "Master Chief",
     email: "master_chief@gmail.com",
     companyName: "Sales",
+    poNumber: "L3F4J6S2V9M0",
+    trackingPoNumbers: "R1D7N8Q5W4T3G2, E6F5J9H4S3V2Y7, K0X8Z1P2M6B5G7",
     totalPOS: 10,
     sku: 10,
     units: 100,
@@ -64,7 +73,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "04:33:41" },
     lastCheckedInData: { date: "24 Dec, 2022", time: "05:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     poNumber: "ZL5J6M",
@@ -77,7 +86,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     poNumber: "ZL1S6M",
@@ -90,7 +99,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     poNumber: "ZL1S6M",
@@ -103,7 +112,7 @@ export const checkInTableData = [
     createdDate: { date: "23 Dec, 2022", time: "02:36:06" },
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
     expectedDeliveryDate: "13 Oct 2021",
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
 ];
 
@@ -167,27 +176,27 @@ export const checkInItemListOfGoods = [
 export const trackingInfoData = [
   {
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
   {
     lastCheckedInData: { date: "23 Dec, 2022", time: "02:36:06" },
-    trackingProNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
+    trackingPoNumber: "HF4854Y475TW73, HF4854Y475TW73, HF4854Y475TW73",
   },
 ];
 

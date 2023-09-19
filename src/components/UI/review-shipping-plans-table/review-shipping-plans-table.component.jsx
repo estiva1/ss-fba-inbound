@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
@@ -29,8 +28,8 @@ const ReviewShippingPlansTable = ({ data }) => {
   };
 
   return (
-    <StyledTableContainer component={Paper}>
-      <Table aria-label="shipment table">
+    <StyledTableContainer>
+      <Table aria-label="review shipping plans table">
         <TableHead>
           <TableRow>
             <StyledTableCell align="left">Product</StyledTableCell>

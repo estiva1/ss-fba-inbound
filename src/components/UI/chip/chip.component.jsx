@@ -1,6 +1,6 @@
 import React from "react";
-import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 import { ChipLabel, ChipValue, StyledChip } from "./chip.styles";
+import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 
 const ChipText = ({ value, filterType }) => {
   const labelText = filterType === "userName" ? "Filtered by user:" : "Filtered by vendor:";
@@ -18,8 +18,8 @@ const DeletableChip = ({ value, filterType, onDelete, clearInput }) => {
   };
 
   const handleDelete = () => {
-    onDelete(); // Call the provided onDelete function to remove the chip
-    clearInput(); // Call the provided clearInput function to clear the input
+    onDelete(); 
+    clearInput();
   };
 
   return (

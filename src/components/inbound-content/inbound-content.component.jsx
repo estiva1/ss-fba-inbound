@@ -18,6 +18,8 @@ import ReviewShipmentPlan from "../review-shipment-plan/review-shipment-plan.com
 
 import { checkInTableData, shipmentTableData } from "../../constants";
 import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
+import PrintTwoDLabelsNavTabs from "../UI/nav-tabs/print-2d-labels-nav-tabs/print-2d-labels-nav-tabs.component";
+import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
 
 const InboundContent = ({ content }) => {
   //-----------------case 1------------------------
@@ -192,7 +194,7 @@ const InboundContent = ({ content }) => {
           <Fragment>
             <ShipmentTableStack
               selectedUsername={selectedUsername}
-              handleReviewShipmentPlanEdit={handleEditCheckedInPosOpen}
+              handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
               handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
             />
             <FullScreenDialog open={isReviewShipmentPlanOpen} onClose={handleReviewShipmentPlanClose}>
@@ -204,7 +206,25 @@ const InboundContent = ({ content }) => {
         </Container>
       );
     case 3:
-      return <div>3</div>;
+      return (
+        <Container>
+          <Stack>
+            <Stack direction="row" gap="24px" alignItems="center">
+              <Button
+                style={{ marginTop: "4px" }}
+                type="button"
+                width="78px"
+                height="56px"
+                buttonType={BUTTON_TYPE_CLASSES.whiteCondenced}
+              >
+                Add to Storage
+                <Ripple color="#1565D8" />
+              </Button>
+              <PrintTwoDLabelsNavTabs />
+            </Stack>
+          </Stack>
+        </Container>
+      );
     default:
       return null;
   }

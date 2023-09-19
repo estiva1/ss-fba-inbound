@@ -18,13 +18,13 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     fontWeight: 600,
     lineHeight: "1rem",
     letterSpacing: "0.03125rem",
-    padding: "10px 24px 6px 24px",
+    padding: "16px 16px 2px 16px",
     border: 0,
   },
   [`&.${tableCellClasses.body}`]: {
     position: "relative",
     fontFamily: "Titillium Web",
-    padding: "0px 24px 10px 24px",
+    padding: "0px 16px 16px 16px",
   },
 }));
 
@@ -38,15 +38,6 @@ export const StyledTableRow = mStyled(TableRow)(() => ({
   },
 }));
 
-export const HighlightedText = styled.h3`
-  color: #1565d8;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1rem;
-  margin: 0;
-`;
-
 export const PrimaryText = styled.h3`
   color: #4e5969;
   font-feature-settings: "clig" off, "liga" off;
@@ -54,25 +45,5 @@ export const PrimaryText = styled.h3`
   font-style: normal;
   font-weight: 400;
   line-height: 1.125rem;
-  margin: 0;
-`;
-
-export const SecondaryText = styled.h4`
-  color: #979797;
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 0.75rem;
-  margin: 0;
-`;
-
-export const SpanText = styled.h5`
-  color: #78909c;
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 0.625rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 0.75rem;
   margin: 0;
 `;

@@ -10,7 +10,7 @@ const Stepper = () => {
     <Container>
       <Step>
         <CheckCircleIcon color="success" sx={{ fontSize: 18 }} />
-        <StepLabel>Add Tracking/Pro #</StepLabel>
+        <StepLabel>Add Tracking/Po #</StepLabel>
       </Step>
       <StepConnector />
       <Step>

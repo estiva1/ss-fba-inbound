@@ -15,9 +15,10 @@ import {
 
 const CheckInItem = ({ user }) => {
   const { orderId, fulfillment, poNumber, userData, vendorData, quantityData, createdDate } = user || {};
+
   return (
-    <StyledTableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="shipment table">
+    <StyledTableContainer>
+      <Table sx={{ minWidth: 700 }} aria-label="check in item">
         <TableHead>
           <TableRow>
             <StyledTableCell>PO #</StyledTableCell>

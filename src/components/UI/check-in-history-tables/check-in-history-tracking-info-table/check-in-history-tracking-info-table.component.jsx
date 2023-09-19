@@ -10,13 +10,13 @@ import {
 } from "./check-in-history-tracking-info-table.styles";
 
 const TrackingInfoTable = ({ trackingData }) => {
-  const trackingItems = trackingData.map(({ lastCheckedInData, trackingProNumber }) => {
+  const trackingItems = trackingData.map(({ lastCheckedInData, trackingPoNumber }) => {
     const { date, time } = lastCheckedInData;
-    
+
     return {
       date,
       time,
-      trackingProNumber,
+      trackingPoNumber,
     };
   });
 
@@ -28,12 +28,12 @@ const TrackingInfoTable = ({ trackingData }) => {
             <StyledTableCell width="35%" align="left">
               Check In At
             </StyledTableCell>
-            <StyledTableCell align="left">Tracking/Pro Number</StyledTableCell>
+            <StyledTableCell align="left">Tracking/Po Number</StyledTableCell>
           </TableRow>
         </TableHead>
 
         <TableBody>
-          {trackingItems.map(({ date, time, trackingProNumber }) => (
+          {trackingItems.map(({ date, time, trackingPoNumber }) => (
             <StyledTableRow>
               <StyledTableCell width="35%" align="left">
                 <PrimaryText>
@@ -41,7 +41,7 @@ const TrackingInfoTable = ({ trackingData }) => {
                 </PrimaryText>
               </StyledTableCell>
               <StyledTableCell align="left">
-                <PrimaryText>{trackingProNumber}</PrimaryText>
+                <PrimaryText>{trackingPoNumber}</PrimaryText>
               </StyledTableCell>
             </StyledTableRow>
           ))}

@@ -7,7 +7,7 @@ import Backdrop from "@mui/material/Backdrop";
 import IconButton from "@mui/material/IconButton";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import CheckInPopup from "../UI/popup/popup.component";
+import CheckInPopup from "../UI/popups/check-in-with-order-quantity-popup/check-in-with-order-quantity-popup.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
 import StyledStepper from "../UI/stepper/stepper.component";
 import CheckInItem from "../UI/check-in-tables/check-in-item/check-in-item.component";

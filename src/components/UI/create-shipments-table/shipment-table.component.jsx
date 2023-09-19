@@ -11,10 +11,10 @@ import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceR
 
 import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 
-const Buttons = ({ handleReviewShipmentPlanEdit, handleReviewShipmentPlanOpen, user }) => {
+const Buttons = ({ handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen, user }) => {
   return (
     <ButtonsContainer>
-      <IconButton aria-label="Edit" onClick={() => handleReviewShipmentPlanEdit(user)}>
+      <IconButton aria-label="Edit" onClick={() => handleEditCheckedInPosOpen(user)}>
         <EditNoteIcon sx={{ color: "#1565D8" }} />
       </IconButton>
       <IconButton aria-label="Open" onClick={() => handleReviewShipmentPlanOpen(user)}>
@@ -24,8 +24,8 @@ const Buttons = ({ handleReviewShipmentPlanEdit, handleReviewShipmentPlanOpen, u
   );
 };
 
-const ShipmentTable = ({ user, handleReviewShipmentPlanEdit, handleReviewShipmentPlanOpen }) => {
-  const { username, email, companyName, totalPOS, sku, units } = user || {};
+const ShipmentTable = ({ user, handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen }) => {
+  const { id, username, email, companyName, totalPOS, sku, units } = user || {};
 
   return (
     <StyledTableContainer component={Paper}>
@@ -53,7 +53,7 @@ const ShipmentTable = ({ user, handleReviewShipmentPlanEdit, handleReviewShipmen
         </TableHead>
 
         <TableBody>
-          <StyledTableRow key={username}>
+          <StyledTableRow key={id}>
             <StyledTableCell width="20%">{username}</StyledTableCell>
             <StyledTableCell width="20%" align="left">
               {email}
@@ -72,9 +72,9 @@ const ShipmentTable = ({ user, handleReviewShipmentPlanEdit, handleReviewShipmen
             </StyledTableCell>
             <StyledTableCell align="right">
               <Buttons
-                handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
-                handleReviewShipmentPlanEdit={handleReviewShipmentPlanEdit}
                 user={user}
+                handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
+                handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
               />
             </StyledTableCell>
           </StyledTableRow>

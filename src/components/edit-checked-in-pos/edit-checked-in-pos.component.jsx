@@ -9,9 +9,10 @@ import POInfoTable from "../UI/check-in-history-tables/check-in-history-po-info-
 import TrackingInfoTable from "../UI/check-in-history-tables/check-in-history-tracking-info-table/check-in-history-tracking-info-table.component";
 
 import { trackingInfoData } from "../../constants";
-import { EditCheckInPosContainer, Heading, ModalContent } from "./edit-checked-in-pos.styles";
+import { EditCheckInPosContainer, Heading, LinkText, ModalContent } from "./edit-checked-in-pos.styles";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import EditCheckedInPosUserTable from "../UI/edit-checked-in-pos-tables/edit-checked-in-pos-user-table/edit-checked-in-pos-user-table.component";
+import EditCheckedInPosPoTable from "../UI/edit-checked-in-pos-tables/edit-checked-in-pos-po-table/edit-checked-in-pos-po-table.component";
 
 const EditCheckedInPos = ({ open, onClose, user }) => {
   return (
@@ -48,7 +49,14 @@ const EditCheckedInPos = ({ open, onClose, user }) => {
                 <CustomizedSearchField placeholder="Search by PO Number" />
               </div>
             </Stack>
-            <EditCheckedInPosUserTable user={user}/>
+            <EditCheckedInPosUserTable user={user} />
+            <Stack direction="column" spacing="16px">
+              <Stack direction="row" alignItems="center" justifyContent="space-between">
+                <LinkText>Heading Here</LinkText>
+                <LinkText>Deleted Check In Records</LinkText>
+              </Stack>
+              <EditCheckedInPosPoTable po={user} />
+            </Stack>
           </EditCheckInPosContainer>
         </ModalContent>
       </Fade>

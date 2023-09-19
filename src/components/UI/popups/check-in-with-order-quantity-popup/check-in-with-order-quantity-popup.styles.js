@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { styled as mStyled } from "@mui/material/styles";
+
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 
@@ -15,17 +15,17 @@ export const StyledDialogTitle = styled(DialogTitle)`
   margin: 0 !important;
 `;
 
-export const StyledDialog = mStyled(Dialog)(() => ({
-  "& .MuiPaper-root": {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "20px",
-    padding: "32px",
-    width: "420px",
-    height: "fit-content",
-  },
-}));
+export const StyledDialog = styled(Dialog)`
+  .MuiPaper-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 32px;
+    width: 420px;
+    height: fit-content;
+  }
+`;
 
 export const AlertSign = styled.span`
   min-width: 80px;

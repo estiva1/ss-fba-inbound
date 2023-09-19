@@ -45,7 +45,7 @@ export const StyledTableRow = mStyled(TableRow)(() => ({
 export const ButtonsContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 19px;
+  gap: 10px;
   align-items: center;
   justify-content: flex-end;
 `;
