@@ -4,32 +4,36 @@ import Stack from "@mui/material/Stack";
 
 import Switch from "../UI/switch/switch.component";
 import DeletableChip from "../UI/chip/chip.component";
-import CheckInTable from "../UI/check-in-table/check-in-table.component";
+import FullScreenDialog from "../UI/dialog/dialog.component";
+import CheckInTable from "../UI/check-in-main-table/check-in-table.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import CustomDropdown from "../UI/dropdowns/custom-dropdown/custom-dropdown.component";
 
 import CheckIn from "../check-in/check-in.component";
 import CompletedPOS from "../completed-pos/completed-pos.component";
-import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
 import CheckInHistory from "../check-in-history/check-in-history.component";
+import EditCheckedInPos from "../edit-checked-in-pos/edit-checked-in-pos.component";
+import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
+import ReviewShipmentPlan from "../review-shipment-plan/review-shipment-plan.component";
 
 import { checkInTableData, shipmentTableData } from "../../constants";
 import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
-import FullScreenDialog from "../UI/dialog/dialog.component";
-import ReviewShipmentPlan from "../review-shipment-plan/review-shipment-plan.component";
 
 const InboundContent = ({ content }) => {
-  const [userNameFilter, setUserNameFilter] = useState("");
-  const [vendorFilter, setVendorFilter] = useState("");
+  //-----------------case 1------------------------
   const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const [vendorFilter, setVendorFilter] = useState("");
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [userNameFilter, setUserNameFilter] = useState("");
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckInHistoryOpen, setIsCheckInHistoryOpen] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
-  //-----------------
+
+  //-----------------case 2------------------------
+  const [isEditCheckedInPosOpen, setIsEditCheckedInPosOpen] = useState(false);
   const [selectedUsername, setSelectedUsername] = useState(null);
   const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
-  //const [selectedUser, setSelectedUser] = useState(null);
 
+  //-----------------case 1------------------------
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
 
@@ -42,31 +46,42 @@ const InboundContent = ({ content }) => {
   const handleVendorInputClear = () => {
     setVendorFilter("");
   };
+
   const handleSwitchChange = () => {
     setIsSwitchOn(!isSwitchOn);
   };
+
   const handleOpenCheckIn = (user) => {
-    setIsCheckInOpen(true);
     setSelectedUser(user);
+    setIsCheckInOpen(true);
   };
   const handleCloseCheckIn = () => {
     setIsCheckInOpen(false);
   };
-  const handleOpenCheckInHistory = (user) => {
-    setIsCheckInHistoryOpen(true);
+
+  const handleCheckInHistoryOpen = (user) => {
     setSelectedUser(user);
+    setIsCheckInHistoryOpen(true);
   };
-  const handleCloseCheckInHistory = () => {
+  const handleCheckInHistoryClose = () => {
     setIsCheckInHistoryOpen(false);
   };
-  //-----------------
+
+  //-----------------case 2------------------------
   const handleReviewShipmentPlanOpen = (user) => {
     setSelectedUser(user);
     setIsReviewShipmentPlanOpen(true);
   };
-
   const handleReviewShipmentPlanClose = () => {
     setIsReviewShipmentPlanOpen(false);
+  };
+
+  const handleEditCheckedInPosOpen = (user) => {
+    setSelectedUser(user);
+    setIsEditCheckedInPosOpen(true);
+  };
+  const handleEditCheckedInPosClose = () => {
+    setIsEditCheckedInPosOpen(false);
   };
 
   const completedPOS = 30;
@@ -150,10 +165,10 @@ const InboundContent = ({ content }) => {
                 userNameFilter={userNameFilter.toLowerCase()}
                 vendorFilter={vendorFilter.toLowerCase()}
                 onOpenCheckIn={handleOpenCheckIn}
-                onOpenCheckInHistory={handleOpenCheckInHistory}
+                onOpenCheckInHistory={handleCheckInHistoryOpen}
               />
               <CheckIn open={isCheckInOpen} onClose={handleCloseCheckIn} user={selectedUser} />
-              <CheckInHistory open={isCheckInHistoryOpen} onClose={handleCloseCheckInHistory} user={selectedUser} />
+              <CheckInHistory open={isCheckInHistoryOpen} onClose={handleCheckInHistoryClose} user={selectedUser} />
             </Fragment>
           )}
         </Container>
@@ -174,14 +189,18 @@ const InboundContent = ({ content }) => {
               <CustomDropdown data={shipmentTableData} placeholder="User" setSelectedUsername={setSelectedUsername} />
             </div>
           </Stack>
-          <ShipmentTableStack
-            selectedUsername={selectedUsername}
-            handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
-          />
+          <Fragment>
+            <ShipmentTableStack
+              selectedUsername={selectedUsername}
+              handleReviewShipmentPlanEdit={handleEditCheckedInPosOpen}
+              handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
+            />
+            <FullScreenDialog open={isReviewShipmentPlanOpen} onClose={handleReviewShipmentPlanClose}>
+              <ReviewShipmentPlan user={selectedUser} onClose={handleReviewShipmentPlanClose} />
+            </FullScreenDialog>
 
-          <FullScreenDialog open={isReviewShipmentPlanOpen} onClose={handleReviewShipmentPlanClose}>
-            <ReviewShipmentPlan user={selectedUser} onClose={handleReviewShipmentPlanClose} />
-          </FullScreenDialog>
+            <EditCheckedInPos open={isEditCheckedInPosOpen} onClose={handleEditCheckedInPosClose} user={selectedUser} />
+          </Fragment>
         </Container>
       );
     case 3:

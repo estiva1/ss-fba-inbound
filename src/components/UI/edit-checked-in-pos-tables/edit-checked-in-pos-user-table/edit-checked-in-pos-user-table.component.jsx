@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Stack, Table, TableBody, TableHead, TableRow } from "@mui/material";
 
-import Thumbnail from "../thumbnail/thumbnail.component";
+import Thumbnail from "../../thumbnail/thumbnail.component";
 
 import {
   HighlightedText,
@@ -11,16 +11,16 @@ import {
   StyledTableCell,
   StyledTableContainer,
   StyledTableRow,
-} from "./check-in-item.styles";
+} from "./edit-checked-in-pos-user-table.styles";
 
-const CheckInItem = ({ user }) => {
-  const { orderId, fulfillment, poNumber, userData, vendorData, quantityData, createdDate } = user || {};
+const EditCheckedInPosUserTable = ({ user }) => {
+  const { username, companyName, email } = user || {};
+
   return (
     <StyledTableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="shipment table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>PO #</StyledTableCell>
             <StyledTableCell align="left">Username</StyledTableCell>
             <StyledTableCell align="left">Vendor</StyledTableCell>
             <StyledTableCell align="left">Quantity</StyledTableCell>
@@ -29,24 +29,12 @@ const CheckInItem = ({ user }) => {
         </TableHead>
 
         <TableBody>
-          <StyledTableRow key={orderId}>
-            <StyledTableCell>
-              <Stack direction="column" spacing="6px">
-                <HighlightedText>{poNumber}</HighlightedText>
-                <Thumbnail primaryColor="#1565D8" secondaryColor="#009C340D" text={fulfillment} />
-              </Stack>
-            </StyledTableCell>
+          <StyledTableRow>
+            <StyledTableCell></StyledTableCell>
             <StyledTableCell align="left">
-              <Stack direction="column" spacing="6px">
-                {userData && (
-                  <>
-                    <PrimaryText>{userData.userName}</PrimaryText>
-                    <SecondaryText>{userData.company}</SecondaryText>
-                  </>
-                )}
-              </Stack>
+              <PrimaryText>{username}</PrimaryText>
             </StyledTableCell>
-            <StyledTableCell align="left">
+            {/* <StyledTableCell align="left">
               <Stack direction="column" spacing="6px">
                 {vendorData && (
                   <>
@@ -93,7 +81,7 @@ const CheckInItem = ({ user }) => {
                   </>
                 )}
               </Stack>
-            </StyledTableCell>
+            </StyledTableCell> */}
           </StyledTableRow>
         </TableBody>
       </Table>
@@ -101,4 +89,4 @@ const CheckInItem = ({ user }) => {
   );
 };
 
-export default CheckInItem;
+export default EditCheckedInPosUserTable;

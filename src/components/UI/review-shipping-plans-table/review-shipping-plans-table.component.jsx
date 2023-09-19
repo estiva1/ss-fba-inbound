@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-import { Stack, Tooltip } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { IconButton, Stack, Tooltip } from "@mui/material";
 
+import Counter from "../counter/counter.component";
 import testImage from "../../../assets/check-in-item-list-of-goods-image.png";
-import trashIcon from "../../../assets/trash.svg";
-
 import {
   ItemImage,
   PrimaryText,
@@ -20,12 +20,10 @@ import {
   StyledTableContainer,
   StyledTableRow,
 } from "./review-shipping-plans-table.styles";
-import Counter from "../counter/counter.component";
-import IconButton from "../buttons/icon-button/icon-button.component";
 
 const ReviewShippingPlansTable = ({ data }) => {
   const [tableData, setTableData] = useState(data);
-  
+
   const handleDelete = (id) => {
     setTableData((prevPosts) => prevPosts.filter((_, index) => index !== id));
   };
@@ -65,7 +63,9 @@ const ReviewShippingPlansTable = ({ data }) => {
                 <Counter />
               </StyledTableCell>
               <StyledTableCell align="right">
-                <IconButton src={trashIcon} alt="Delete" onClick={() => handleDelete(id)} />
+                <IconButton aria-label="Delete" onClick={() => handleDelete(id)}>
+                  <DeleteIcon sx={{ color: "#CF0909" }} />
+                </IconButton>
               </StyledTableCell>
             </StyledTableRow>
           ))}

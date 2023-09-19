@@ -10,7 +10,7 @@ export const StyledTableContainer = mStyled(TableContainer)(() => ({
 
 export const StyledTableCell = mStyled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#EEF1F533",
+    backgroundColor: "#F8FAFB",
     color: "#78909C",
     fontFamily: "Titillium Web",
     fontSize: "0.75rem",
@@ -18,21 +18,41 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     fontWeight: 600,
     lineHeight: "1rem",
     letterSpacing: "0.03125rem",
-    //height: "16px",
-    padding: "10px 24px 6px 24px",
-    border: 0,
+    height: "32px",
+    padding: "0px 24px",
   },
   [`&.${tableCellClasses.body}`]: {
     position: "relative",
+    color: "#4E6069",
     fontFamily: "Titillium Web",
-    padding: "0px 24px 10px 24px",
+    fontSize: "0.875rem",
+    fontStyle: "normal",
+    fontWeight: 400,
+    lineHeight: "1.25rem",
+    padding: "0px 24px",
+
+    "&:first-of-type": {
+      "&:before": {
+        content: '""',
+        position: "absolute",
+        right: 0,
+        bottom: "15%", // calc((100%-height)/2)
+        height: "70%",
+        width: "1px",
+        borderRight: "1px solid #CFD8DC",
+      },
+    },
   },
 }));
 
 export const StyledTableRow = mStyled(TableRow)(() => ({
-  backgroundColor: "#EEF1F533",
+  backgroundColor: "#FFF",
   alignItems: "top",
-  height: "46px",
+  height: "84px",
+
+  "&:nth-of-type(even)": {
+    backgroundColor: "#F8FAFB",
+  },
 
   // hide last border
   "&:last-child td, &:last-child th": {
@@ -46,15 +66,6 @@ export const ButtonsContainer = styled.div`
   gap: 8px;
   align-items: center;
   justify-content: flex-start;
-`;
-
-export const HighlightedText = styled.h3`
-  color: #1565d8;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1rem;
-  margin: 0;
 `;
 
 export const PrimaryText = styled.h3`
@@ -89,8 +100,12 @@ export const SpanText = styled.h5`
 
 export const Arrow = styled.span`
   position: absolute;
+  min-width: 30px;
+  min-height: 8px;
   width: 30px;
   height: 8px;
+  background-size: cover;
+  background-repeat: no-repeat;
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);

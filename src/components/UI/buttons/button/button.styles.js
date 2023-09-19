@@ -64,9 +64,11 @@ export const BlueButtonSmall = styled(BlueButton)`
   line-height: 0.875rem;
   letter-spacing: 0.00375rem;
 
-  &:hover *:not(${RippleContainer}) {
-    left: 60%;
-    transition: left 0.3s ease;
+  &:hover {
+    *:not(${RippleContainer}) {
+      left: 60%;
+      transition: left 0.3s ease;
+    }
   }
 `;
 

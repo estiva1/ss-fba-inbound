@@ -29,21 +29,45 @@ import {
   StyledTableRow,
 } from "./select-pos-to-create-plan-table.styles";
 
-const Row = ({ row }) => {
+const generateHighlightedText = (text, filterValue) => {
+  const lowerText = text.toLowerCase();
+  const lowerFilterValue = filterValue.toLowerCase();
+
+  if (!lowerText.includes(lowerFilterValue)) {
+    return text;
+  }
+
+  const startIndex = lowerText.indexOf(lowerFilterValue);
+  const endIndex = startIndex + lowerFilterValue.length;
+
+  return (
+    <>
+      {text.substring(0, startIndex)}
+      <span style={{ backgroundColor: "#1565D8", color: "#fff" }}>{text.substring(startIndex, endIndex)}</span>
+      {text.substring(endIndex)}
+    </>
+  );
+};
+
+const Row = ({ row, isChecked, onCheckboxChange, itemFilter }) => {
+  const { poNumber, vendor, orderId } = row;
   const [openRow, setOpenRow] = useState(false);
+
+  const handleCheck = () => {
+    onCheckboxChange(!isChecked);
+  };
 
   return (
     <Fragment>
       <TableRow>
         <StyledTableCell sx={{ maxWidth: "20px" }} width="4%" align="left">
-          <Checkbox sx={{ padding: 0, margin: 0 }} size="small" />
-          {/* checked={isChecked} onChange={handleCheck} */}
+          <Checkbox sx={{ padding: 0, margin: 0 }} size="small" checked={isChecked} onChange={handleCheck} />
         </StyledTableCell>
         <StyledTableCell component="th" scope="row">
-          {row.poNumber}
+          {poNumber}
         </StyledTableCell>
-        <StyledTableCell>{row.vendor}</StyledTableCell>
-        <StyledTableCell>{row.orderId}</StyledTableCell>
+        <StyledTableCell>{generateHighlightedText(vendor, itemFilter)}</StyledTableCell>
+        <StyledTableCell>{orderId}</StyledTableCell>
         <StyledTableCell>
           <IconButton aria-label="expand row" size="small" onClick={() => setOpenRow(!openRow)}>
             {openRow ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
@@ -90,8 +114,8 @@ const Row = ({ row }) => {
                         </Tooltip>
                       </Stack>
                     </StyledTableCell>
-                    <StyledTableCell width="27%">{item.asin}</StyledTableCell>
-                    <StyledTableCell width="27%">{item.sku}</StyledTableCell>
+                    <StyledTableCell width="27%">{generateHighlightedText(item.asin, itemFilter)}</StyledTableCell>
+                    <StyledTableCell width="27%">{generateHighlightedText(item.sku, itemFilter)}</StyledTableCell>
                     <StyledTableCell width="16%">{item.quantity}</StyledTableCell>
                   </TableRow>
                 ))}
@@ -104,15 +128,47 @@ const Row = ({ row }) => {
   );
 };
 
-const SelectPosTable = ({ data }) => {
+const SelectPosTable = ({ data, itemFilter }) => {
+  const matchingData = data.filter((item) => {
+    const vendorMatch = item.vendor.toLowerCase().includes(itemFilter);
+    const skuMatch = item.poData && item.poData.some((poItem) => poItem.sku.toLowerCase().includes(itemFilter));
+    const asinMatch = item.poData && item.poData.some((poItem) => poItem.asin.toLowerCase().includes(itemFilter));
+    return vendorMatch || skuMatch || asinMatch;
+  });
+
+  const [isCheckedAll, setIsCheckedAll] = useState(false);
+  const [isCheckedList, setIsCheckedList] = useState(matchingData.map(() => false));
+
+  const isIndeterminate = isCheckedList.some((isChecked) => isChecked) && !isCheckedAll;
+
+  const handleCheckAll = () => {
+    const updatedIsCheckedAll = !isCheckedAll;
+    setIsCheckedAll(updatedIsCheckedAll);
+    setIsCheckedList(Array(data.length).fill(updatedIsCheckedAll));
+  };
+
+  const handleCheckboxChange = (index, checked) => {
+    const updatedIsCheckedList = [...isCheckedList];
+    updatedIsCheckedList[index] = checked;
+    setIsCheckedList(updatedIsCheckedList);
+
+    const updatedIsCheckedAll = updatedIsCheckedList.every((isChecked) => isChecked);
+    setIsCheckedAll(updatedIsCheckedAll);
+  };
+
   return (
     <StyledTableContainer component={Paper}>
       <Table aria-label="shipment table" stickyHeader>
         <TableHead>
           <TableRow>
             <StyledTableCell sx={{ maxWidth: "20px" }} width="4%" align="left">
-              <Checkbox sx={{ padding: 0, margin: 0 }} size="small" />
-              {/* checked={isChecked} onChange={handleCheck} */}
+              <Checkbox
+                sx={{ padding: 0, margin: 0 }}
+                size="small"
+                checked={isCheckedAll}
+                onChange={handleCheckAll}
+                indeterminate={isIndeterminate}
+              />
             </StyledTableCell>
             <StyledTableCell align="left">PO#</StyledTableCell>
             <StyledTableCell align="left">Vendor</StyledTableCell>
@@ -122,8 +178,14 @@ const SelectPosTable = ({ data }) => {
         </TableHead>
 
         <TableBody>
-          {data.map((row) => (
-            <Row key={row.id} row={row} />
+          {matchingData.map((row, index) => (
+            <Row
+              key={row.id}
+              row={row}
+              isChecked={isCheckedList[index]}
+              onCheckboxChange={(value) => handleCheckboxChange(index, value)}
+              itemFilter={itemFilter}
+            />
           ))}
         </TableBody>
       </Table>

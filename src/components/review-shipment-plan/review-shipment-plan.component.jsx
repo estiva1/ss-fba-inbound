@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Box, Checkbox, FormControlLabel, Grid, Stack } from "@mui/material";
-import IconButton from "../UI/buttons/icon-button/icon-button.component";
+import { Box, Checkbox, FormControlLabel, Grid, IconButton, Stack } from "@mui/material";
 import {
   Container,
   Heading,
@@ -20,13 +19,13 @@ import { CustomizedSlider } from "../UI/slider/slider.component";
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
 
 import toDoList from "../../assets/to-do-list.svg";
-import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
 import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
 import { checkInItemListOfGoods, dropdownTestOptions, selectPosData } from "../../constants";
 import ReviewShippingPlansTable from "../UI/review-shipping-plans-table/review-shipping-plans-table.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
 import ReviewAmazonShipmentsItem from "../UI/review-amazon-shipments-item/review-amazon-shipments-item.component";
 import { AnimatePresence, motion } from "framer-motion";
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import SelectPosToCreatePlan from "../select-pos-to-create-plan/select-pos-to-create-plan.component";
 
 const ReviewShipmentPlan = ({ user, onClose }) => {
@@ -34,9 +33,10 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
 
   const [calculatedValue, setCalculatedValue] = useState("");
   const [reviewShipmentPlanState, setReviewShipmentPlanState] = useState("Option 1");
+  const [isSelectPosToCreatePlanOpen, setIsSelectPosToCreatePlanOpen] = useState(false);
+
   const [isCheckedAll, setIsCheckedAll] = useState(false);
   const [isCheckedList, setIsCheckedList] = useState(checkInItemListOfGoods.map(() => false));
-  const [isSelectPosToCreatePlanOpen, setIsSelectPosToCreatePlanOpen] = useState(false);
 
   const isIndeterminate = isCheckedList.some((isChecked) => isChecked) && !isCheckedAll;
 
@@ -59,9 +59,9 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
     setIsCheckedList(Array(checkInItemListOfGoods.length).fill(updatedIsCheckedAll));
   };
 
-  const handleCheckboxChange = (index, value) => {
+  const handleCheckboxChange = (index, checked) => {
     const updatedIsCheckedList = [...isCheckedList];
-    updatedIsCheckedList[index] = value;
+    updatedIsCheckedList[index] = checked;
     setIsCheckedList(updatedIsCheckedList);
 
     const updatedIsCheckedAll = updatedIsCheckedList.every((isChecked) => isChecked);
@@ -72,7 +72,9 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
     <Container>
       <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" marginBottom="24px">
         <Stack direction="row" spacing="12px" alignItems="center">
-          <IconButton src={arrowRightShortIcon} alt="Back" onClick={onClose} rotated enlarged />
+          <IconButton aria-label="back" onClick={onClose}>
+            <KeyboardBackspaceRoundedIcon sx={{ color: "#1565D8" }} />
+          </IconButton>
           <Heading>Review Shipment Plan</Heading>
         </Stack>
         <Stack direction="row" spacing="12px" alignItems="center">
@@ -83,7 +85,7 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
               setSelectedValue={setReviewShipmentPlanState}
             />
           </div>
-          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blueStretched} width="max-content">
+          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blueStretched} width="max-content" height="auto">
             Create Shipments
             <Ripple />
           </Button>

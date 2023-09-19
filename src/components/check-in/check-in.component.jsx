@@ -4,19 +4,19 @@ import { Stack } from "@mui/material";
 import Fade from "@mui/material/Fade";
 import Modal from "@mui/material/Modal";
 import Backdrop from "@mui/material/Backdrop";
+import IconButton from "@mui/material/IconButton";
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
 import CheckInPopup from "../UI/popup/popup.component";
 import InfoBar from "../UI/info-bar/info-bar.component";
 import StyledStepper from "../UI/stepper/stepper.component";
-import CheckInItem from "../UI/check-in-item/check-in-item.component";
-import IconButton from "../UI/buttons/icon-button/icon-button.component";
+import CheckInItem from "../UI/check-in-tables/check-in-item/check-in-item.component";
 import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
-import CheckInItemListOfGoods from "../UI/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
+import CheckInItemListOfGoods from "../UI/check-in-tables/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
 
 import { checkInItemListOfGoods, dropdownTestOptions } from "../../constants";
-import arrowRightShortIcon from "../../assets/arrow-right-short-icon.png";
 import { CheckInContainer, Heading, ModalContent, Total } from "./check-in.styles";
 
 const CheckIn = ({ open, onClose, user }) => {
@@ -56,7 +56,9 @@ const CheckIn = ({ open, onClose, user }) => {
           <CheckInContainer>
             <Stack direction="row" alignItems="center" justifyContent="space-between" width="100%" marginBottom="-4px">
               <Stack direction="row" spacing="12px" alignItems="center">
-                <IconButton src={arrowRightShortIcon} alt="Back" onClick={onClose} rotated enlarged />
+                <IconButton aria-label="back" onClick={onClose}>
+                  <KeyboardBackspaceRoundedIcon sx={{ color: "#1565D8" }} />
+                </IconButton>
                 <Heading>Check In</Heading>
               </Stack>
               <Stack direction="row" spacing="20px" alignItems="center">
@@ -87,7 +89,7 @@ const CheckIn = ({ open, onClose, user }) => {
                 />
               </div>
               <div style={{ flex: 1 }}>
-                <Dropdown data={dropdownTestOptions} placeholder="Zebra Labels" disabled/>
+                <Dropdown data={dropdownTestOptions} placeholder="Zebra Labels" disabled />
               </div>
             </Stack>
 
@@ -101,7 +103,7 @@ const CheckIn = ({ open, onClose, user }) => {
                   Complete Check-In
                   <Ripple color="#1565D8" />
                 </Button>
-                <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blueStretched} width="max-content">
+                <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blueStretched} width="max-content" height="auto">
                   Check-In and Create Shipment
                   <Ripple />
                 </Button>

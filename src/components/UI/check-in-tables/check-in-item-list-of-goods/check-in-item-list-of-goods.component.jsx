@@ -3,18 +3,16 @@ import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import Paper from "@mui/material/Paper";
 import TableRow from "@mui/material/TableRow";
-import { Stack, Tooltip } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
+import SaveIcon from "@mui/icons-material/Save";
+import PrintIcon from "@mui/icons-material/Print";
+import { IconButton, Stack, Tooltip } from "@mui/material";
 
-import Thumbnail from "../thumbnail/thumbnail.component";
-import CustomTextField from "../text-field/text-field.component";
-import CustomDatePicker from "../datePicker/date-picker.component";
-import IconButton from "../buttons/icon-button/icon-button.component";
-
-import saveOutlinedIcon from "../../../assets/save-outlined-icon.svg";
-import printOutlinedIcon from "../../../assets/print-outlined-icon.svg";
-import testImage from "../../../assets/check-in-item-list-of-goods-image.png";
+import Thumbnail from "../../thumbnail/thumbnail.component";
+import CustomTextField from "../../text-field/text-field.component";
+import CustomDatePicker from "../../datePicker/date-picker.component";
+import testImage from "../../../../assets/check-in-item-list-of-goods-image.png";
 
 import {
   ButtonsContainer,
@@ -30,13 +28,17 @@ import {
 const Buttons = () => {
   const handleClick = () => {
     // Click handler logic here
-    console.log("Clicked!");
+    alert("Clicked!");
   };
 
   return (
     <ButtonsContainer>
-      <IconButton src={saveOutlinedIcon} alt="Save" onClick={handleClick} />
-      <IconButton src={printOutlinedIcon} alt="Print" onClick={handleClick} />
+      <IconButton aria-label="Save" onClick={handleClick}>
+        <SaveIcon sx={{ color: "#1565D8" }} />
+      </IconButton>
+      <IconButton aria-label="Print" onClick={handleClick}>
+        <PrintIcon sx={{ color: "#1565D8" }} />
+      </IconButton>
     </ButtonsContainer>
   );
 };
