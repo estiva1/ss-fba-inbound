@@ -19,7 +19,7 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     lineHeight: "1rem",
     letterSpacing: "0.03125rem",
     height: "32px",
-    padding: "0px 24px",
+    padding: "0px 16px",
   },
   [`&.${tableCellClasses.body}`]: {
     color: "#4E6069",
@@ -28,7 +28,7 @@ export const StyledTableCell = mStyled(TableCell)(() => ({
     fontStyle: "normal",
     fontWeight: 400,
     lineHeight: "1.25rem",
-    padding: "0px 24px",
+    padding: "0px 16px",
   },
 }));
 

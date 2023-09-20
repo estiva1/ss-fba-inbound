@@ -20,6 +20,8 @@ import { checkInTableData, shipmentTableData } from "../../constants";
 import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
 import PrintTwoDLabelsNavTabs from "../UI/nav-tabs/print-2d-labels-nav-tabs/print-2d-labels-nav-tabs.component";
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
+import ProductsTableStack from "../products-table-stack/products-table-stack.component";
+import AddProductToInternalStorage from "../add-product-to-internal-storage/add-product-to-internal-storage.component";
 
 const InboundContent = ({ content }) => {
   //-----------------case 1------------------------
@@ -34,6 +36,10 @@ const InboundContent = ({ content }) => {
   const [isEditCheckedInPosOpen, setIsEditCheckedInPosOpen] = useState(false);
   const [selectedUsername, setSelectedUsername] = useState(null);
   const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
+
+  //-----------------case 3------------------------
+  //const [selectedItem, setSelectedItem] = useState(null);
+  const [isAddProductToIntStorageOpen, setIsAddProductToIntStorageOpen] = useState(false);
 
   //-----------------case 1------------------------
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
@@ -53,7 +59,7 @@ const InboundContent = ({ content }) => {
     setIsSwitchOn(!isSwitchOn);
   };
 
-  const handleOpenCheckIn = (user) => {
+  const handleCheckInOpen = (user) => {
     setSelectedUser(user);
     setIsCheckInOpen(true);
   };
@@ -65,8 +71,8 @@ const InboundContent = ({ content }) => {
     setSelectedUser(user);
     setIsCheckInHistoryOpen(true);
   };
-  const handleCheckInHistoryClose = () => {
-    setIsCheckInHistoryOpen(false);
+  const handleAddProductToIntStorageClose = () => {
+    setIsAddProductToIntStorageOpen(false);
   };
 
   //-----------------case 2------------------------
@@ -84,6 +90,11 @@ const InboundContent = ({ content }) => {
   };
   const handleEditCheckedInPosClose = () => {
     setIsEditCheckedInPosOpen(false);
+  };
+
+  //-----------------case 3------------------------
+  const handleCheckInHistoryClose = () => {
+    setIsCheckInHistoryOpen(false);
   };
 
   const completedPOS = 30;
@@ -166,7 +177,7 @@ const InboundContent = ({ content }) => {
                 data={checkInTableData}
                 userNameFilter={userNameFilter.toLowerCase()}
                 vendorFilter={vendorFilter.toLowerCase()}
-                onOpenCheckIn={handleOpenCheckIn}
+                onCheckInOpen={handleCheckInOpen}
                 onOpenCheckInHistory={handleCheckInHistoryOpen}
               />
               <CheckIn open={isCheckInOpen} onClose={handleCloseCheckIn} user={selectedUser} />
@@ -216,13 +227,19 @@ const InboundContent = ({ content }) => {
                 width="78px"
                 height="56px"
                 buttonType={BUTTON_TYPE_CLASSES.whiteCondenced}
+                onClick={() => setIsAddProductToIntStorageOpen(true)}
               >
                 Add to Storage
                 <Ripple color="#1565D8" />
               </Button>
               <PrintTwoDLabelsNavTabs />
             </Stack>
+            <ProductsTableStack />
           </Stack>
+          <AddProductToInternalStorage
+            open={isAddProductToIntStorageOpen}
+            onClose={handleAddProductToIntStorageClose}
+          />
         </Container>
       );
     default:

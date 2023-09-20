@@ -20,7 +20,7 @@ import {
   StyledTableRow,
 } from "./check-in-table.styles";
 
-const Buttons = ({ onOpenCheckIn, onOpenCheckInHistory, user }) => {
+const Buttons = ({ onCheckInOpen, onOpenCheckInHistory, user }) => {
   return (
     <ButtonsContainer>
       <Button
@@ -32,7 +32,7 @@ const Buttons = ({ onOpenCheckIn, onOpenCheckInHistory, user }) => {
         Check In History
         <Ripple color="#1565D8" />
       </Button>
-      <Button type="button" width="65px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={() => onOpenCheckIn(user)}>
+      <Button type="button" width="65px" buttonType={BUTTON_TYPE_CLASSES.blueSmall} onClick={() => onCheckInOpen(user)}>
         Check In
         <Arrow />
         <Ripple />
@@ -61,7 +61,7 @@ const generateHighlightedCell = (text, filterValue) => {
   );
 };
 
-const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenCheckIn, onOpenCheckInHistory }) => {
+const CheckInTable = ({ data, userNameFilter, vendorFilter, onCheckInOpen, onOpenCheckInHistory }) => {
   const matchingData = data.filter((user) => {
     const userNameMatch = user.userData.userName.toLowerCase().includes(userNameFilter);
     const vendorMatch = user.vendorData.vendorName.toLowerCase().includes(vendorFilter);
@@ -70,7 +70,7 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenCheckIn, onOpe
 
   return (
     <StyledTableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="shipment table">
+      <Table aria-label="check in table">
         <TableHead>
           <TableRow>
             <StyledTableCell align="left">Actions</StyledTableCell>
@@ -89,7 +89,7 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter, onOpenCheckIn, onOpe
           {matchingData.map((user) => (
             <StyledTableRow key={user.orderId}>
               <StyledTableCell align="left">
-                <Buttons user={user} onOpenCheckIn={onOpenCheckIn} onOpenCheckInHistory={onOpenCheckInHistory} />
+                <Buttons user={user} onCheckInOpen={onCheckInOpen} onOpenCheckInHistory={onOpenCheckInHistory} />
               </StyledTableCell>
               <StyledTableCell>
                 {user.poNumber}

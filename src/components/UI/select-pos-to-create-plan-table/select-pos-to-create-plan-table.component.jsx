@@ -1,8 +1,4 @@
 import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
-
-import Counter from "../counter/counter.component";
-//import IconButton from "../buttons/icon-button/icon-button.component";
 
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -11,7 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
 import IconButton from "@mui/material/IconButton";
-import { Checkbox, Stack, TableCell, Tooltip } from "@mui/material";
+import { Checkbox, Stack, Tooltip } from "@mui/material";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -20,13 +16,9 @@ import testImage from "../../../assets/check-in-item-list-of-goods-image.png";
 
 import {
   ItemImage,
-  PrimaryText,
   PrimaryTextHighlighted,
-  SpanText,
-  SpanTextThin,
   StyledTableCell,
   StyledTableContainer,
-  StyledTableRow,
 } from "./select-pos-to-create-plan-table.styles";
 
 const generateHighlightedText = (text, filterValue) => {
