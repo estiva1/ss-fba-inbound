@@ -69,3 +69,29 @@ export const productsData = [
     },
   },
 ];
+
+export const receivingHistoryData = [
+  {
+    date: "23 Dec, 2022",
+    receivedBy: "Leon Kennedy",
+    userData: {
+      username: "Chris Redfield",
+      companyName: "Umbrella Corp.",
+    },
+    quantityData: {
+      boxes: 12,
+      inABox: 200,
+    },
+    shipmentData: {
+      number: "HF4854Y475TW73",
+      shipmentName: "Some Shipment Name",
+    },
+    boxCategory: "Large Box",
+    bundleQty: 12,
+    expiry: "23 Dec, 2022",
+    locationData: {
+      location: "ACD-21345",
+      warehouseName: "Warehouse Name",
+    },
+  },
+];

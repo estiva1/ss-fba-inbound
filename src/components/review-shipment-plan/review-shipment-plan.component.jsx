@@ -1,5 +1,20 @@
 import React, { Fragment, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+
+import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 import { Box, Checkbox, FormControlLabel, Grid, IconButton, Stack } from "@mui/material";
+
+import InfoBar from "../UI/info-bar/info-bar.component";
+import { CustomizedSlider } from "../UI/slider/slider.component";
+import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
+import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
+import SelectPosToCreatePlan from "../select-pos-to-create-plan/select-pos-to-create-plan.component";
+import ReviewShippingPlansTable from "../UI/review-shipping-plans-table/review-shipping-plans-table.component";
+import ReviewAmazonShipmentsItem from "../UI/review-amazon-shipments-item/review-amazon-shipments-item.component";
+
+import toDoList from "../../assets/to-do-list.svg";
+import { checkInItemListOfGoods, dropdownTestOptions, selectPosData } from "../../constants";
+
 import {
   Container,
   Heading,
@@ -14,19 +29,6 @@ import {
   Subheading,
   TextDivider,
 } from "./review-shipment-plan.styles";
-
-import { CustomizedSlider } from "../UI/slider/slider.component";
-import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
-
-import toDoList from "../../assets/to-do-list.svg";
-import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
-import { checkInItemListOfGoods, dropdownTestOptions, selectPosData } from "../../constants";
-import ReviewShippingPlansTable from "../UI/review-shipping-plans-table/review-shipping-plans-table.component";
-import InfoBar from "../UI/info-bar/info-bar.component";
-import ReviewAmazonShipmentsItem from "../UI/review-amazon-shipments-item/review-amazon-shipments-item.component";
-import { AnimatePresence, motion } from "framer-motion";
-import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
-import SelectPosToCreatePlan from "../select-pos-to-create-plan/select-pos-to-create-plan.component";
 
 const ReviewShipmentPlan = ({ user, onClose }) => {
   const { username, companyName, email } = user || {};
@@ -85,7 +87,7 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
               setSelectedValue={setReviewShipmentPlanState}
             />
           </div>
-          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blueStretched} width="max-content" height="auto">
+          <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blue} padding="8px 24px">
             Create Shipments
             <Ripple />
           </Button>
@@ -136,30 +138,17 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
 
               <Stack direction="column" spacing="16px" marginBottom="8px">
                 {/* Dropdowns disabled before integration */}
-                <div style={{ flex: 1 }}>
-                  <Dropdown data={dropdownTestOptions} placeholder="Shipment From" disabled />
-                </div>
+                <Dropdown data={dropdownTestOptions} placeholder="Shipment From" fullWidth disabled />
+                <Stack direction="row" gap="24px">
+                  <Dropdown data={dropdownTestOptions} placeholder="Shipment Type" fullWidth disabled />
+                  <Dropdown data={dropdownTestOptions} placeholder="Shipping Carrier Type" fullWidth disabled />
+                  <Dropdown data={dropdownTestOptions} placeholder="Select Carrier" fullWidth disabled />
+                </Stack>
 
-                <div style={{ display: "flex", gap: "24px" }}>
-                  <div style={{ flex: 1 }}>
-                    <Dropdown data={dropdownTestOptions} placeholder="Shipment Type" disabled />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <Dropdown data={dropdownTestOptions} placeholder="Shipping Carrier Type" disabled />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <Dropdown data={dropdownTestOptions} placeholder="Select Carrier" disabled />
-                  </div>
-                </div>
-
-                <div style={{ display: "flex", gap: "24px" }}>
-                  <div style={{ flex: 1 }}>
-                    <Dropdown data={dropdownTestOptions} placeholder="Label Preferences" disabled />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <Dropdown data={dropdownTestOptions} placeholder="Box Content Preferences" disabled />
-                  </div>
-                </div>
+                <Stack direction="row" gap="24px">
+                  <Dropdown data={dropdownTestOptions} placeholder="Label Preferences" fullWidth disabled />
+                  <Dropdown data={dropdownTestOptions} placeholder="Box Content Preferences" fullWidth disabled />
+                </Stack>
               </Stack>
 
               <Heading>Quantity Variants</Heading>
@@ -184,8 +173,8 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
               <div style={{ alignSelf: "self-end" }}>
                 <Button
                   type="button"
-                  buttonType={BUTTON_TYPE_CLASSES.whiteStretched}
-                  width="max-content"
+                  buttonType={BUTTON_TYPE_CLASSES.white}
+                  padding="8px 24px"
                   onClick={handleSelectPosToCreatePlanOpen}
                 >
                   Create Shipment Plan
@@ -207,7 +196,7 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
                 <Stack direction="row" justifyContent="space-between" alignItems="center">
                   <Heading>Review Shipping Plans</Heading>
                   {reviewShipmentPlanState === "Option 3" && (
-                    <Button type="button" buttonType={BUTTON_TYPE_CLASSES.whiteStretched} width="max-content">
+                    <Button type="button" buttonType={BUTTON_TYPE_CLASSES.white} padding="8px 24px">
                       Retry
                       <Ripple color="#1565D8" />
                     </Button>
@@ -275,7 +264,12 @@ const ReviewShipmentPlan = ({ user, onClose }) => {
                             exit={{ y: -10, opacity: 0 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <Button type="button" height="40px" buttonType={BUTTON_TYPE_CLASSES.blueStretched}>
+                            <Button
+                              type="button"
+                              buttonType={BUTTON_TYPE_CLASSES.blue}
+                              height="40px"
+                              padding="8px 24px"
+                            >
                               Ship ALL Here
                               <Ripple />
                             </Button>

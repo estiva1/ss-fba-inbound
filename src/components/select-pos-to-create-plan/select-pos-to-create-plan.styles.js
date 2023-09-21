@@ -1,39 +1,4 @@
 import styled from "styled-components";
-import { Box } from "@mui/material";
-
-export const ModalContent = styled(Box)`
-  position: absolute;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  inset: 0;
-  margin: auto;
-  min-width: 300px;
-  min-height: 300px;
-  width: max-content;
-  height: max-content;
-  overflow-y: scroll;
-  max-height: 96vh;
-  background-color: #fff;
-  padding: 24px;
-
-
-  &::-webkit-scrollbar {
-    width: 0.4em;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    &:hover {
-      background-color: hsl(0, 0%, 81.2%);
-    }
-  }
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: hsl(0, 0%, 81.2%);
-  }
-`;
 
 export const CheckInContainer = styled.div`
   width: 850px;

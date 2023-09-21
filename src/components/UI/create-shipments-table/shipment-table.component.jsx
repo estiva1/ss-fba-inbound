@@ -1,34 +1,20 @@
 import React from "react";
 
-import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
-import { IconButton } from "@mui/material";
 import TableRow from "@mui/material/TableRow";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
+import { IconButton, Stack } from "@mui/material";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import { ButtonsContainer, StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
-
-const Buttons = ({ handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen, user }) => {
-  return (
-    <ButtonsContainer>
-      <IconButton aria-label="Edit" onClick={() => handleEditCheckedInPosOpen(user)}>
-        <EditNoteIcon sx={{ color: "#1565D8" }} />
-      </IconButton>
-      <IconButton aria-label="Open" onClick={() => handleReviewShipmentPlanOpen(user)}>
-        <KeyboardBackspaceRoundedIcon sx={{ color: "#1565D8", transform: "rotate(180deg)" }} />
-      </IconButton>
-    </ButtonsContainer>
-  );
-};
+import { StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
 
 const ShipmentTable = ({ user, handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen }) => {
   const { id, username, email, companyName, totalPOS, sku, units } = user || {};
 
   return (
-    <StyledTableContainer component={Paper}>
+    <StyledTableContainer>
       <Table aria-label="shipment table">
         <TableHead>
           <TableRow>
@@ -71,11 +57,14 @@ const ShipmentTable = ({ user, handleEditCheckedInPosOpen, handleReviewShipmentP
               {units}
             </StyledTableCell>
             <StyledTableCell align="right">
-              <Buttons
-                user={user}
-                handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
-                handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
-              />
+              <Stack direction="row" gap="10px" alignItems="center">
+                <IconButton aria-label="Edit" onClick={() => handleEditCheckedInPosOpen(user)}>
+                  <EditNoteIcon sx={{ color: "#1565D8" }} />
+                </IconButton>
+                <IconButton aria-label="Open" onClick={() => handleReviewShipmentPlanOpen(user)}>
+                  <KeyboardBackspaceRoundedIcon sx={{ color: "#1565D8", transform: "rotate(180deg)" }} />
+                </IconButton>
+              </Stack>
             </StyledTableCell>
           </StyledTableRow>
         </TableBody>

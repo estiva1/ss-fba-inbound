@@ -28,17 +28,17 @@ export const RippleContainer = styled.div`
 export const BlueButton = styled.button`
   position: relative;
   overflow: hidden;
+  min-width: ${(props) => props.width};;
   width: ${(props) => props.width};
-  //min-width: ${(props) => props.width};
   height: ${(props) => props.height};
-  padding: 8px 24px;
+  padding: ${(props) => props.padding};
   border: 1px solid #0057d3;
   border-radius: 4px;
+  color: #fff;
   background-color: #1565d8;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
   text-align: center;
   font-family: Titillium Web;
   font-size: 0.875rem;
@@ -57,8 +57,9 @@ export const BlueButton = styled.button`
 `;
 
 export const BlueButtonSmall = styled(BlueButton)`
-  height: 40px;
-  padding: 8px 8px;
+  width: 64px;
+  height: 42px;
+  padding: 6px 8px;
   align-items: start;
   font-size: 0.75rem;
   line-height: 0.875rem;
@@ -72,12 +73,6 @@ export const BlueButtonSmall = styled(BlueButton)`
   }
 `;
 
-export const BlueButtonStretched = styled(BlueButton)`
-  padding: 6px 24px;
-  font-size: 0.8125rem;
-  letter-spacing: 0.01625rem;
-`;
-
 export const WhiteButton = styled(BlueButton)`
   color: #1565d8;
   background-color: #fff;
@@ -85,24 +80,11 @@ export const WhiteButton = styled(BlueButton)`
 `;
 
 export const WhiteButtonSmall = styled(WhiteButton)`
-  height: 40px;
+  width: 64px;
+  height: 42px;
   padding: 6px 8px;
-  align-items: start;
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 0.875rem;
   letter-spacing: 0.00375rem;
-`;
-
-export const WhiteButtonCondenced = styled(WhiteButton)`
-  color: #0057d3;
-  height: auto;
-  padding: 6px 12px;
-  border: 1px solid #0057d3;
-  font-size: 0.8125rem;
-  letter-spacing: 0.01625rem;
-`;
-
-export const WhiteButtonStretched = styled(WhiteButtonCondenced)`
-  padding: 6px 24px;
 `;

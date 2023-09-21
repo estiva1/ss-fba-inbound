@@ -2,49 +2,32 @@ import React from "react";
 
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
-import { IconButton, Stack, Tooltip } from "@mui/material";
 import TableRow from "@mui/material/TableRow";
+import { Stack, Tooltip } from "@mui/material";
 import TableBody from "@mui/material/TableBody";
 import TableHead from "@mui/material/TableHead";
-import EditNoteIcon from "@mui/icons-material/EditNote";
-import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import { ReactComponent as PrinterLogo } from "../../../assets/printer.svg";
-import { ReactComponent as ReceivingHistory } from "../../../assets/recent.svg";
-import { ReactComponent as View } from "../../../assets/arrow-right-green.svg";
-
+import Thumbnail from "../thumbnail/thumbnail.component";
 import testImage from "../../../assets/product-test-image.png";
 
 import {
+  ArrowRightPinkIcon,
   ButtonsContainer,
+  IconContainer,
   ItemImage,
   PrimaryText,
   PrimaryTextHighlighted,
+  PrinterIcon,
+  RecentIcon,
   SpanText,
-  SpanTextHighlighted,
+  SpanTextThin,
+  StyledIconButton,
   StyledTableCell,
   StyledTableContainer,
   StyledTableRow,
 } from "./products-table.styles";
-import Thumbnail from "../thumbnail/thumbnail.component";
 
-const Buttons = ({ handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen, user }) => {
-  return (
-    <ButtonsContainer>
-      <IconButton aria-label="Edit" onClick={() => handleEditCheckedInPosOpen(user)}>
-        <PrinterLogo style={{ width: "24px", height: "auto" }} />
-      </IconButton>
-      <IconButton aria-label="Edit" onClick={() => handleEditCheckedInPosOpen(user)}>
-        <ReceivingHistory style={{ width: "24px", height: "auto" }} />
-      </IconButton>
-      <IconButton aria-label="Edit" onClick={() => handleEditCheckedInPosOpen(user)}>
-        <View style={{ width: "24px", height: "auto" }} />
-      </IconButton>
-    </ButtonsContainer>
-  );
-};
-
-const ProductsTable = ({ item }) => {
+const ProductsTable = ({ item, handleReceivingHistoryOpen }) => {
   const { id, title, quantityData, status, dimensions, sku, fnSku, asin, poNumber, clientData } = item || {};
 
   return (
@@ -74,7 +57,7 @@ const ProductsTable = ({ item }) => {
                   </Tooltip>
                   <SpanText>
                     ASIN:&nbsp;
-                    <SpanTextHighlighted>{asin}</SpanTextHighlighted>
+                    <SpanTextThin>{asin}</SpanTextThin>
                   </SpanText>
                 </Stack>
               </Stack>
@@ -119,7 +102,7 @@ const ProductsTable = ({ item }) => {
                 <PrimaryText>{fnSku}</PrimaryText>
                 <SpanText>
                   SKU:&nbsp;
-                  <SpanTextHighlighted>{sku}</SpanTextHighlighted>
+                  <SpanTextThin>{sku}</SpanTextThin>
                 </SpanText>
               </Stack>
             </StyledTableCell>
@@ -132,11 +115,23 @@ const ProductsTable = ({ item }) => {
             </StyledTableCell>
 
             <StyledTableCell align="right">
-              <Buttons
-                item={item}
-                // handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
-                // handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
-              />
+              <Stack direction="row" gap="4px" justifyContent="end">
+                <StyledIconButton>
+                  <IconContainer>
+                    <PrinterIcon />
+                  </IconContainer>
+                </StyledIconButton>
+                <StyledIconButton onClick={handleReceivingHistoryOpen}>
+                  <IconContainer>
+                    <RecentIcon />
+                  </IconContainer>
+                </StyledIconButton>
+                <StyledIconButton>
+                  <IconContainer>
+                    <ArrowRightPinkIcon />
+                  </IconContainer>
+                </StyledIconButton>
+              </Stack>
             </StyledTableCell>
           </StyledTableRow>
         </TableBody>

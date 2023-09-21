@@ -94,10 +94,11 @@ const CheckInTable = ({ data, userNameFilter, vendorFilter, onCheckInOpen, onOpe
               <StyledTableCell>
                 {user.poNumber}
                 <Button
-                  style={{ marginTop: "4px" }}
                   type="button"
-                  width="78px"
-                  buttonType={BUTTON_TYPE_CLASSES.whiteCondenced}
+                  buttonType={BUTTON_TYPE_CLASSES.white}
+                  style={{ marginTop: "4px" }}
+                  width="max-content"
+                  padding = "6px 12px"
                 >
                   View PO
                   <Ripple color="#1565D8" />

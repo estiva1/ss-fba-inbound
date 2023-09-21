@@ -10,8 +10,8 @@ import PrintIcon from "@mui/icons-material/Print";
 import { IconButton, Stack, Tooltip } from "@mui/material";
 
 import Thumbnail from "../../thumbnail/thumbnail.component";
-import CustomTextField from "../../text-field/text-field.component";
 import CustomDatePicker from "../../datePicker/date-picker.component";
+import TableCellTextfield from "../../text-fields/table-cell-textfield/table-cell-textfield.component";
 import testImage from "../../../../assets/check-in-item-list-of-goods-image.png";
 
 import {
@@ -124,10 +124,10 @@ const CheckInItemListOfGoods = ({ goodsData }) => {
                 <CustomDatePicker onChange={(newDate) => setDate(newDate)} />
               </StyledTableCell>
               <StyledTableCell align="left" sx={{ maxWidth: "90px" }}>
-                <CustomTextField />
+                <TableCellTextfield />
               </StyledTableCell>
               <StyledTableCell align="left" sx={{ maxWidth: "90px" }}>
-                <CustomTextField />
+                <TableCellTextfield />
               </StyledTableCell>
               <StyledTableCell align="right">
                 <Buttons />

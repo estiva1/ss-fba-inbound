@@ -71,26 +71,20 @@ export const Ripple = ({ duration = 850, color = "#fff" }) => {
 export const BUTTON_TYPE_CLASSES = {
   blue: "blue",
   blueSmall: "blueSmall",
-  blueStretched: "blueStretched",
   white: "white",
   whiteSmall: "whiteSmall",
-  whiteCondenced: "whiteCondenced",
-  whiteStretched: "whiteStretched",
 };
 const getButton = (buttonType = BUTTON_TYPE_CLASSES.blue) =>
   ({
     [BUTTON_TYPE_CLASSES.blue]: BlueButton,
     [BUTTON_TYPE_CLASSES.blueSmall]: BlueButtonSmall,
-    [BUTTON_TYPE_CLASSES.blueStretched]: BlueButtonStretched,
     [BUTTON_TYPE_CLASSES.white]: WhiteButton,
     [BUTTON_TYPE_CLASSES.whiteSmall]: WhiteButtonSmall,
-    [BUTTON_TYPE_CLASSES.whiteCondenced]: WhiteButtonCondenced,
-    [BUTTON_TYPE_CLASSES.whiteStretched]: WhiteButtonStretched,
   }[buttonType]);
 
-const Button = ({ buttonType, width = "210px", height = "48px", ...props }) => {
+const Button = ({ buttonType, width = "auto", height = "auto", padding = "0px", ...props }) => {
   const CustomButton = getButton(buttonType);
-  return <CustomButton width={width} height={height} {...props}></CustomButton>;
+  return <CustomButton width={width} height={height} padding={padding} {...props}></CustomButton>;
 };
 
 export default Button;

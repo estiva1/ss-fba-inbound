@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { styled as mStyled } from "@mui/material/styles";
 import { TableCell, TableContainer, TableRow, tableCellClasses } from "@mui/material";
 
@@ -41,11 +40,3 @@ export const StyledTableRow = mStyled(TableRow)(() => ({
     border: 0,
   },
 }));
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-`;

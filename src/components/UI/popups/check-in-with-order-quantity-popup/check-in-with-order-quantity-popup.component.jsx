@@ -19,10 +19,10 @@ const CheckInPopup = ({ open, handleClose }) => {
 
       <DialogActions sx={{ gap: "24px" }}>
         <Button
-          style={{ border: "none", padding: "8px 60px" }}
+          style={{ border: "none"}}
           type="button"
-          buttonType={BUTTON_TYPE_CLASSES.whiteStretched}
-          width="max-content"
+          buttonType={BUTTON_TYPE_CLASSES.white}
+          padding="8px 60px"
           onClick={handleClose}
         >
           Yes
@@ -30,10 +30,9 @@ const CheckInPopup = ({ open, handleClose }) => {
         </Button>
 
         <Button
-          style={{ padding: "8px 60px" }}
           type="button"
-          buttonType={BUTTON_TYPE_CLASSES.whiteStretched}
-          width="max-content"
+          buttonType={BUTTON_TYPE_CLASSES.white}
+          padding="8px 60px"
           onClick={handleClose}
         >
           No

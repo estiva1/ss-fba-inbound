@@ -22,6 +22,7 @@ import PrintTwoDLabelsNavTabs from "../UI/nav-tabs/print-2d-labels-nav-tabs/prin
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
 import ProductsTableStack from "../products-table-stack/products-table-stack.component";
 import AddProductToInternalStorage from "../add-product-to-internal-storage/add-product-to-internal-storage.component";
+import ReceivingHistory from "../receiving-history/receiving-history.component";
 
 const InboundContent = ({ content }) => {
   //-----------------case 1------------------------
@@ -38,8 +39,8 @@ const InboundContent = ({ content }) => {
   const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
 
   //-----------------case 3------------------------
-  //const [selectedItem, setSelectedItem] = useState(null);
   const [isAddProductToIntStorageOpen, setIsAddProductToIntStorageOpen] = useState(false);
+  const [isReceivingHistoryOpen, setIsReceivingHistoryOpen] = useState(false);
 
   //-----------------case 1------------------------
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
@@ -95,6 +96,12 @@ const InboundContent = ({ content }) => {
   //-----------------case 3------------------------
   const handleCheckInHistoryClose = () => {
     setIsCheckInHistoryOpen(false);
+  };
+  const handleReceivingHistoryOpen = () => {
+    setIsReceivingHistoryOpen(true);
+  };
+  const handleReceivingHistoryClose = () => {
+    setIsReceivingHistoryOpen(false);
   };
 
   const completedPOS = 30;
@@ -197,10 +204,12 @@ const InboundContent = ({ content }) => {
                 ariaLabel="Search by invoice#, PO#, Order ID, Tracking"
               />
             </div>
-
-            <div style={{ flex: 1 }}>
-              <CustomDropdown data={shipmentTableData} placeholder="User" setSelectedUsername={setSelectedUsername} />
-            </div>
+            <CustomDropdown
+              sx={{ flex: 1 }}
+              data={shipmentTableData}
+              placeholder="User"
+              setSelectedUsername={setSelectedUsername}
+            />
           </Stack>
           <Fragment>
             <ShipmentTableStack
@@ -208,11 +217,11 @@ const InboundContent = ({ content }) => {
               handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
               handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
             />
+            <EditCheckedInPos open={isEditCheckedInPosOpen} onClose={handleEditCheckedInPosClose} user={selectedUser} />
+
             <FullScreenDialog open={isReviewShipmentPlanOpen} onClose={handleReviewShipmentPlanClose}>
               <ReviewShipmentPlan user={selectedUser} onClose={handleReviewShipmentPlanClose} />
             </FullScreenDialog>
-
-            <EditCheckedInPos open={isEditCheckedInPosOpen} onClose={handleEditCheckedInPosClose} user={selectedUser} />
           </Fragment>
         </Container>
       );
@@ -222,24 +231,26 @@ const InboundContent = ({ content }) => {
           <Stack>
             <Stack direction="row" gap="24px" alignItems="center">
               <Button
-                style={{ marginTop: "4px" }}
                 type="button"
-                width="78px"
-                height="56px"
-                buttonType={BUTTON_TYPE_CLASSES.whiteCondenced}
+                buttonType={BUTTON_TYPE_CLASSES.white}
                 onClick={() => setIsAddProductToIntStorageOpen(true)}
+                padding="8px 24px"
               >
                 Add to Storage
                 <Ripple color="#1565D8" />
               </Button>
               <PrintTwoDLabelsNavTabs />
             </Stack>
-            <ProductsTableStack />
+            <ProductsTableStack handleReceivingHistoryOpen={handleReceivingHistoryOpen} />
           </Stack>
+          
           <AddProductToInternalStorage
             open={isAddProductToIntStorageOpen}
             onClose={handleAddProductToIntStorageClose}
           />
+          <FullScreenDialog open={isReceivingHistoryOpen} onClose={handleReceivingHistoryClose}>
+            <ReceivingHistory onClose={handleReceivingHistoryClose} />
+          </FullScreenDialog>
         </Container>
       );
     default:

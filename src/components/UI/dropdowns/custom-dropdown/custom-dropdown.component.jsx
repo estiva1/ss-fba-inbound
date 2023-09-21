@@ -12,7 +12,7 @@ const ListBox = ({ username, companyName = "", email = "" }) => {
   );
 };
 
-const CustomDropdown = ({ data, placeholder = "Select", setSelectedUsername, fullWidth, disabled }) => {
+const CustomDropdown = ({ data, placeholder = "Select", setSelectedUsername, ...props }) => {
   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState("");
 
@@ -23,10 +23,9 @@ const CustomDropdown = ({ data, placeholder = "Select", setSelectedUsername, ful
 
   return (
     <StyledAutocomplete
+      {...props}
       id="controllable-states-demo"
-      fullWidth={fullWidth}
       size="small"
-      disabled={disabled}
       value={value}
       options={data}
       inputValue={inputValue}
