@@ -60,24 +60,24 @@ export const TabTextContainer = styled.div`
 `;
 
 export const TabNumber = styled.div`
-  align-items: center;
-  background: ${(props) => (props.isActive ? "#1565d8" : "#fff")};
-  border-radius: 50%;
-  border: 2px solid ${(props) => (props.isActive ? "#1565d8" : "#4e5969")};
-  color: ${(props) => (props.isActive ? "#fff" : "#4e5969")};
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  color: ${(props) => (props.isActive ? "#fff" : "#4e5969")};
+  background: ${(props) => (props.isActive ? "#1565d8" : "#fff")};
+  border: 2px solid ${(props) => (props.isActive ? "#1565d8" : "#4e5969")};
+  border-radius: 50%;
   font-family: Titillium Web;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
+  width: 24px;
   height: 24px;
   justify-content: center;
   letter-spacing: 0.00563rem;
   line-height: 1.3125rem;
   padding-bottom: 2px;
   transition: all ease 0.3s;
-  width: 24px;
 `;
 
 export const TabText = styled.h2`

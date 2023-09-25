@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { ListBoxContainer, ListItem, PrimaryText, SecondaryText, StyledAutocomplete } from "./custom-dropdown.styles";
 
-const ListBox = ({ username, companyName = "", email = "" }) => {
+const ListBox = ({ username = "", companyName = "Company name unknown", email = "No email" }) => {
   return (
     <ListBoxContainer>
       <PrimaryText>{username}</PrimaryText>
@@ -24,7 +24,6 @@ const CustomDropdown = ({ data, placeholder = "Select", setSelectedUsername, ...
   return (
     <StyledAutocomplete
       {...props}
-      id="controllable-states-demo"
       size="small"
       value={value}
       options={data}

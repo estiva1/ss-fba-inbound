@@ -12,10 +12,8 @@ export const productsData = [
       missing: 1,
     },
     status: "Status",
-    clientData: {
-      clientName: "Xan Kriegor",
-      companyName: "Liandri Mining Corp.",
-    },
+    username: "Xan Kriegor",
+    companyName: "Liandri Mining Corp.",
     dimensions: {
       l: 5.5,
       w: 2.5,
@@ -35,10 +33,8 @@ export const productsData = [
       missing: 1,
     },
     status: "Status",
-    clientData: {
-      clientName: "Leon Kennedy",
-      companyName: "Umbrella Corp.",
-    },
+    username: "Leon Kennedy",
+    companyName: "Umbrella Corp.",
     dimensions: {
       l: 5.5,
       w: 2.5,
@@ -58,10 +54,8 @@ export const productsData = [
       missing: 1,
     },
     status: "Status",
-    clientData: {
-      clientName: "Master Chief",
-      companyName: "UNSC",
-    },
+    username: "Master Chief",
+    companyName: "UNSC",
     dimensions: {
       l: 5.5,
       w: 2.5,
@@ -95,3 +89,11 @@ export const receivingHistoryData = [
     },
   },
 ];
+
+export const receivingHistoryItem = {
+  itemName: "3 plus vibe pro smart watch series with 1.78 in amoled touch screen display",
+  sku: "SKU-WM-420485",
+  fnSku: "FNSKU-WM-420485",
+  poNumber: "237hd8347",
+  productStatus: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan",
+};

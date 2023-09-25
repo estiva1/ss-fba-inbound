@@ -69,12 +69,15 @@ export const PrimaryText = styled.h4`
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
+  word-break: break-word;
   overflow: hidden;
 `;
+
 export const PrimaryTextHighlighted = styled(PrimaryText)`
   color: #1565d8;
   line-height: 1rem;
+  -webkit-line-clamp: 2;
 `;
 
 export const SecondaryText = styled.h4`

@@ -28,7 +28,7 @@ import {
 } from "./products-table.styles";
 
 const ProductsTable = ({ item, handleReceivingHistoryOpen }) => {
-  const { id, title, quantityData, status, dimensions, sku, fnSku, asin, poNumber, clientData } = item || {};
+  const { id, title, quantityData, status, dimensions, sku, fnSku, asin, poNumber, username, companyName } = item || {};
 
   return (
     <StyledTableContainer component={Paper}>
@@ -109,8 +109,8 @@ const ProductsTable = ({ item, handleReceivingHistoryOpen }) => {
             <StyledTableCell>{poNumber}</StyledTableCell>
             <StyledTableCell>
               <Stack direction="column" spacing="4px">
-                <PrimaryText>{clientData.clientName}</PrimaryText>
-                <SpanText>{clientData.companyName}</SpanText>
+                <PrimaryText>{username}</PrimaryText>
+                <SpanText>{companyName}</SpanText>
               </Stack>
             </StyledTableCell>
 

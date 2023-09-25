@@ -9,17 +9,69 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
+  MenuItem,
   OutlinedInput,
   Stack,
   TextField,
 } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import { Container, Heading, Subheading } from "./add-product-to-internal-storage.styles";
+import {
+  Container,
+  Heading,
+  StyledMenyItem,
+  Subheading,
+  TextFieldMenu,
+} from "./add-product-to-internal-storage.styles";
+import TextFieldWithDropdown from "../UI/text-fields/text-field-with-dropdown/text-field-with-dropdown.component";
+import StyledTextFieldWithAdornment from "../UI/text-fields/regular-text-fields/styled-text-field-with-adornment/styled-text-field-with-adornment.component";
+import StyledTextField from "../UI/text-fields/regular-text-fields/styled-text-field/styled-text-field.component";
+
+const weightUnits = [
+  {
+    label: "Oz",
+    id: 1,
+  },
+  {
+    label: "Kg",
+    id: 2,
+  },
+];
 
 const AddProductToInternalStorage = ({ open, onClose }) => {
-  const [sellableUnits, setSellableUnits] = useState(null);
-  const [unsellableUnits, setUnsellableUnits] = useState(null);
+  const [asinUpcValue, setAsinUpcValue] = useState("");
+  const [sellableUnits, setSellableUnits] = useState(0);
+  const [unsellableUnits, setUnsellableUnits] = useState(0);
+  const [length, setLength] = useState(0);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [selectedUnit, setSelectedUnit] = useState("Oz"); // Default unit is Oz
+  const [weight, setWeight] = useState(0);
+
+  const handleAsinUpcValueChange = (event) => {
+    setAsinUpcValue(event.target.value);
+  };
+  const handleSellableUnitsChange = (event) => {
+    setSellableUnits(event.target.value);
+  };
+  const handleUnsellableUnitsChange = (event) => {
+    setUnsellableUnits(event.target.value);
+  };
+  const handleLengthChange = (event) => {
+    setLength(event.target.value);
+  };
+  const handleWidthChange = (event) => {
+    setWidth(event.target.value);
+  };
+  const handleHeightChange = (event) => {
+    setHeight(event.target.value);
+  };
+  const handleWeightChange = (event) => {
+    setWeight(event.target.value);
+  };
+  const handleUnitChange = (event) => {
+    setSelectedUnit(event.target.value);
+  };
 
   return (
     <CustomModal open={open} onClose={onClose}>
@@ -32,80 +84,88 @@ const AddProductToInternalStorage = ({ open, onClose }) => {
         </Stack>
 
         <Stack direction="column" spacing="24px" alignItems="center">
-          <TextField fullWidth size="small" label="Enter ASIN/UPC" />
+          <StyledTextField
+            fullWidth
+            size="small"
+            label="Enter ASIN/UPC"
+            value={asinUpcValue}
+            onChange={handleAsinUpcValueChange}
+          />
           <CustomDropdown fullWidth placeholder="Select User" disabled />
           <CustomDropdown fullWidth placeholder="Select Vendor" disabled />
         </Stack>
 
         <Stack direction="row" gap="30px" alignItems="center">
-          <TextField
-            type="number"
-            defaultValue={0}
-            onKeyDown={(e) => {
-              if (e.key === "e" || e.key === "E" || e.key === "-" || e.key === "+") {
-                e.preventDefault();
-              }
-            }}
-            onChange={(e) => setSellableUnits(e.target.value)}
+          <StyledTextField
             fullWidth
             size="small"
+            type="number"
             label="Sellable Units"
-          />
-          <TextField
-            type="number"
-            defaultValue={0}
+            value={sellableUnits}
+            onChange={handleSellableUnitsChange}
             onKeyDown={(e) => {
               if (e.key === "e" || e.key === "E" || e.key === "-" || e.key === "+") {
                 e.preventDefault();
               }
             }}
-            onChange={(e) => setUnsellableUnits(e.target.value)}
+          />
+
+          <StyledTextField
             fullWidth
             size="small"
+            type="number"
             label="Unsellable Units"
+            value={unsellableUnits}
+            onChange={handleUnsellableUnitsChange}
+            onKeyDown={(e) => {
+              if (e.key === "e" || e.key === "E" || e.key === "-" || e.key === "+") {
+                e.preventDefault();
+              }
+            }}
           />
         </Stack>
 
         <Stack direction="column" gap="16px">
           <Subheading>Add Dimensions</Subheading>
           <Stack direction="row" gap="30px" alignItems="center">
-            <FormControl size="small" fullWidth variant="outlined">
-              <InputLabel htmlFor="input-length">Length</InputLabel>
-              <OutlinedInput
-                label="Length"
-                id="input-length"
-                endAdornment={<InputAdornment position="end">in</InputAdornment>}
-              />
-            </FormControl>
+            <StyledTextFieldWithAdornment
+              fullWidth
+              htmlFor="input-width"
+              label="Width"
+              adornment="in"
+              value={length}
+              onChange={handleLengthChange}
+            />
 
-            <FormControl size="small" fullWidth variant="outlined">
-              <InputLabel htmlFor="input-width">Width</InputLabel>
-              <OutlinedInput
-                label="Width"
-                id="input-width"
-                endAdornment={<InputAdornment position="end">in</InputAdornment>}
-              />
-            </FormControl>
+            <StyledTextFieldWithAdornment
+              fullWidth
+              htmlFor="input-width"
+              label="Width"
+              adornment="in"
+              value={width}
+              onChange={handleWidthChange}
+            />
           </Stack>
 
           <Stack direction="row" gap="30px" alignItems="center">
-            <FormControl size="small" fullWidth variant="outlined">
-              <InputLabel htmlFor="input-height">Height</InputLabel>
-              <OutlinedInput
-                label="Height"
-                id="input-height"
-                endAdornment={<InputAdornment position="end">in</InputAdornment>}
-              />
-            </FormControl>
+            <StyledTextFieldWithAdornment
+              fullWidth
+              htmlFor="input-height"
+              label="Height"
+              adornment="in"
+              value={height}
+              onChange={handleHeightChange}
+            />
 
-            <FormControl size="small" fullWidth variant="outlined">
-              <InputLabel htmlFor="input-width">Width</InputLabel>
-              <OutlinedInput
-                label="Width"
-                id="input-width"
-                endAdornment={<InputAdornment position="end">in</InputAdornment>}
-              />
-            </FormControl>
+            <TextFieldWithDropdown
+              fullWidth
+              label="Weight"
+              value={weight}
+              units={weightUnits}
+              dropdownItem={selectedUnit}
+              onChange={handleWeightChange}
+              onDropdownItemChange={handleUnitChange}
+            />
           </Stack>
         </Stack>
 
@@ -116,7 +176,7 @@ const AddProductToInternalStorage = ({ open, onClose }) => {
           </Button>
           <Button type="button" buttonType={BUTTON_TYPE_CLASSES.blue} padding="8px 24px">
             Add to Internal Storage
-            <Ripple color="#1565D8" />
+            <Ripple />
           </Button>
         </Stack>
       </Container>

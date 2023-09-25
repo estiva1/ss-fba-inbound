@@ -5,24 +5,20 @@ import Stack from "@mui/material/Stack";
 import Switch from "../UI/switch/switch.component";
 import DeletableChip from "../UI/chip/chip.component";
 import FullScreenDialog from "../UI/dialog/dialog.component";
-import CheckInTable from "../UI/check-in-main-table/check-in-table.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
+import CheckInTable from "../UI/check-in-main-table/check-in-table.component";
 import CustomDropdown from "../UI/dropdowns/custom-dropdown/custom-dropdown.component";
 
 import CheckIn from "../check-in/check-in.component";
 import CompletedPOS from "../completed-pos/completed-pos.component";
+import PrintTwoDLabels from "../print-2d-labels/print-2d-labels.component";
 import CheckInHistory from "../check-in-history/check-in-history.component";
 import EditCheckedInPos from "../edit-checked-in-pos/edit-checked-in-pos.component";
-import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
 import ReviewShipmentPlan from "../review-shipment-plan/review-shipment-plan.component";
+import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
 
 import { checkInTableData, shipmentTableData } from "../../constants";
 import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
-import PrintTwoDLabelsNavTabs from "../UI/nav-tabs/print-2d-labels-nav-tabs/print-2d-labels-nav-tabs.component";
-import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
-import ProductsTableStack from "../products-table-stack/products-table-stack.component";
-import AddProductToInternalStorage from "../add-product-to-internal-storage/add-product-to-internal-storage.component";
-import ReceivingHistory from "../receiving-history/receiving-history.component";
 
 const InboundContent = ({ content }) => {
   //-----------------case 1------------------------
@@ -33,16 +29,6 @@ const InboundContent = ({ content }) => {
   const [isCheckInOpen, setIsCheckInOpen] = useState(false);
   const [isCheckInHistoryOpen, setIsCheckInHistoryOpen] = useState(false);
 
-  //-----------------case 2------------------------
-  const [isEditCheckedInPosOpen, setIsEditCheckedInPosOpen] = useState(false);
-  const [selectedUsername, setSelectedUsername] = useState(null);
-  const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
-
-  //-----------------case 3------------------------
-  const [isAddProductToIntStorageOpen, setIsAddProductToIntStorageOpen] = useState(false);
-  const [isReceivingHistoryOpen, setIsReceivingHistoryOpen] = useState(false);
-
-  //-----------------case 1------------------------
   const handleUserNameFilterChange = (event) => setUserNameFilter(event.target.value);
   const handleVendorFilterChange = (event) => setVendorFilter(event.target.value);
 
@@ -72,11 +58,15 @@ const InboundContent = ({ content }) => {
     setSelectedUser(user);
     setIsCheckInHistoryOpen(true);
   };
-  const handleAddProductToIntStorageClose = () => {
-    setIsAddProductToIntStorageOpen(false);
+  const handleCheckInHistoryClose = () => {
+    setIsCheckInHistoryOpen(false);
   };
-
+  
   //-----------------case 2------------------------
+  const [isEditCheckedInPosOpen, setIsEditCheckedInPosOpen] = useState(false);
+  const [selectedUsername, setSelectedUsername] = useState(null);
+  const [isReviewShipmentPlanOpen, setIsReviewShipmentPlanOpen] = useState(false);
+
   const handleReviewShipmentPlanOpen = (user) => {
     setSelectedUser(user);
     setIsReviewShipmentPlanOpen(true);
@@ -91,17 +81,6 @@ const InboundContent = ({ content }) => {
   };
   const handleEditCheckedInPosClose = () => {
     setIsEditCheckedInPosOpen(false);
-  };
-
-  //-----------------case 3------------------------
-  const handleCheckInHistoryClose = () => {
-    setIsCheckInHistoryOpen(false);
-  };
-  const handleReceivingHistoryOpen = () => {
-    setIsReceivingHistoryOpen(true);
-  };
-  const handleReceivingHistoryClose = () => {
-    setIsReceivingHistoryOpen(false);
   };
 
   const completedPOS = 30;
@@ -206,8 +185,8 @@ const InboundContent = ({ content }) => {
             </div>
             <CustomDropdown
               sx={{ flex: 1 }}
-              data={shipmentTableData}
               placeholder="User"
+              data={shipmentTableData}
               setSelectedUsername={setSelectedUsername}
             />
           </Stack>
@@ -227,31 +206,8 @@ const InboundContent = ({ content }) => {
       );
     case 3:
       return (
-        <Container>
-          <Stack>
-            <Stack direction="row" gap="24px" alignItems="center">
-              <Button
-                type="button"
-                buttonType={BUTTON_TYPE_CLASSES.white}
-                onClick={() => setIsAddProductToIntStorageOpen(true)}
-                padding="8px 24px"
-              >
-                Add to Storage
-                <Ripple color="#1565D8" />
-              </Button>
-              <PrintTwoDLabelsNavTabs />
-            </Stack>
-            <ProductsTableStack handleReceivingHistoryOpen={handleReceivingHistoryOpen} />
-          </Stack>
-          
-          <AddProductToInternalStorage
-            open={isAddProductToIntStorageOpen}
-            onClose={handleAddProductToIntStorageClose}
-          />
-          <FullScreenDialog open={isReceivingHistoryOpen} onClose={handleReceivingHistoryClose}>
-            <ReceivingHistory onClose={handleReceivingHistoryClose} />
-          </FullScreenDialog>
-        </Container>
+        <PrintTwoDLabels/>
+        
       );
     default:
       return null;

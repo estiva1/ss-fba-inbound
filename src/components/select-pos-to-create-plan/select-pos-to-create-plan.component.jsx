@@ -3,20 +3,12 @@ import React, { useState } from "react";
 import { IconButton, Stack } from "@mui/material";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import InfoBar from "../UI/info-bar/info-bar.component";
-import CheckInPopup from "../UI/popups/check-in-with-order-quantity-popup/check-in-with-order-quantity-popup.component";
-import StyledStepper from "../UI/stepper/stepper.component";
-import CheckInItem from "../UI/check-in-tables/check-in-item/check-in-item.component";
-import Dropdown from "../UI/dropdowns/simple-dropdown/dropdown.component";
+import CustomModal from "../UI/modal/custom-modal.component";
 import CustomizedSearchField from "../UI/searchfield/searchfield.component";
 import Button, { BUTTON_TYPE_CLASSES, Ripple } from "../UI/buttons/button/button.component";
-import CheckInItemListOfGoods from "../UI/check-in-tables/check-in-item-list-of-goods/check-in-item-list-of-goods.component";
-
-import { checkInItemListOfGoods, dropdownTestOptions } from "../../constants";
 import SelectPosTable from "../UI/select-pos-to-create-plan-table/select-pos-to-create-plan-table.component";
 
-import { CheckInContainer, Heading, ModalContent, Total } from "./select-pos-to-create-plan.styles";
-import CustomModal from "../UI/modal/custom-modal.component";
+import { CheckInContainer, Heading } from "./select-pos-to-create-plan.styles";
 
 const SelectPosToCreatePlan = ({ open, onClose, data }) => {
   const [itemFilter, setItemFilter] = useState("");

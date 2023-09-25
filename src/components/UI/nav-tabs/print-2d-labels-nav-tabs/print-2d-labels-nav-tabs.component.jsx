@@ -1,64 +1,22 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import React, { Fragment } from "react";
+import { Tab, TabText, TabsContainer } from "./print-2d-labels-nav-tabs.styles";
 
-const CustomTabPanel = (props) => {
-  const { children, value, index, ...other } = props;
-
+const PrintTwoDLabelsNavTabs = ({ tab, handleTabChange }) => {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
+    <Fragment>
+      <TabsContainer>
+        <Tab onClick={() => handleTabChange(1)} isActive={tab === 1}>
+          <TabText isActive={tab === 1}>Shipment Mode</TabText>
+        </Tab>
+        <Tab onClick={() => handleTabChange(2)} isActive={tab === 2}>
+          <TabText isActive={tab === 2}>Product Mode</TabText>
+        </Tab>
+        <Tab onClick={() => handleTabChange(3)} isActive={tab === 3}>
+          <TabText isActive={tab === 3}>Storage PO</TabText>
+        </Tab>
+      </TabsContainer>
+    </Fragment>
   );
-}
+};
 
-const a11yProps = (index) => {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const PrintTwoDLabelsNavTabs = () => {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box sx={{ width: "max-content" }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="print two d labels navigation tabs">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-        Item One
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        Item Two
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel>
-    </Box>
-  );
-}
-
-export default PrintTwoDLabelsNavTabs
+export default PrintTwoDLabelsNavTabs;
