@@ -15,7 +15,7 @@ import PrintTwoDLabels from "../print-2d-labels/print-2d-labels.component";
 import CheckInHistory from "../check-in-history/check-in-history.component";
 import EditCheckedInPos from "../edit-checked-in-pos/edit-checked-in-pos.component";
 import ReviewShipmentPlan from "../review-shipment-plan/review-shipment-plan.component";
-import ShipmentTableStack from "../shipment-table-stack/shipment-table-stack.component";
+import CreateShipmentsTableStack from "../create-shipments-table-stack/create-shipments-table-stack.component";
 
 import { checkInTableData, shipmentTableData } from "../../constants";
 import { Container, SwitchLabel, SwitchValue } from "./inbound-content.styles";
@@ -191,7 +191,7 @@ const InboundContent = ({ content }) => {
             />
           </Stack>
           <Fragment>
-            <ShipmentTableStack
+            <CreateShipmentsTableStack
               selectedUsername={selectedUsername}
               handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
               handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}

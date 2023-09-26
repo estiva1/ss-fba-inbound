@@ -97,3 +97,70 @@ export const receivingHistoryItem = {
   poNumber: "237hd8347",
   productStatus: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan",
 };
+
+export const shipmentTableData = [
+  {
+    shipmentId: "1B07NNTER970",
+    fcId: "FC16B9S1KSY",
+    pos: 4,
+    skus: 34,
+    qty: 2044,
+    progressData: {
+      current: 134,
+      absolute: 300,
+    },
+    user: "Steven",
+    shipmentFrom: "Dr Teal's Bod",
+    shipmentType: "SPD",
+    carrierType: "Partnered",
+    createdAt: "23 Dec, 2022- 02:36:06 PM"
+  },
+  {
+    shipmentId: "1B07NNTER971",
+    fcId: "FC16B9S1KSY",
+    pos: 4,
+    skus: 34,
+    qty: 2044,
+    progressData: {
+      current: 201,
+      absolute: 300,
+    },
+    user: "John",
+    shipmentFrom: "Dr Teal's Bod",
+    shipmentType: "SPD",
+    carrierType: "Non Partnered",
+    createdAt: "23 Dec, 2022- 02:36:06 PM"
+  },
+  {
+    shipmentId: "1B07NNTER972",
+    fcId: "FC16B9S1KSY",
+    pos: 4,
+    skus: 34,
+    qty: 2044,
+    progressData: {
+      current: 19,
+      absolute: 300,
+    },
+    user: "Steven",
+    shipmentFrom: "Dr Teal's Bod",
+    shipmentType: "SPD",
+    carrierType: "Partnered",
+    createdAt: "23 Dec, 2022- 02:36:06 PM"
+  },
+  {
+    shipmentId: "1B07NNTER973",
+    fcId: "FC16B9S1KSY",
+    pos: 4,
+    skus: 34,
+    qty: 2044,
+    progressData: {
+      current: 265,
+      absolute: 300,
+    },
+    user: "Leon",
+    shipmentFrom: "Dr Teal's Bod",
+    shipmentType: "SPD",
+    carrierType: "Partnered",
+    createdAt: "23 Dec, 2022- 02:36:06 PM"
+  },
+]

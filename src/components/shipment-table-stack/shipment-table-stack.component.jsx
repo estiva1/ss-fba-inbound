@@ -1,23 +1,18 @@
 import React from "react";
 import { Stack } from "@mui/material";
-import ShipmentTable from "../UI/create-shipments-table/shipment-table.component";
+import ShipmentTable from "../UI/shipments-table/shipments-table.component";
 
-import { shipmentTableData } from "../../constants";
+import { shipmentTableData } from "../../constants/print-2d-labels-index";
 
-const ShipmentTableStack = ({ selectedUsername, handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen }) => {
+const ShipmentTableStack = ({ selectedUsername, handleReceivingHistoryOpen }) => {
   const filteredData = selectedUsername
     ? shipmentTableData.filter((user) => user.username === selectedUsername)
     : shipmentTableData;
 
   return (
     <Stack direction="column" spacing="10px">
-      {filteredData.map((user, index) => (
-        <ShipmentTable
-          key={`table-${index}`}
-          user={user}
-          handleEditCheckedInPosOpen={handleEditCheckedInPosOpen}
-          handleReviewShipmentPlanOpen={handleReviewShipmentPlanOpen}
-        />
+      {filteredData.map((item, index) => (
+        <ShipmentTable key={`table-${index}`} item={item} handleReceivingHistoryOpen={handleReceivingHistoryOpen} />
       ))}
     </Stack>
   );

@@ -8,7 +8,7 @@ import { IconButton, Stack } from "@mui/material";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import KeyboardBackspaceRoundedIcon from "@mui/icons-material/KeyboardBackspaceRounded";
 
-import { StyledTableCell, StyledTableContainer, StyledTableRow } from "./shipment-table.styles";
+import { StyledTableCell, StyledTableContainer, StyledTableRow } from "./create-shipments-table.styles";
 
 const ShipmentTable = ({ user, handleEditCheckedInPosOpen, handleReviewShipmentPlanOpen }) => {
   const { id, username, email, companyName, totalPOS, sku, units } = user || {};
